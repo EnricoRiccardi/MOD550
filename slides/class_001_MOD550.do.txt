@@ -1,0 +1,7 @@
+TITLE: Fundaments of Machine learning for and with engineering applications
+AUTHOR: Enrico Riccardi, University of Stavanger
+DATE: today
+
+# #include "../modules/intro.do.txt"
+
+

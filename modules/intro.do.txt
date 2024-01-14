@@ -1,0 +1,56 @@
+!split 
+===== Let me first introduce myself =====
+
+Instructor(s):
+Enrico Riccardi
+email: enrico.riccardi@uis.no
+office: KE-E-301B
+
+** Chemical engineer graduated from the Politecnico di Torino
+** PhD at M&ST university of Rolla, Missouri, USA
+** Post Doc at TUD Darmstadt, Germany
+** Researcher at NTNU, Trondheim, Norway
+** Post Doc UiO, Oslo, Norway
+** Assoc. Prof. at Uis, Stavanger, Norway
+
+!split 
+===== Where is the value ? Why this course? =====
+Decisions are the cardinal. What influences your decisions has value.
+
+Better results comes from better decisions. Note that this is a STATISTICAL argument.
+
+Machine learning can be useful ONLY when they help taking better decisions.
+
+!split
+===== Decions, decisions, decisions... ======
+
+!bpop
+Life is a sum of all your choices (Albert Camus)
+!epop
+
+** In this course we will learn to use data and models (ML) to make better decisions. 
+** Each application is a mere exercise of the concepts we will here introduce. 
+
+!split
+===== Uncertainity or Probability? ======
+
+Our aim here is to provide a good guidance how to link data, models and output to value creation. 
+
+!bpop
+First we need to understand uncertainity and probability, and the difference between the two.
+!epop
+
+Spoiler: Probability is the language of uncertainity!
+
+We will analyse, quantify and structure models as a function of uncertainity.
+
+!split
+===== Data properties ======
+
+!split
+===== Hard and soft modeling ======
+
+
+
+
+
