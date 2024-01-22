@@ -25,12 +25,14 @@ pdflatex -shell-escape $filename
 mv ${filename}.pdf ${filename}-beamer.pdf
 
 # Handouts
-
-
-sed 's/!bpop//' $filename.do.txt | 's/!epop//' > tmp_$filename.do.txt
-doconce slides_beamer tmp_$filename --beamer_slide_theme=red_shadow --handout
-pdflatex -shell-escape tmp_$filename
-mv tmp_${filename}.pdf ${filename}-beamer.pdf
-pdfjam ${filename}-beamer.pdf --no-landscape --frame true --nup 2x4 --suffix 8up
-
-
+# for f in ../modules/*.do.txt ; do
+#  sed -e "s/!bpop/  /" -e "s/!epop/  /" $f > ${f:0:11}tmp_${f:11}
+#done    
+#sed "s/\#include \"..\/modules\//\#include \"..\/modules\/tmp_/" $filename.do.txt > tmp_$filename.do.txt
+sed -i -e "s/!bpop/  /" -e "s/!epop/  /" tmp_preprocess__$filename.do.txt
+doconce format pdflatex tmp_preprocess__$filename --latex_title_layout=beamer --latex_table_format=footnotesize --latex_admon_title_no_period --latex_code_style=pyg 
+doconce slides_beamer tmp_preprocess__$filename --beamer_slide_theme=red_shadow --handout
+pdflatex -shell-escape tmp_preprocess__$filename.tex
+pdfjam tmp_preprocess__${filename}.pdf --no-landscape --frame true --nup 2x4 --suffix 8up
+mv tmp_preprocess__${filename}-8up.pdf ${filename}-8up.pdf
+rm tmp* 

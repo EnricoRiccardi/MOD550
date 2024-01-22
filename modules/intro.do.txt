@@ -1,56 +1,114 @@
 !split 
 ===== Let me first introduce myself =====
-
-Instructor(s):
+!bslidecell 00
 Enrico Riccardi
 email: enrico.riccardi@uis.no
 office: KE-E-301B
-
-** Chemical engineer graduated from the Politecnico di Torino
-** PhD at M&ST university of Rolla, Missouri, USA
-** Post Doc at TUD Darmstadt, Germany
-** Researcher at NTNU, Trondheim, Norway
-** Post Doc UiO, Oslo, Norway
-** Assoc. Prof. at Uis, Stavanger, Norway
-
-!split 
-===== Where is the value ? Why this course? =====
-Decisions are the cardinal. What influences your decisions has value.
-
-Better results comes from better decisions. Note that this is a STATISTICAL argument.
-
-Machine learning can be useful ONLY when they help taking better decisions.
-
-!split
-===== Decions, decisions, decisions... ======
+!eslidecell
 
 !bpop
-Life is a sum of all your choices (Albert Camus)
+=== Before to be here... ===
+* Chemical engineer graduated from the Politecnico di Torino
+* PhD at M$\&S$T university of Rolla, Missouri, USA
+* Post Doc at TUD Darmstadt, Germany
+* Researcher at NTNU, Trondheim, Norway
+* Post Doc UiO, Oslo, Norway
+* Assoc. Prof. at Uis, Stavanger, Norway
+
+
+!bslidecell 01
+FIGURE: [../figures/torino, width=200 frac=1.0]
+!eslidecell
+
 !epop
 
-** In this course we will learn to use data and models (ML) to make better decisions. 
-** Each application is a mere exercise of the concepts we will here introduce. 
+!split 
+===== Why are we here? Why this course? =====
+* Decisions are the hinge. What influences your decisions has value.
+
+!bpop
+!bblock
+* Better results come from better decisions. \\
+    color{blue}{*STATISTICAL argument*}
+
+* Machine learning can be useful color{red}{ONLY} when they help taking better decisions.
+!eblock
+!epop
 
 !split
-===== Uncertainity or Probability? ======
+===== Decions, decisions, decisions... =====
+
+!bblock Life lesson?!
+Life is a sum of all your choices (Albert Camus)
+!eblock
+
+\vspace{1em}
+!bpop
+
+* In this course we will learn to use data and models (ML) to make better decisions. 
+
+* Each application will be a mere exercise of the concepts we will here introduce.
+
+!bblock Do not try this at home!
+* color{red}{Please Do not use a technical approach for love matters.}
+!eblock
+
+!epop
+
+!split
+===== Uncertainity or Probability? =====
 
 Our aim here is to provide a good guidance how to link data, models and output to value creation. 
 
 !bpop
-First we need to understand uncertainity and probability, and the difference between the two.
+* First we need to understand uncertainity and probability, and the difference between the two.
+
+!bblock
+* Spoiler: Probability is the language of uncertainity!
+!eblock
+
+\vspace{1em}
+
+* We will analyse, quantify and structure models as a function of uncertainity.
 !epop
 
-Spoiler: Probability is the language of uncertainity!
+!split
+===== Data properties =====
 
-We will analyse, quantify and structure models as a function of uncertainity.
+* All starts from data: what are data-properties? 
+
+!bpop
+* Are there such things as good data and bad data?
+
+!bblock Life lesson (or exam question, same thing ;) )
+* Data color{red}{ DO NOT always} have value.
+!eblock
+
+\vspace{1em}
+
+* TRASH in TRASH out
+
+!epop
 
 !split
-===== Data properties ======
+===== Hard and soft modeling =====
 
-!split
-===== Hard and soft modeling ======
+Models allow us to predict ’the future’, or describe the past and
+present (what is the present...?)
 
+\vspace{1em}
 
+!bpop
+!bblock Last life lesson for today
+Models are always wrong, but some are userful. (George Box)
+!eblock
+!epop
 
+\vspace{2em}
 
-
+!bpop
+=== Three main families: ===
+o Hard models (physics)
+o Soft models (statistic)
+o Machine learning
+!epop
