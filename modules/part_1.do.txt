@@ -1,0 +1,164 @@
+======= Data concepts, Data types and Models =======
+- Statistic
+- Probability
+
+===== Variables and Features, Labels and Instances =======
+Total porosity: all pores
+Effective porosity: all connected pores
+
+Population: exaustive, finite list of properties of interest over area of interest. Generally the entire population is not accessible
+- E
+Sample: the set of values, location that have been measured.
+- Porosity data
+
+Predictor and Response Feature
+Given a model Y(f(X1, ..., XM) + e
+
+Predictors, = input variables, X1, ..., XM
+
+Response = output variables
+
+
+
+Predictive statistics
+- predict the  samples given assumptions about the population
+- where to drill the next well?
+
+Descriptive versus inferentail Process
+tretment group vs control group: statistical test to detemine if a difference is statistical significant
+
+
+===== Hard models vs Soft models =====
+Deterministic and Statistrical modeling:
+deterministic: predictable
+Statistical model: system process that has an uncertainity
+Combinations: sparsely samples, heterogeneous, complex.
+
+Deterministic: 
+- physics and expert knowledge
+- integration of various information sources
+- very complicated
+
+Statistical models:
+- quick
+- uncertainity assessment
+- data driven approach
+- phisics can be included
+- stochastic modeling
+
+=== Estimation ===
+- Process of obtaining the single best value of a propery in an unsampled location
+- Local accuracy takes precendence over global spatial variabiltiy
+- Not appropiate for forecasting (too smoth)
+
+=== Simulation ===
+Process of obtaining one or more values of a propery at an unsampled location
+- Glocal accuracy
+- Better property discritubitions
+
+Why simulations then?
+- We need to capture the full distributgion of properties, extremes matter!
+- We need more realistic models.
+
+
+=== Uncertainity Modeling ===
+Generate multiple simulation models to represent uncertainity:
+- Realizations: for the same input parameters, different random numbers.
+- Scenarios: different input parameters.
+
+=== Examples ===
+whatever -> transfer function to make a decision (dimensionality reduction)
+- Ask questions before! The data are thereafter collected.
+- The other way around might lead to highly correlated data.
+
+=== Sampling rapresentative ===
+Random sampling: when each item of the population has an equal chance of being chosen.
+- Very expensive
+- Mostly not interesting
+- Gives some global properties
+
+=== Prediction or inference? ===
+
+Regular sampling: regular intervals
+- less reliable
+- resonance problems!
+
+Data Collection:
+- Random sampling
+- Regular sampling
+- How can we use sampling bias to improve the data?
+- Biases have to be corrected thereafter!
+
+- Preselection bias / survivor bias
+(shut down plane)
+- we know the outcomes only of the survivors
+- cognitive bias
+
+
+=== Cognitive biases ===
+- Anchoring: The first bits are overconsidered
+- Availability: over-estimating the importance of info
+- Bandwagon: P increases with the number of people holding a belief
+- Blind spot: not seen biases
+- choice supporting: commitment/decision dependent
+- Clustering illusion: seeing patterns in random events
+- confirmation bias
+- concervatism bias
+- Recency bias
+- Supervision bias
+- Many many more!
+
+Bias DO NOT cancel out! They sum up.
+
+=== Data dimensionality ===
+1 D 
+well log
+2 D 
+maps
+3 D
+Sysmic
+
+=== Types of data ===
+- Categorical / Nominal (classes)
+- Categorical / Orginal 
+- Continous / Interval (e.g. Celcius)
+- Continous / Ratio
+- Discrete: binned/groupped data
+
+Categorial -> ordinal or nominal scale
+Continous Data -> Interval scale, ratio scale
+
+- Hard data: direct measurements
+- Soft data: indirect measurements, very uncertain
+- Primary data: variable of interest
+- Secondary data: descriptors
+
+
+=== Coverage ===
+What proportion of the population has data available?
+
+e.g. seismic data:
+Acustic impedence, cross section
+Soft data
+
+
+===== Uncertainity and Probability =====
+Probability: there is not sceince more worthy in out contemplations nor a more useful one for admission to our system of public education
+
+The theory of probabilities is at the bottom nothing but common sense reduced to calculus.
+
+
+=== Clarity test ===
+Beer drinker? Rain in Stavanger?
+
+
+=== Uncertainity ===
+- Def 1: Not knowing if an event is true or false. (Useful)
+- Def 2: Things that cannot be measured. (Not useful)
+
+Probability is how Uncertainity is quantified!
+- Clarity test
+- Assign a number between 0 and 1 to our degree of belief 
+
+- Uncertainity is the only certainity
+- 
