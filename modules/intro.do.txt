@@ -42,12 +42,34 @@ FIGURE: [../figures/torino, width=200 frac=1.0]
 Life is a sum of all your choices (Albert Camus)
 !eblock
 
-\vspace{1em}
+\vspace{2em}
+
 !bpop
 
-* In this course we will learn to use data and models (ML) to make better decisions. 
+!bslidecell 00
+The only way you can purposefully influence your life, your family, your
+organization, your country or your world is through color{red}{the decisions you make}.
+!eslidecell 
 
+!bslidecell 01
+FIGURE: [../figures/decisions, width=200 frac=0.8]
+!eslidecell
+
+!epop
+
+!split
+===== Uncertainity is fed to decions =====
+
+!bpop
+
+FIGURE: [../figures/Decisionquality, width=200 frac=0.3]
+
+\vspace{-1em}
+
+* In this course we will learn to use data and models (ML) to make better decisions. 
 * Each application will be a mere exercise of the concepts we will here introduce.
+
+\vspace{-1em}
 
 !bblock Do not try this at home!
 * color{red}{Please Do not use a technical approach for love matters.}
@@ -55,10 +77,24 @@ Life is a sum of all your choices (Albert Camus)
 
 !epop
 
+
+!split
+===== Uncertainity =====
+It is present in every stage of life (at each decision).
+
+You woud thus need to:
+!bpop
+o Rationalize uncertainity (tualification)
+o Quantify uncertainity
+o Make decision under uncertainity
+o Operate under uncertainity
+
+!epop
+
 !split
 ===== Uncertainity or Probability? =====
 
-Our aim here is to provide a good guidance how to link data, models and output to value creation. 
+Our aim here is to provide a good guidance how to link data, models and output to value creation.
 
 !bpop
 * First we need to understand uncertainity and probability, and the difference between the two.
@@ -70,12 +106,16 @@ Our aim here is to provide a good guidance how to link data, models and output t
 \vspace{1em}
 
 * We will analyse, quantify and structure models as a function of uncertainity.
+
+* Clarity of language in probability is one of the hallmarks of decision analysis
 !epop
+
+
 
 !split
 ===== Data properties =====
 
-* All starts from data: what are data-properties? 
+* All starts from data: what are data-properties?
 
 !bpop
 * Are there such things as good data and bad data?
@@ -87,6 +127,19 @@ Our aim here is to provide a good guidance how to link data, models and output t
 \vspace{1em}
 
 * TRASH in TRASH out
+
+!epop
+
+!split
+===== Spatial and Temporal Data =====
+
+Statistics is collecting, organizing, and interpreting data
+!bpop
+
+Spatial and temporal statistics is a branch of applied statistics that
+emphasizes (1) the geo context of the data, (2) the spatial
+and time dependent relationship between data, and (3) the different relative value
+and precision of the data.
 
 !epop
 
@@ -112,3 +165,64 @@ o Hard models (physics)
 o Soft models (statistic)
 o Machine learning
 !epop
+
+
+!split
+===== Spatial and Temporal Modeling =====
+
+!bblock
+It is a branch of statistical analysis and model that uses spatial and time dependent data.
+!eblock
+!bpop
+* Only a subset of statistical models can be fed with time dependent data
+(most standard statistical method assume independent, identically distributed, data)
+
+* Spatial and time related data come at a different range of scales
+Frequency of data collection can be dependent of time and space,
+resulting into different rappresentativity of a sample.
+!epop
+
+
+!split 
+===== Quantifying uncertainty =====
+!bblock
+On the data sources side
+!eblock
+* Confidence intervals
+!bpop
+* Relevance
+* Significance
+* Correlation
+* Causation
+* Data Filters
+* Biases identification
+!epop
+
+!split 
+===== Quantifying uncertainty =====
+!bblock
+On the modelling side
+!eblock
+!bpop
+* Regression
+* Principal components
+* Decision tree (random forests)
+* Neural network
+* Clustering
+* Performance metrics
+!epop
+
+!split
+===== Fields of application =====
+* Spatial estimation of energy and mineral resources
+!bpop
+
+* Weather modeling: from aviation to agriculture
+* Maintenance forecasting 
+* Commodity, currency, stock and financial markets
+* Market analysis
+* Risk analysis
+* ... and much much more!
+!epop
+
+
