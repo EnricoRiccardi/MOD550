@@ -225,4 +225,46 @@ On the modelling side
 * ... and much much more!
 !epop
 
+!split
+===== Course objectives =====
+* Learn how to handle data coming from different engineering applications.
+!bpop
+* Teach theory, practical methods and application of machine learning method of relevance for Engineering problems.
+* Learn how to (and if to) use online material (code and papers).
+!epop
+
+!split
+===== Teaching method =====
+_!Active Learning!_
+
+There will be a combination of (old school) lectures
+
+Tutorial and hands-on will be presented and requested during the course. 
+
+A study group will be encouraged for students to joint work.
+
+Discussions are encouraged at any stage. 
+
+!split
+===== Python =====
+The tutorials and hands on will be mostly based on python.
+
+An introduction to python will be provided during the course. Yet, this is not a Python programming course
+and 
+
+
+
+!split
+===== A personal consideration on generative AI =====
+!bblock
+With great power comes great responsability (Spider-Man)
+!eblock
+
+LLMs can and shall be used. As their development is surging in the last years, their help
+in writing code and reports is undeniable. Studends shall learn how to master these tools. 
+Yet, while their usage is encouraged, the risk of excessevily rely on them could hinder learning.
+
+Students, if they want to be students (i.e. learn), are encouraged to take the responsability to deliver original
+output.
+
 
