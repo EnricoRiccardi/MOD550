@@ -25,11 +25,6 @@ pdflatex -shell-escape $filename
 mv ${filename}.pdf ${filename}-beamer.pdf
 
 # Handouts
-# for f in ../modules/*.do.txt ; do
-#  sed -e "s/!bpop/  /" -e "s/!epop/  /" $f > ${f:0:11}tmp_${f:11}
-#done    
-#sed "s/\#include \"..\/modules\//\#include \"..\/modules\/tmp_/" $filename.do.txt > tmp_$filename.do.txt
-sed -i -e "s/!bpop/  /" -e "s/!epop/  /" tmp_preprocess__$filename.do.txt
 doconce format pdflatex tmp_preprocess__$filename --latex_title_layout=beamer --latex_table_format=footnotesize --latex_admon_title_no_period --latex_code_style=pyg 
 doconce slides_beamer tmp_preprocess__$filename --beamer_slide_theme=red_shadow --handout
 pdflatex -shell-escape tmp_preprocess__$filename.tex
