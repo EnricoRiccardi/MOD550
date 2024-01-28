@@ -1,0 +1,83 @@
+!split
+===== Representation =====
+A representation should _capture_ the nature of the subject being studied.
+
+!bpop
+Example:
+If you want to evaluate the 3D structure of a wind turbine, a set of descriptors an be:
+!epop
+!bpop
+o Blade length
+o Turbine hight
+o Geograpical position
+o Output power
+o Wind direction
+!epop
+
+which are two decimal numbers, a 2d tuple, a 1D time series and a 2D time serie (or 3D even).
+
+
+!split
+===== Comparability =====
+Same meaning _represenations_ for different objects (inputs).
+
+
+\vspace{3em}
+!bpop
+!bblock Discussion point! 
+How do we compare two wind turbines accounting for the 5 variables
+previously intoduced?
+!eblock
+!epop
+
+!split
+===== Sampling point representation (SPR) =====
+
+!bpop
+* An intuitive way to represent curves and spectra is the _sampling point representation_.
+
+* We sample at regular intervals where each sample point is represented by a variable
+
+FIGURE: [../figures/SPR_example, width=90 frac=0.8]
+!epop
+
+
+!split
+===== Sampling point representation (SPR) =====
+!bpop
+* SPR is useful until point *i* in a curve has the same meaning of the point *i* in another curve. 
+
+FIGURE: [../figures/SPR-shift-problem, frac=0.5]
+
+* Which parts of the profiles or shapes are comparable, i.e. have the same meaning?
+!epop
+
+!split
+===== Data structures =====
+Given a representation, it is then needed to decide on a suitable _data structure_ for the problem. 
+
+!bpop
+!bblock Definition
+A data structure is a way of storing
+ and organizing data in a computer so that it can be used effectively.
+!eblock
+!epop
+!bpop
+
+Typical data structures used in data analysis are:
+!epop
+!bpop
+
+  * Data points
+
+  * Arrays (vectors, matrices, N-mode (way) arrays)
+
+  * Graphs (trees)
+
+  * Data bases
+!epop
+
+
+
+
+
