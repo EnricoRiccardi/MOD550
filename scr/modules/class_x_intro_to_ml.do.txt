@@ -1,0 +1,107 @@
+!split
+===== What ML can do ? =====
+
+!bpop
+o Handle too large dataset
+o Handle dataset with too many dimensions
+o Automate long repetitive and low value tasks
+o Support decision making
+o Implement expert assesment
+o Provide visualization and analysis
+o Improve models with data 
+!epop
+
+!split
+===== Application examples =====
+It all starts from the question! 
+
+Is data fit for the task? 
+
+!bpop
+o Prompt anamolous operation conditions.
+Frequency? Resolution? Interpretability? Variable types?
+o Feature detection/guided interpretation.
+Significance? Labeling strategy? Correlated data? Statistical interactions?
+!epop 
+
+!spilt
+===== General Work Flow =====
+A predominant quantity of time/effort shall be dedicated to data retrival, preparation, interpretation.
+
+!bpop
+o Data preparation
+o Model selection
+o Model training and tuning
+o Model testing, inference and validation
+o Result intepretation
+!epop
+
+
+!split
+===== Data preparation =====
+The hands on operation begin with the data!
+
+!bpop
+o metadata preparation
+o dataset preparation
+o filtering
+o cure data
+!epop
+
+!split
+===== Metadata =====
+
+Data without metadata are just numbers: useless.
+
+Metadata quality is a necessary pre-condition
+!bpop
+!bblock What is metadata?
+A set of data that described and fives information about other data [wiki]
+!eblock
+!epop
+
+
+
+!split
+======= Main Online Machine Learning python libraries =======
+We will use a set of machine learning libraries:
+
+!bpop
+* "skilearn": "https://scikit-learn.org/stable/index.html"
+Originally developed in affiliation with Google, it is the most used open source Python module for machine learning built on top of SciPy.
+
+* "pytorch": "https://pytorch.org/"
+Originally developed by Meta AI and now part of the Linux Foundation umbrella. It is free and open-source software.
+
+* "TensorFlow": "https://www.tensorflow.org/"
+Developed and owned by Google, is a free and open-source software library.
+
+* "Deeptime": "https://deeptime-ml.github.io/latest/index.html"
+A Python library for analysis of time series data. In particular, methods for dimension reduction, clustering, and Markov model estimation (scikit-learn based).
+
+* "Keras": "https://keras.io/about/"
+Keras is a deep learning API based on pytorch and sklearn.
+!epop
+
+
+!split
+===== Black box =====
+
+Machine learning offers a (super) large set of statistical based tools that are, in essence, a black box. 
+
+!bpop
+!bblock Use with CAUTION!
+As every black box, they are not fully reliable.
+!eblock
+!epop
+
+Here some guide:
+!bpop
+o Use the simplest approach! 
+o Consider approach quality! 
+o Compare your results with benchmarks.
+o Avoid not reporducible studies.
+o Prioritize intepretability above computational speed and accuracy.
+!epop
+
+

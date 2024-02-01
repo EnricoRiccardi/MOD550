@@ -31,6 +31,25 @@ previously intoduced?
 !epop
 
 !split
+===== Data properties =====
+
+* All starts from data: what are data-properties?
+
+!bpop
+* Are there such things as good data and bad data?
+
+!bblock Life lesson (or exam question, same thing ;) )
+* Data color{red}{ DO NOT always} have value.
+!eblock
+
+\vspace{1em}
+
+* TRASH in TRASH out
+
+!epop
+
+
+!split
 ===== Sampling point representation (SPR) =====
 
 !bpop
@@ -62,12 +81,9 @@ A data structure is a way of storing
  and organizing data in a computer so that it can be used effectively.
 !eblock
 !epop
-!bpop
 
 Typical data structures used in data analysis are:
-!epop
 !bpop
-
   * Data points
 
   * Arrays (vectors, matrices, N-mode (way) arrays)
@@ -79,5 +95,196 @@ Typical data structures used in data analysis are:
 
 
 
+!split
+===== Workflow =====
+Data has to be prepared with these steps in mind
+
+!bpop
+o Plan experiments: Use experimental design to set up experiments
+  in a *systematic* way
+
+o Pre-processing: Is there systematic variation in the data which should be removed  Can cross-checking/validation procedures be designed?
+
+o Examine the data: Look at data (tables and plots). Strange behaviors? Smooth behviour? WARNING!
+
+o Define desired model outcomes (speed, accuracy, false positivesi/negatives rate)
+
+o Estimate and validate model: What do the results tell us?  Is
+  the generated model general (valid for future sampling)?
+
+o Apply model to unknown samples
+!epop
 
 
+
+!split
+===== Hard and soft modeling =====
+
+Models allow us to predict ’the future’, or describe the past and
+present (what is the present...?)
+
+\vspace{1em}
+
+!bpop
+!bblock Last life lesson for today
+Models are always wrong, but some are userful. (George Box)
+!eblock
+!epop
+
+\vspace{2em}
+
+!bpop
+=== Three main families: ===
+o Hard models (physics)
+o Soft models (statistic)
+o Machine learning
+!epop
+
+!split
+===== Hard modeling =====
+
+*  Based on an accurate physical description of the system and
+  mathematical modeling (e.g. differential equations).
+  Hard models are often deterministic.
+!bpop
+* Hard-modeling methods usually use
+  optimization methods to find out the best values for
+  the parameters of the model.
+
+* Hard-modeling is preferable in laboratory experiments,
+  where all the variables are controlled and the physicochemical
+  nature of the dynamic model is known and can be fully described
+  using a known mathematical model.
+
+* Hard-modeling, if successful, usually gives better understanding
+  of a system and better extrapolations. Wrong assumptions often leads to
+  non-sense results.
+!epop
+
+!split
+===== Soft modeling =====
+* Soft-modeling describes systems without the need of an *a priori* physical or (bio)chemical model postulation. They are _data driven_ models.
+
+!bpop
+* Soft models are much easier to make than hard models.
+
+* Soft modeling can be used to understand complex relationships.
+
+* Soft modeling needs (much) more data than hard-modeling.
+
+* Soft models have a poor extrapolating capabilities (compared with hard-modeling)
+!epop
+
+
+!split
+===== How to create hard models? =====
+After understanding the problem to be solved we need to:
+
+o Link mathematics to physics.
+o Define boundary conditions and constitutive equations.
+o Make tons of assumptions.
+o Solve the constitutive equation in space and time.
+o CHeck solution stability and sensitivity analysis.
+o A long set of judicious approximations have to be taken.
+o It is hard (but we are engineers!).
+o Get quite some money for the awesome job.
+
+
+!split
+===== How to create soft models? =====
+
+After understanding the general problem to be solved we need to:
+
+* Determine a suitable _numerical description_ .
+* Choose a suitable _model_ to which parameters are fitted.
+* Train, test, validate the model.
+* Perform _data analysis_ with chosen method(s).
+* Link predictions with expectations.
+
+
+!split
+===== Spatial and Temporal Data =====
+
+* Statistics is collecting, organizing, and interpreting data
+!bpop
+
+Spatial and temporal statistics is a branch of applied statistics that
+emphasizes:
+o the geo context of the data
+o the spatial and time dependent relationship between data
+o the different relative value and precision of the data.
+
+!epop
+
+
+!split
+===== Spatial and Temporal Modeling =====
+
+!bblock
+It is a branch of statistical analysis and model that uses spatial and time dependent data.
+!eblock
+!bpop
+* Only a subset of statistical models can be fed with time dependent data
+(most standard statistical method assume independent, identically distributed, data)
+
+* Spatial and time related data come at a different range of scales
+Frequency of data collection can be dependent of time and space,
+resulting into different rappresentativity of a sample.
+!epop
+
+
+!split 
+===== Quantifying uncertainty =====
+!bblock
+On the data sources side
+!eblock
+* Confidence intervals
+!bpop
+* Relevance
+* Significance
+* Correlation
+* Causation
+* Data Filters
+* Biases identification
+!epop
+
+!split 
+===== Quantifying uncertainty =====
+!bblock
+On the modelling side
+!eblock
+!bpop
+* Regression
+* Principal components
+* Decision tree (random forests)
+* Neural network
+* Clustering
+* Performance metrics
+!epop
+
+!split
+===== Fields of application =====
+* Spatial estimation of energy and mineral resources
+!bpop
+
+* Weather modeling: from aviation to agriculture
+* Maintenance forecasting 
+* Commodity, currency, stock and financial markets
+* Market analysis
+* Risk analysis
+* ... and much much more!
+!epop
+
+!split
+===== A personal consideration on generative AI =====
+!bblock
+With great power comes great responsability (Spider-Man)
+!eblock
+
+!bpop
+* LLMs can and shall be used. As their development is surging in the last years, their help
+in writing code and reports is undeniable. Studends shall learn how to master these tools. Yet, while their usage is encouraged, the risk of excessevily rely on them could hinder learning.
+
+* Students, if they want to be students (i.e. learn), *need* to take the responsability to deliver original output. The labor market will quickly adapt to this new reality and the concern for individuals in the labor market to not bring added value (and thus not be employable) shall grow.
+
+!epop
