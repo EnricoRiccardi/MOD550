@@ -288,3 +288,100 @@ in writing code and reports is undeniable. Studends shall learn how to master th
 * Students, if they want to be students (i.e. learn), *need* to take the responsability to deliver original output. The labor market will quickly adapt to this new reality and the concern for individuals in the labor market to not bring added value (and thus not be employable) shall grow.
 
 !epop
+
+
+!split
+===== Actual data =====
+
+The data matrix is an extremely common data structure. 
+
+!bt
+\begin{displaymath}
+{\bf X}=  \left[ \begin{matrix}
+95 & 89 & 82 \cr
+23 & 76 & 44 \cr
+61 & 46 & 62 \cr
+49 & 2 & 79 \cr
+\end{matrix}\right]
+\end{displaymath}
+!et
+
+In python these can be saved as 
+!bpop
+* lists (vanilla python)
+* numpy.arrays
+* pandas dataframes
+!epop
+
+!split
+===== Nomenclature =====
+
+There are different conventions.
+Commonly we will construct data matrix such that:
+
+!bpop
+* Rows are called instances, objects or samples.
+* Columns are called features, variables.
+!epop
+
+!bpop
+One can think as each row to be an experiment, and the rows its properties.
+Each row (experiment, object, sample, ...) is thus a list of values, one for property.
+!epop
+
+!bpop
+!bblock Note 
+Matematically speaking, this is just a notation. As long as one keep track and is consistent, columns can be used as rows and viceversa.
+!eblock
+!epop
+
+
+!split
+===== A quick example =====
+Environmental measurements of rivers
+
+!bpop
+The features (or properties) can be:
+
+* pH
+* Temperature
+* Concentration of pollutants
+* Flow rate
+* water speed
+
+
+!epop
+!bpop
+The experiments/observations/sample can be:
+
+* Po
+* Danube
+* Rio delle Amazoni
+* Sjoa
+* Atna
+* Vismunda
+
+!epop
+
+
+!split
+===== Finding a suitable model =====
+!bslidecell 00
+
+Soft modeling is in most cases
+based on _multivariate statistical methods_. Many of
+these methods may be viewed as sophisticated ways of
+performing curve fitting to data.
+!eslidecell
+
+!bslidecell 01
+
+FIGURE: [../figures/d0_0_2p1, width=400 frac=1]
+
+What would be the best model?
+
+* Straight?: $y(x) = ax + b$
+* Parabolic?: $y(x) = a x^{2} + bx + c$
+* Trigonometric?: $y(x) = a sin(x) + b cos(x)$
+!eslidecell
+
