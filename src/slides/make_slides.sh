@@ -31,4 +31,3 @@ pdflatex -shell-escape tmp_preprocess__$filename.tex
 pdfjam tmp_preprocess__${filename}.pdf --no-landscape --frame true --nup 2x4 --suffix 8up
 mv tmp_preprocess__${filename}-8up.pdf ${filename}-8up.pdf
 rm tmp* 
-./clean.sh

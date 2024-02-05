@@ -81,9 +81,12 @@ A data structure is a way of storing
  and organizing data in a computer so that it can be used effectively.
 !eblock
 !epop
+!bpop
 
 Typical data structures used in data analysis are:
+!epop
 !bpop
+
   * Data points
 
   * Arrays (vectors, matrices, N-mode (way) arrays)
