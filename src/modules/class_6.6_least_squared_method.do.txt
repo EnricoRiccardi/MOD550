@@ -1,4 +1,7 @@
 !split
+======= Linear Regression =======
+
+!split
 ===== A _linear model_ =====
 
 Considering a univariate case, we have:
@@ -104,7 +107,7 @@ FIGURE: [../figures/d1_3_1, frac=0.8]
 
 !bblock
 
-@@@CODE ../code/linear_data.py 
+@@@CODE ../code/linear_data_truth.py 
 
 !eblock
 

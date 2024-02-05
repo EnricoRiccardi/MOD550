@@ -1,5 +1,5 @@
 !split
-===== Generative AI =====
+======= Generative AI =======
 !bblock
 A generative AI model is a type of artificial intelligence that is designed to generate new content, based on the data it has been trained on.
 !eblock
@@ -89,7 +89,7 @@ Image: https://iot-analytics.com
 
 !split
 ===== Structure of generative AI =====
-FIGURE: [../figures/Variational-Autoencoders-VAEs, width=600 frac=0.9]
+FIGURE: [../figures/autoencoder_architecture, width=600 frac=0.9]
 
 \vspace{-2em}
 
@@ -100,18 +100,20 @@ Image: https://www.rapidops.com
 ===== A new field? =====
 Generative AI is actually a new evolution.
 
-It is based on Neural Network, and in comprises a set of more (or less) advanced tools (numerical receipts):
+It is based on Neural Network, and in comprises a set of advanced tools (numerical recepites):
 
-!bpop
+\pause
+
 o Generative Adversarial Networks
 o Generative Pre-trained Transformers
 o Variational Autoencoders
 o Conditional Variational Autoencoders
 o Autoencoders
-!epop
 
 !split
 ===== Types of generative AI =====
 It is quite an advanced technique
 
 FIGURE: [../figures/Types-of-Generative-AI-models, frac=1]
+
+Source: "Lilian Weng":"https://lilianweng.github.io/posts/2018-10-13-flow-models/"

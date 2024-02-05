@@ -19,5 +19,7 @@ x, y, true_slope, true_intercept = generate_linear_data(
         noise=3)
 
 # Plot all
+plt.plot(x, true_slope*x + true_intercept,
+         color='red', label='Truth Line')
 plt.scatter(x, y, color='blue', label='Data Points')
 plt.show()
