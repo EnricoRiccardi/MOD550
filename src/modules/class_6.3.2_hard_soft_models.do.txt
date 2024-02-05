@@ -1,0 +1,189 @@
+!split
+======= Hard and soft modelling =======
+
+Models allow us to predict ’the future’, or describe the past and
+present (what is the present...?)
+
+\vspace{1em}
+
+!bpop
+!bblock Last life lesson for today
+Models are always wrong, but some are useful. (George Box)
+!eblock
+!epop
+
+\vspace{2em}
+
+!bpop
+=== Three main families: ===
+o Hard models (physics)
+o Soft models (statistic)
+o Machine learning
+!epop
+
+!split
+===== Hard modelling =====
+
+*  Based on an accurate physical description of the system and mathematical modelling (e.g. differential equations).
+  Hard models are often deterministic.
+!bpop
+* Hard-modelling methods usually use
+  optimization methods to find out the best values for
+  the parameters of the model.
+
+* Hard-modelling is preferable in laboratory experiments,
+  where all the variables are controlled and the physicochemical
+  nature of the dynamic model is known and can be fully described
+  using a known mathematical model.
+
+* Hard-modelling, if successful, usually gives better understanding
+  of a system and better extrapolations. Wrong assumptions often leads to
+  nonsense results.
+!epop
+
+!split
+===== Soft modelling =====
+Characteristics:
+
+!bpop
+* Soft-modelling describes systems without the need of an *a priori* physical or (bio)chemical model postulation. They are _data driven_ models.
+
+* Soft models are much easier to make than hard models.
+
+* Soft modelling can be used to understand complex relationships.
+
+* Soft modelling needs (much) more data than hard-modelling.
+
+* Soft models have a poor extrapolating capabilities (compared with hard-modelling)
+!epop
+
+
+!split
+===== How to create hard models? =====
+After understanding the problem to be solved we need to:
+
+!bpop
+o Link mathematics to physics.
+o Define boundary conditions and constitutive equations.
+o Make tons of assumptions.
+o Solve the constitutive equation in space and time.
+o CHeck solution stability and sensitivity analysis.
+o A long set of judicious approximations have to be taken.
+o It is hard (but we are engineers!).
+o Get quite some money for the awesome job.
+!epop
+
+
+!split
+===== How to create soft models? =====
+
+After understanding the general problem to be solved we need to:
+!bpop
+
+* Determine a suitable _numerical description_ .
+* Choose a suitable _model_ to which parameters are fitted.
+* Train, test, validate the model.
+* Perform _data analysis_ with chosen method(s).
+* Link predictions with expectations.
+!epop
+
+!split
+===== Data collection  =====
+!bblock (Reminder)
+On the data sources side
+!eblock
+
+!bpop
+* Confidence intervals
+* Relevance
+* Significance
+* Correlation
+* Causation
+* Data Filters
+* Biases identification
+!epop
+
+!split
+===== Models and Methods  =====
+!bblock
+On the modelling side
+!eblock
+!bpop
+* Regression
+* Clustering
+* Principal components
+* Decision tree (random forests)
+* Neural network
+* Performance metrics
+!epop
+
+
+!split
+===== Spatial and Temporal Data =====
+
+!bblock Remember the definition?
+ Statistics is collecting, organising, and interpreting data
+!eblock
+
+!bpop
+Spatial and temporal statistics is a branch of applied statistics that
+emphasises:
+o the geo context of the data
+o the spatial and time dependent relationship between data
+o the different relative value and precision of the data.
+!epop
+
+
+!split
+===== Spatial and Temporal Modelling =====
+
+!bblock
+It is a branch of statistical analysis and model that uses spatial and time dependent data.
+!eblock
+!bpop
+* Only a subset of statistical models can be fed with time dependent data (most standard statistical method assume independent, identically distributed, data)
+
+* Spatial and time related data come at a different range of scales. Data collection can be dependent of time and space, resulting in different representativity of a sample.
+!epop
+
+
+!split
+===== Fields of application =====
+
+!bblock
+Tipical time and spatial data are:
+!eblock
+
+!bpop
+* Spatial estimation of energy and mineral resources
+* Weather modelling: from aviation to agriculture
+* Maintenance forecasting
+* Commodity, currency, stock and financial markets
+* Market analysis
+* Risk analysis
+* ... and much much more!
+!epop
+
+
+
+!split
+===== Finding a suitable model =====
+!bslidecell 00
+
+Soft modeling is in most cases
+based on _multivariate statistical methods_. Many of
+these methods may be viewed as sophisticated ways of
+performing curve fitting to data.
+!eslidecell
+
+!bslidecell 01
+
+FIGURE: [../figures/d0_0_2p1, width=400 frac=1]
+
+What would be the best model?
+
+* Straight?: $y(x) = ax + b$
+* Parabolic?: $y(x) = a x^{2} + bx + c$
+* Trigonometric?: $y(x) = a sin(x) + b cos(x)$
+!eslidecell
+

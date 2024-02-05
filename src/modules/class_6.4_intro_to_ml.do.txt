@@ -1,0 +1,24 @@
+!split
+======= Machine Learning intro =======
+
+!split
+===== Unsupervised learning =====
+FIGURE: [../figures/unsupervised, frac=1]
+
+!split
+===== Unsupervised learning =====
+Unsupervised learning, a term that resonates with the autonomy of machine intelligence, operates on the principle of identifying patterns and structures in datasets devoid of labeled responses. This branch of machine learning is distinguished by its lack of explicit guidance, where algorithms are tasked with uncovering hidden structures from unlabeled data, a stark contrast to the predictability and guided learning environment of supervised learning.
+
+This chapter discusses various unsupervised learning methodologies, emphasizing the ability of these approaches in help understanding complex datasets. Algorithms for filtering, clustering, dimensionality reduction, and association learning will be discussed. We aim to achieve a general understanding of unsupervised learning's capabilities, limitations, and applications. 
+
+
+!split
+===== Supervised learning =====
+FIGURE: [../figures/supervised, frac=1]
+
+
+!split
+===== Weak Supervised learning =====
+
+FIGURE: [../figures/MIL, frac=1]
+
