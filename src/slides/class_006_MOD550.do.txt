@@ -10,7 +10,7 @@ FIGURE: [../figures/logo, width=100 frac=0.2]
 # #include "../modules/class_6.3.2_hard_soft_models.do.txt"
 # #include "../modules/class_6.4_intro_to_ml.do.txt"
 # #include "../modules/class_6.5_generative_AI.do.txt"
-# #include "../modules/class_6.6_least_squared_method.do.txt"
+### #include "../modules/class_6.6_least_squared_method.do.txt"
 
 
 

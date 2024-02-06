@@ -147,22 +147,6 @@ o the different relative value and precision of the data.
 
 
 !split
-===== Data collection  =====
-!bblock
-On the data sources side
-!eblock
-
-!bpop
-* Confidence intervals
-* Relevance
-* Significance
-* Correlation
-* Causation
-* Data Filters
-* Biases identification
-!epop
-
-!split
 ===== Actual data =====
 
 The data matrix is an extremely common data structure.

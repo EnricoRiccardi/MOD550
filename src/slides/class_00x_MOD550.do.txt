@@ -1,10 +1,16 @@
 TITLE: Fundaments of Machine learning for and with engineering applications
-AUTHOR: Enrico Riccardi {copyright|CC BY} Email:enrico.riccardi@uis.no at Department of Energy Resources, University of Stavanger (UiS).
+AUTHOR: Reidar B. Bratvold, Enrico Riccardi {copyright|CC BY} Email:enrico.riccardi@uis.no at Department of Energy Resources, University of Stavanger (UiS).
 DATE: today
 
 FIGURE: [../figures/logo, width=100 frac=0.2]
 
-# #include "../modules/class_6*.do.txt"
+### #include "../modules/class_6.1_stats_ml_ai.do.txt"
+### #include "../modules/class_6.2_metadata.do.txt"
+### #include "../modules/class_6.3.1_data.do.txt"
+### #include "../modules/class_6.3.2_hard_soft_models.do.txt"
+### #include "../modules/class_6.4_intro_to_ml.do.txt"
+### #include "../modules/class_6.5_generative_AI.do.txt"
+# #include "../modules/class_6.6_least_squared_method.do.txt"
 
 
 

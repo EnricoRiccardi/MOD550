@@ -71,7 +71,7 @@ New possibilities do not come with side effects.
 o Lack of transparency: how the output is generated, and why?
 o Accuracy: a lot of hallucinations
 o Bias: human biases are kept, supported and eventually increased
-o Intellectual properties (IP): who owns what is produced=
+o Intellectual properties (IP): who owns what is produced?
 o Cybersecutiry and frauds: mass cyber attacks can be created
 o Sustainability: massive quantity of electricity is used
 o Responsibility (who to blame?): Will AI get citizenship everywhere?
