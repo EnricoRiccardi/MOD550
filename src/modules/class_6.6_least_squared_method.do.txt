@@ -15,7 +15,7 @@ q = f(x)
 which relates the _independent variable_ $x$ to the _true dependent variable_ $q$.
 !epop
 
-!vspace{1em}
+\vspace{1em}
 
 !bpop
 
