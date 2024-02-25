@@ -4,7 +4,7 @@ DATE: today
 
 FIGURE: [../figures/logo, width=100 frac=0.2]
 
-# #include "../modules/class_6.6_least_squared_method.do.txt"
-
+### #include "../modules/class_10_classification.do.txt"
+# #include "../modules/lol.do.txt"
 
 

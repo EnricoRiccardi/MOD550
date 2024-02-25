@@ -1,0 +1,1188 @@
+!split
+===== Classification types =====
+
+There are two main types of classification methods for analysis of a set
+of objects stored in matrix *X*:
+
+
+!bslidecell 00
+\pause
+!bblock Unsupervised classification
+* Only the *X* data is used
+* ``Natural'' classes/clusters/groupings in *X* are discovered 
+!eblock
+!eslidecell
+
+!bslidecell 01
+\pause
+!bblock Supervised classification
+* We know the class/group/cluster membership of every object/sample
+* Class information is stored in an *Y* matrix
+!eblock
+!eslidecell
+!epop
+
+!split
+===== Classification types =====
+Several approaches can be found in classification tasks:
+
+!bslidecell 00
+\pause
+!bblock Unsupervised classification
+* Principal component analysis (PCA)
+* Agglomerative (hierarchical) cluster analysis.
+* k-means cluster analysis
+* Fuzzy c-means cluster analysis 
+* Self organising feature maps (SOFM)
+!eblock
+!eslidecell 
+
+!bslidecell 01
+\pause
+!bblock Supervised classification
+* Linear discriminant analysis (LDA)
+* k-nearest neighbours (kNN)
+* Discriminant partial least squares
+* Soft independent modeling of class analogies (SIMCA)
+!eblock
+!eslidecell
+
+
+!split 
+===== Limitations of unsupervised classification =====
+
+* Do "natural" clusters in a data set exists and/or have any meaning?
+
+* First we must have a definition of what is a cluster. To do this we
+must define what we mean by \alert{similar} or \alert{dissimilar} objects.
+
+* Objects that are \alert{close} have low dissimilarity and high similarity.
+
+\pause 
+
+!bblock
+A metric system is required.
+!eblock
+
+!split
+===== Proximity: Continuous variables ===== 
+
+!bblock Triangle inequality
+
+Considering a vectors in an N-dimensional space, to be a \alert{distance} it must satisfy the \alert{triangle inequality}:
+
+!eblock
+
+!bt
+\begin{displaymath}
+d_{ij} + d_{im} \geq d_{jm}
+\end{displaymath}
+!et
+
+If also $d_{jj}=0$ we call it a {\em metric}.
+ 
+FIGURE: [../figures/triangleineq.eps, frac=0.3]
+
+
+!split
+===== Proximity: Continuous measures =====
+
+!bblock Common metrics:
+* Euclidean. 
+
+!bt
+\begin{displaymath}
+d_{ij}^{(E)} = \left[ \sum_{k=1}^{N} (x_{ik} - x_{jk})^2 \right]^{\frac{1}{2}}
+\end{displaymath}
+!et
+
+* Manhattan
+!bt
+\begin{displaymath}
+d_{ij}^{(M)} = \sum_{k=1}^{N} \|x_{ik} - x_{jk} \|
+\end{displaymath}
+!et
+
+* Minkowski
+!bt
+\begin{displaymath}
+d_{ij}^{(M(p))} = \left[ \sum_{k=1}^{N} (x_{ik} - x_{jk})^p \right]^{\frac{1}{p}}
+\end{displaymath}
+!et
+!eblock
+
+
+!split
+===== Mahalanobis distance =====
+
+
+ P.C. Mahalanobis invented in 1936 a distance measure which takes into
+ consideration the covariance of a population when computing the
+ distance between two vectors: 
+
+
+!bslidecell 00
+\pause 
+FIGURE: [../figures/mahalanobis-1, frac=0.8]
+!eslidecell 
+!bslidecell 01
+\pause 
+The Euclidean distance from C to D is shorter than A to
+B, but the Mahalanobis distance A-B is smaller than C-D because A and B are
+oriented along the same direction.
+!eslidecell 
+
+
+
+!split
+===== Proximity: Categorical variables =====
+
+* Many applications consist of binary vectors, typical is "yes"
+  and "no" answers to a lot of tests
+* It is tempting to use distance between binary vectors to signify
+  distance. However that is *by far* not optimal. 
+
+\pause 
+
+Lets look at an example:
+
+* $ \textbf{v}_1 = [1~1~0~0~0~0]$
+* $ \textbf{v}_2 = [0~0~1~1~0~0]$
+* $ \textbf{v}_3 = [1~1~1~1~1~1]$
+
+It makes NO SENSE to compute the Euclidean distances between these vectors
+
+
+!split
+===== Proximity: Categorical variables: Binary matching =====
+
+!bt
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}  \hline \hline
+                       & {\em Object B} value 1 & {\em Object B}  value 0  \\ \hline
+{\em Object A} value 1 &      a                 &       b      \\ \hline
+{\em Object A} value 0 &      c                 &       d      \\ \hline \hline
+\end{tabular}
+\end{center}
+\end{table}
+!et
+ 
+
+!bblock Example
+
+!bslidecell 00
+!bt
+\begin{eqnarray*}
+\textbf{a} = \left[0~0~0~1\right]  \\ \nonumber
+\textbf{b} = \left[1~1~0~1\right]  \\ \nonumber
+\end{eqnarray*}
+!et
+!eslidecell 
+
+!bslidecell 01
+* $c=2$: two places where A has 0 and B has 1.
+* $d=1$: one place where A and B are equal to 0.
+* $a=1$: one place where A and B are equal to 1.
+!eslidecell 
+!eblock
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Binary proximity measures}
+
+
+
+\begin{block}{Types of binary proximity measures}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|c}  \hline \hline
+{\em Binary proximity measure}  &  {\em Formula}  \\ \hline
+   Matching coefficient       &   $d_{AB} = \frac{a+d}{a+b+c+d}$    \\ %\hline
+   Jackard                    &     $d_{AB} = \frac{a}{a+b+c}$       \\ %\hline \hline
+   Rogers and Tanimoto        &     $d_{AB} = \frac{a+d}{a+2(b+c)}$       \\ %\hline \hline
+   Sokal and Sneath           &     $d_{AB} = \frac{a}{a+2(b+c)}$       \\ %\hline \hline
+\end{tabular}
+\end{center}
+%\caption{}
+%\label{binary-match2}
+\end{table}
+
+\end{block}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%\subsection{Graphical approaches}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Finding clusters by plotting}
+
+By letting an axis represent a single variable we are restricted to 2-D
+and 3-D plots for inspection of cluster patterns. Two  methods that  attempt
+to go beyond this are:
+
+\begin{itemize}
+\item Andrew plots
+\item Chernoff faces
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Andrew plots}
+
+Let an object vector be:
+
+\begin{displaymath}
+{\bf x}^{T} = \left[x_1,x_2, \cdots x_n \right]
+\end{displaymath}
+
+Then we map this into a function of the form:
+
+
+\begin{displaymath}
+x(t) = \frac{x_1}{\sqrt{2}} + x_2 \mbox{sin}(t) + 
+x_3 \mbox{cos}(t) + x_4\mbox{sin}(2t) + x_5 \mbox{cos}(2t) + \cdots 
+\end{displaymath}
+
+plotted over the range $-\pi \leq t \leq \pi$
+
+This corresponds to mapping the feature vector into frequency components.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Andrew plot example}
+
+Data matrix with 40 samples and 6 variables:
+
+\begin{center}
+\includegraphics[width=6.0cm]{figures/d5_0_0.eps}
+\end{center}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Chernoff faces}
+
+
+\begin{columns}
+\column{5cm}
+\begin{itemize}
+\item The human brain is good at recognizing human faces
+\item Idea: Let each object vector be represented by a \alert{human face
+  cartoon}
+\item How: \alert{relate facial features to variables} such as nose length,
+  face width, eye diameter etc.
+\end{itemize}
+ 
+\column{5cm}
+
+\begin{center}
+\includegraphics[width=5.0cm]{figures/face.eps}
+\end{center}
+
+\end{columns}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Agglomerative cluster analysis}
+
+%\subsection{Bottom-up approach}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Clumping objects}
+
+
+\begin{columns}
+\column{5cm}
+
+Agglomerative cluster analysis ``clumps'' objects together according
+to a definition of similarity or dissimilarity. The objects are merged
+progressively into larger clusters until only one cluster remains
+which consists of all the objects in the data set
+
+This can be summarised in a \alert{hierarchical cluster tree}.
+ 
+\column{5cm}
+
+\begin{center}
+\includegraphics[width=3.0cm]{figures/small_tree.eps}
+\end{center}
+\end{columns}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Agglomerative algorithm}
+
+\begin{itemize}
+\item WHILE no. clusters $>$ 1
+\item Find smallest distance between clusters A and B
+\item Merge clusters A and B
+\item Define a new cluster (AB)
+\item Distance matrix between all clusters
+\item ENDWHILE
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Distance between clusters}
+
+
+What is the distance between one cluster of objects to the next? The
+three most common approaches in the field are:
+
+\begin{itemize}
+\item Single linkage 
+\item Complete linkage
+\item Group average (unweighted pair group method average, UPGMA)
+\item Ward's method
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{The asymmetric distance matrix}
+
+
+\begin{block}{Asymmetric distance matrix}
+Central to all these methods is the \alert{asymmetric distance matrix}
+${\bf F}$. This is just the matrix of distances \alert{between} the
+objects in the two clusters A and B. Matrix ${\bf F}$ is computed from
+the ${\bf D}$ matrix on the basis of what objects are defined as
+clusters in A and B.
+\end{block}
+
+\begin{block}{Distances between objects}
+The distances in ${\bf F}$ are never between objects within the same
+cluster, only between objects in \alert{different} clusters.  
+\end{block}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Cluster distances}
+
+\begin{columns}
+\column{7cm}
+
+\begin{block}{Cluster distances}
+
+{\bf Single linkage}:
+\begin{displaymath}
+d_{AB} = \mbox{min}(f_{i_A,j_B}), \forall i \in A,j \in B
+\end{displaymath}
+
+
+{\bf Complete linkage}:
+\begin{displaymath}
+d_{AB} = \mbox{max}(f_{i_A,j_B}), \forall i \in A,j \in B
+\end{displaymath}
+
+{\bf Group average (UPGMA)}:
+\begin{displaymath}
+d_{AB} = \frac{1}{nm} \sum_{i \in A}\sum_{j \in B} f_{i_A,j_B}, \forall i \in A,j \in B
+\end{displaymath}
+
+\end{block}
+
+\column{4cm}
+
+\begin{center}
+\includegraphics[width=4.0cm]{figures/linkages.eps}
+\end{center}
+
+
+\end{columns}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\subsection{Ward's method}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Ward's method}
+
+Assume we have partitioned a set of objects into $K$ clusters. For
+each cluster we can compute the total within-cluster error sum of
+squares:
+
+\begin{displaymath}
+E_m = \sum_{i=1}^{n_m} \sum_{j=1}^{M} \left[ x_{ij}^{(m)} - \bar{x}_{j}^{(m)}\right]^2
+\end{displaymath}
+
+where $n_m$ is the number of objects in cluster $m$.
+$\bar{x}_{j}^{(m)}$ is the $j$'th variable for the mean vector of
+cluster $m$. $M$ is the total number of variables.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Ward Equation}
+
+Now we sum all these $E_m$'s for every cluster:
+
+\begin{displaymath}
+E_{tot}^{(0)} = \sum_{m=1}^{K} E_m
+\end{displaymath}
+
+Assume we merge two clusters A and B so we are left with $K-1$
+clusters. For the new clusters we compute $E_{tot}^{(1)}$ for the
+$K-1$ clusters.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{The Ward criterion}
+
+
+The Ward criterion for merging A and B is that we
+want the number:
+
+\begin{displaymath}
+\phi = E_{tot}^{(1)}- E_{tot}^{(0)}
+\end{displaymath}
+
+
+to be as small as possible. So in order to find this number we need to
+check $\phi$ for every possible merging of two clusters. In general
+there are 
+
+\begin{displaymath}
+\frac{K(K-1)}{2}
+\end{displaymath}
+
+number of such possible pairs of clusters. The pair A and B which gave
+the smallest number is chosen to be merged.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Illustration of Ward's method}
+
+
+\begin{center}
+\includegraphics[width=8.0cm]{figures/wards-method.eps}
+\end{center}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%\subsection{Agglomerative example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example}
+
+
+Consider a data set where the distances between all objects are:
+
+\begin{displaymath}
+{\bf D}_0 = \left[ \begin{matrix}
+                         0 &  1    & 2   & 3   & 4    & 5     \cr
+                         1 &  0.0  & 2.0 & 6.0 & 10.0 & 9.0   \cr
+                         2 &  2.0  & 0.0 & 5.0 &  9.0 & 8.0   \cr
+                         3 &  6.0  & 5.0 & 0.0 &  4.0 & 5.0   \cr
+                         4 &  10.0 & 9.0 & 4.0 &  0.0 & 3.0   \cr
+                         5 &  9.0  & 8.0 & 5.0 &  3.0 & 0.0   \cr
+                   \end{matrix}
+                \right] 
+\end{displaymath}
+
+How do we cluster the objects?
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+
+\begin{itemize}
+\item Start by finding the smallest distance and merge the two clusters
+(here now objects). This is between 1 and 2.
+\item Now we create a new cluster $(1,2)$ consisting of object 1 and 2. 
+\item The next step is to create a new distance matrix which will involve the
+4 clusters $(1,2),3,4,5$. 
+\end{itemize}
+
+For this example we will use \alert{single linkage}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+First we need to calculate the distances between cluster
+$(1,2)$ and the others. To do this we calculate ${\bf F}$ matrices for
+clusters $(1,2)-3$,$(1,2)-4$ and $(1,2)-5$. So we have:
+
+\begin{displaymath}
+{\bf F}_{(1,2)-3} = \left[ \begin{matrix}  f_{1,3} \cr
+                                    f_{2,3} \cr \end{matrix}
+                \right] = 
+\left[ \begin{matrix}  6.0 \cr
+                5.0 \cr \end{matrix}
+                \right]
+\end{displaymath}
+
+\begin{displaymath}
+{\bf F}_{(1,2)-4} = \left[ \begin{matrix}  f_{1,4} \cr
+                                    f_{2,4} \cr \end{matrix}
+                \right] = 
+\left[ \begin{matrix}  10.0 \cr
+                9.0 \cr \end{matrix}
+                \right]
+\end{displaymath}
+
+\begin{displaymath}
+{\bf F}_{(1,2)-5} = \left[ \begin{matrix}  f_{1,5} \cr
+                                    f_{2,5} \cr \end{matrix}
+                \right] = 
+\left[ \begin{matrix}  9.0 \cr
+                8.0 \cr \end{matrix}
+                \right]
+\end{displaymath}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+
+From these matrices we can now apply the single linkage rule to
+extract a single distance measure for each of the ${\bf F}$ matrices:
+
+\begin{itemize}
+\item $d_{(1,2)-3} = \mbox{min}(f_{1,3}, f_{2,3}) =
+  \mbox{min}(6.0,5.0) = 5.0$
+\item $d_{(1,2)-4} = \mbox{min}(f_{1,4}, f_{2,4}) =
+  \mbox{min}(10.0,9.0) = 9.0$
+\item $d_{(1,2)-5} = \mbox{min}(f_{1,5}, f_{2,5}) =
+  \mbox{min}(9.0,8.0) = 8.0$
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+So the new distance matrix between the four clusters is:
+
+
+\begin{displaymath}
+{\bf D}_1 = \left[ \begin{matrix}      &  (1,2)    &  3    &  4   &  5   \cr
+                         (1,2)  &  0.0      &  -    &  -   &  -   \cr
+                         3      &  5.0      &  0.0  &  -   &  -   \cr
+                         4      &  9.0      &  4.0  &  0.0 &  -   \cr
+                         5      &  8.0      &  5.0  &  3.0 & 0.0  \cr \end{matrix}
+                \right] 
+\end{displaymath}
+
+In this matrix only the half of the symmetric matrix is shown. The
+other elements in the symmetric matrix are just indicated with -.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+Again we ask what is the minimum distance between clusters?
+Now between 4 and 5.
+
+This means we have to calculate the distance
+matrix between the following clusters: $(1,2),3,(4,5)$. The distance
+we need to calculate are:
+$d_{(1,2)-3},d_{(1,2)-(4,5)},d_{(4,5)-3}$. We already have the
+distance $d_{(1,2)-3} = 5.0$
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+
+The remaining two distances we need to compute are:
+
+\begin{itemize}
+\item $d_{(1,2)-(4,5)} = \mbox{min}(f_{1,4},f_{1,5}, f_{2,4},f_{2,5}) =
+  \mbox{min}(10.0,9.0,9.0,8.0) = 8.0$
+\item $d_{(4,5)-3} = \mbox{min}(f_{4,3}, f_{5,3}) =
+  \mbox{min}(4.0,5.0) = 4.0$
+\end{itemize}
+
+The new distance matrix now has the following values:
+
+\begin{displaymath}
+{\bf D}_2 = \left[ \begin{matrix}      &  (1,2)    &  3    &  (4,5)   \cr
+                         (1,2)  &  0.0      &  -    &  -      \cr
+                         3      &  5.0      &  0.0  &  -     \cr
+                         (4,5)  &  8.0      &  4.0  &  0.0  \cr \end{matrix}
+                \right] 
+\end{displaymath}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+Again, what is the smallest distance? Answer: 4.0 which is between
+cluster (4,5) and 3. This means we can merge these into a new cluster
+(3,4,5). This means we have to calculate the distance between the
+following clusters: (1,2) and (3,4,5). This is:
+
+\begin{itemize}
+\item $d_{(1,2)-(3,4,5)} = \mbox{min}(f_{1,3},f_{1,4},f_{1,5}, f_{2,3} f_{2,4},f_{2,5}) =
+  \mbox{min}(6.0,10.0,9.0,5.0,9.0,8.0) = 5.0$
+\end{itemize}
+
+Since this is the last distance we know that all clusters will merge
+into a single cluster at distance 5.0.
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Example, cont'd}
+
+
+Summarise the merging into a {\em dendrogram}:
+
+\begin{center}
+\includegraphics[width=7.0cm]{figures/dendrogram1.eps}
+\end{center}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\subsection{Validation of dendrograms}
+
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{k-means cluster analysis}
+
+
+The algorithm for this is:
+
+\begin{enumerate}
+\item Select the number of clusters $K\leq K_{max}$ to look for
+
+\item Start by creating $K$  random cluster centers ${\bf m}_k$
+
+\item For each object ${\bf x}_j$ assign it to the cluster center it
+  is nearest to
+
+\item Re-compute center points ${\bf m}_k$ for the new clusters and
+  iterate towards convergence
+
+\end{enumerate}
+
+This procedure minimises the within-cluster variance
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Finding the optimal no of clusters (1)}
+
+ In k-means cluster analysis we assume the true number of clusters is
+ known. To estimate the optimal no. of clusters $K^{*}$ from data we
+ may do as follows:
+
+\begin{itemize}
+\item Compute k means for $K \in [1,2, \cdots , K_{max}]$
+\item Compute the mean \alert{within cluster variance} $W_K$ for each selection of
+  $K \in [1,K_{max}]$
+\item The variances $[W_1,W_2,\cdots ,W_{max}]$ generally decrease
+  with increasing $K$. This will even be the case for an independent
+  test set such that cross-validation cannot be used.
+\end{itemize}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Finding the optimal no of clusters (2)}
+
+
+\begin{itemize}
+\item Intuitively, when $K < K^{*}$ we expect that an additional
+  cluster will lower the within cluster variance: $W_{K+1} \ll W_K$.
+\item When $K > K^{*}$ the decrease of the variance will be less evident.
+\end{itemize}
+
+\begin{beamerboxesrounded}[shadow = true]{}
+This means there will be flattening of the $W_j$ curve. A sharp drop
+in the variance may be used to identify the optimal no. of clusters.
+\end{beamerboxesrounded}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Finding the optimal no of clusters (3)}
+
+Problem: Where is the elbow?
+
+\begin{center}
+%\includegraphics[width=10.0cm]{figures/gap-statistics-1.eps}
+\includegraphics[width=8.5cm, height=6.5cm]{figures/q_CLUST_1_1p1.eps}
+\end{center}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Finding the optimal no of clusters (3b)}
+
+What happens when the clusters get closer?
+
+\begin{center}
+%\includegraphics[width=10.0cm]{figures/gap-statistics-1.eps}
+\includegraphics[width=7.5cm]{figures/q_CLUST_1_2p1.eps}
+\end{center}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Finding the optimal no of clusters (4)}
+
+\begin{block}{Gap statistics}
+
+A method called ``Gap statistics'' by Tibshirani et al 2001,
+compares the curves $u_1(K)=\mbox{log}W_K^{data}$ and
+$u_2(K)=\mbox{log}W_K^{simul}$ where ``simul'' represents simulated
+data distributed uniformly over the given data rectangle. 
+
+
+The optimal no. of clusters is where the gap between these two curves
+is largest.
+\end{block}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Finding the optimal no of clusters (2b)}
+
+
+\begin{center}
+%\includegraphics[width=8.0cm]{figures/gap-statistics-2.eps}
+\includegraphics[width=8.0cm]{figures/q_CLUST_1_1p2.eps}
+\end{center}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{Self Organising Feature Mapping (SOFM)}
+
+
+
+ A technique invented by T. Kohonen in 1982. It is used for performing
+ non-linear unsupervised classification. The results are presented as
+ 2D maps where the different classes are distributed as political
+ geographical map of the Earth.  The map consists of a matrix of
+ neurons that compete for the samples.
+
+Typical application areas are:
+
+\begin{itemize}
+\item Biological taxonomy
+\item Chemistry
+\item Image analysis
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+  
+
+\frame
+{
+ \frametitle{SOFM algorithm}
+
+\begin{enumerate}
+\item Initialize network by setting all weights to random numbers. However note that
+
+\begin{displaymath}
+{\bf w}_j(0) \neq {\bf w}_k(0),  ~\forall k \neq j
+\end{displaymath}
+
+$i \in 1,2,\cdots , N$ where $N$ is the number of nodes in the lattice
+
+
+\item Take one sample ${\bf x}$ from the training (calibration) data set
+
+\item What node $i$ is most similar to  ${\bf x}$? We look at $\| {\bf x}- {\bf w}_j\|$
+for nodes $j \in [1,2,\cdots ,N]$
+
+\item Adjust the connection weights:
+
+\begin{displaymath}
+{\bf w}_j(n+1) = \left\{ \begin{array}{ll}
+{\bf w}_j(n) + \eta(n)({\bf x} - {\bf w}_j(n))  & \forall j \in \Lambda_i(n) \\
+{\bf w}_j(n) & \mbox{otherwise} \end{array} \right. 
+\end{displaymath}
+
+$\Lambda_i(n)$ is the neighbourhood function centered around the winning node $i$.
+Both $\eta(n)$ and $\Lambda_i(n)$ vary dynamically during learning. $\Lambda_i(n)$ 
+becomes smaller - a shrinking effect
+\end{enumerate}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME BEGIN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+ \frametitle{SOFM map}
+
+% \begin{itemize}
+% \item Source: ``Chemometrics with R'' by Ron Wehrens
+% \item Data: NIR spectra of different wines
+% \end{itemize}
+
+% Examples taken from
+% http://www.r-bloggers.com/self-organising-maps-for-customer-segmentation-using-r/
+
+\begin{center}
+\includegraphics[width=7.0cm]{figures/SOM_clusters.eps}
+\end{center}
+
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FRAME END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+

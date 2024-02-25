@@ -1,0 +1,10 @@
+TITLE: Fundaments of Machine learning for and with engineering applications
+AUTHOR: Reidar B. Bratvold, Enrico Riccardi {copyright|CC BY} Email:enrico.riccardi@uis.no at Department of Energy Resources, University of Stavanger (UiS).
+DATE: today
+
+FIGURE: [../figures/logo, width=100 frac=0.2]
+
+# #include "../modules/class_8.least_squared_method.do.txt"
+
+
+
