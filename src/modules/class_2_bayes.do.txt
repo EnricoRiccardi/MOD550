@@ -5,7 +5,7 @@
 **
 
 !split
-===== Matthematically =====
+===== Mathematically =====
 Axioms:
 ** Non negative number
 P > 0

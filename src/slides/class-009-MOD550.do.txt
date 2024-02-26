@@ -4,7 +4,9 @@ DATE: today
 
 FIGURE: [../figures/logo, width=100 frac=0.2]
 
-# #include "../modules/class_9_regularization.do.txt"
+# #include "../modules/class_9.1_regularization.do.txt"
+# #include "../modules/class_9.2_unsupervised_classification.do.txt"
+
 
 
 
