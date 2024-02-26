@@ -42,7 +42,7 @@ Several approaches can be found in classification tasks:
 * Linear discriminant analysis (LDA)
 * k-nearest neighbours (kNN)
 * Discriminant partial least squares
-* Soft independent modeling of class analogies (SIMCA)
+* Soft independent modelling of class analogies (SIMCA)
 !eblock
 !eslidecell
 
@@ -50,7 +50,7 @@ Several approaches can be found in classification tasks:
 !split 
 ===== Limitations of unsupervised classification =====
 
-* Do "natural" clusters in a data set exists and/or have any meaning?
+* Do "natural" clusters in a data set exist and/or have any meaning?
 
 * First we must have a definition of what is a cluster. To do this we
 must define what we mean by \alert{similar} or \alert{dissimilar} objects.
@@ -426,7 +426,7 @@ The contribution by each PC can be seen from the _residual variance plot_
 !split
 ======= Agglomerative algorithms =======
 
-Agglomerative cluster analysis ``clumps'' objects together according
+Agglomerative cluster analysis "clumps" objects together according
 to a definition of similarity or dissimilarity. The objects are merged
 progressively into larger clusters until only one cluster remains
 which consists of all the objects in the data set
@@ -576,7 +576,7 @@ FIGURE: [../figures/wards-method.eps, frac=0.8]
 !split
 ===== Example dendrogram =====
 
-FIGURE: [../figures/dendrogram1.eps, frac=0.8]
+FIGURE: [../figures/dendrogram1.pdf, frac=0.8 witdth=100]
 
 
 
@@ -588,7 +588,7 @@ The algorithm consists of:
 
 o Select the number of clusters $K\leq K_{max}$ to look for
 
-o Start by creating $K$  random cluster centers $\textbf{m}_k$
+o Start by creating $K$  random cluster centres $\textbf{m}_k$
 
 o For each object $\textbf{x}_j$ assign it to the cluster center it
   is nearest to
@@ -760,7 +760,7 @@ should be used to compute $\textbf{r}$?
 !split
 ===== Fisher's method =====
  To have isolated class clusters we want two things: Good separation
- of the mean centers and clusters with little variance (i.e. tight
+ of the mean centres and clusters with little variance (i.e. tight
  clusters with little variance). This corresponds to maximizing the
  between class variance and minimize the within class variance. This
  is closely linked to analysis of variance (ANOVA). To compare
