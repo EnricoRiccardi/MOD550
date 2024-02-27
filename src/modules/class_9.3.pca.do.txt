@@ -1,0 +1,212 @@
+!split
+======= PCA =======
+Central in any data analysis is the use of a {\em data matrix}
+
+FIGURE: [../figures/geometry-idea1.eps, frac=0.8]
+ 
+!split
+===== PCA base =====
+!bblock Question:
+ How can we understand the information contained in such a
+data matrix?  
+!eblock
+
+\pause
+
+* The geometry of the "object cloud" in N dimensions is used to
+  understand relations
+
+!bblock Geometrical insights
+Plotting provides _geometrical insights_ and
+observation of _hidden data structures_ and \textbf{patterns}
+!eblock
+
+!split
+===== Correlated variables =====
+!bblock Problem
+How can we use plotting if we have more than $3$ variables?
+!eblock 
+
+\pause
+
+!bblock Solution
+o Seek for \textbf{correlated variables} in the data matrix
+o Seek for latent variable
+o Give up (use AI)
+!eblock
+
+
+!split
+===== Correlated variables =====
+* Correlated variables contain approximately the same information.
+
+* Several correlated variables suggests: 
+   * the same _phenomenon_ is manifested in different way
+   * an _underlying phenomenon_ more fundamental exists
+
+\pause 
+
+Let's assume the latter:
+!bblock Linear combinations
+_Assuming_ the latent variables to be a _linear combinations_ of the original variables, i.e.:
+
+!bt
+\begin{displaymath}
+\mbox{LV} = a_1 x_1 + a_2 x_2 + \cdots + a_n x_n
+\end{displaymath}
+!et
+!eblock
+
+!split
+===== Latent variables =====
+
+!bblock A new coordinate system
+
+o Latent variables are based on creating a new coordinate system
+  based on linear combination of the original variables
+o Objects are projected from a higher dimensional
+data space onto this new (lower dimensional) coordinate system
+o The new coordinate system improves interpretation and
+  prediction.
+!eblock
+
+
+\alert{Principal component analysis} (PCA) can automatically create
+useful latent variables
+
+
+!split
+===== PCA =====
+
+Originally invented in 1901 by Karl Pearson and re-invented several times.
+The PCA method is also referred to as:
+
+!bslidecell 00
+
+o Singular value decomposition (numerical analysis)
+o Karhunen-Loeve expansion (electric engineering)
+o Eigenvector analysis (physical sciences)
+o Hotelling transform (image analysis/statistics)
+o Correspondence analysis (double scaled version of PCA)
+
+!eslidecell 
+
+!bslidecell 01
+FIGURE: [../figures/Karl_Pearson.eps, frac=0.8]
+*Karl Pearson*
+!eslidecell 
+
+
+!split
+===== PCA =====
+Goals of PCA:
+
+o Simplification.
+o Data reduction and data compression
+o Modeling
+o Outlier detection
+o Variable selection
+o Classification
+o Prediction
+o ... world peace ...
+
+
+!split
+===== PCA =====
+!bblock Rotation of the coordinate system
+
+  In PCA the original coordinate system is rotated such that the new
+  latent variable axes point in the direction of \alert{max variance}
+!eblock
+
+FIGURE:  [../figures/pca-swarm.eps, frac=0.7]
+
+!split
+===== PCA =====
+!bblock Rotation of the coordinate system
+!eblock
+
+FIGURE:  [../figures/maxvar-ide.eps, frac=0.8]
+
+
+
+
+
+!split
+===== PCA =====
+!bblock Scores are new coordinates
+Scores are the coordinates of objects in the _new_ coordinate system
+!eblock
+
+FIGURE:  [../figures/PCA3dto2d.eps, frac=0.8]
+
+
+!split
+===== PCA loading =====
+!bblock Loading and direction
+The loadings are the weights needed to define the _direction_ of
+the latent variable axis in the original space
+!eblock
+
+The loading weights $p_j$ are the coefficients in the linear
+  combination of the original variables:
+
+
+!bblock 
+!bt
+\begin{displaymath}
+t_i = p_1 x_1 + p_2 x_2 + \cdots  + p_M x_M
+\end{displaymath}
+!et
+!eblock
+
+!split
+===== Model description =====
+!bblock The PCA model
+!bt
+\begin{displaymath}
+\textbf{X} = \textbf{TP}^T + \textbf{E}
+\end{displaymath}
+!et
+!eblock
+
+where 
+!bblock
+* _X_ is the data matrix
+* _T_ is the scores matrix
+* _P_ is the loadings matrix
+* _E_ is the residual matrix
+!eblock
+
+PCA is an example of a _bilinear model_ where a matrix _Z_
+is written as a product of two others:
+
+_Z_ = _AB_
+
+
+!split
+===== Data = Model + Noise =====
+
+!bblock
+FIGURE: [../figures/PCA-model1.eps, frac=0.9]
+!eblock
+
+!split 
+===== PCA sorting =====
+The PC's are sorted according to variance
+
+o The new latent variables are _sorted with repspect to how much variance they explain_.
+ This means the first component explains the most, followed by no.2 etc.
+o Only the $A < A_{max}$ components are actually used
+o The remaining last $K$ components are related to noise (or are zero).
+
+The contribution by each PC can be seen from the _residual variance plot_
+
+
+!split
+===== Residual variance plot =====
+FIGURE: [../figures/residualvarplot.eps, frac=0.9]
+
+
+
+

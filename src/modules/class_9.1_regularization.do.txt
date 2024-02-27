@@ -146,7 +146,9 @@ Log\_Loss = -[y \ log(f(x)) + (1-y) log(1-f(x))]
 !split
 ===== Coding MSE =====
 !bblock
-@@@CODE ../code/mse_scaling_3.py
+Remove the comment line from the previous slide and compare the three methods.
+for Assignment 3
+### @@@CODE ../code/mse_scaling_3.py
 !eblock
 
 
@@ -174,14 +176,12 @@ i.e. we *penalise* the model.
 
 !bt
 \[
-L1\_loss = MSE + \lambda \sum_{i=1}^m b_i^2
+L1\_loss\_regularized = MSE + \lambda \sum_{i=1}^m |b_i|
 \]
-
 
 \[
-L2\_loss = MSE + \lambda \sum_{i=1}^m |b_i|
+L2\_loss\_regularized = MSE + \lambda \sum_{i=1}^m b_i^2
 \]
-
 
 \[
 Elastic \ Net = MSE + \lambda_1 \sum_{i=1}^m |b_i| + \lambda_2 \sum_{i=1}^m b_i^2

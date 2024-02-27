@@ -1,4 +1,4 @@
-TITLE: Fundaments of Machine learning for and with engineering applications: \\ Regularization \\ Unsupervised classification  
+TITLE: Fundaments of Machine learning for and with engineering applications: \\ Regularization \\ Unsupervised classification \\ PCA  
 AUTHOR: Reidar B. Bratvold, Enrico Riccardi {copyright|CC BY} Email:enrico.riccardi@uis.no at Department of Energy Resources, University of Stavanger (UiS)
 DATE: today
 
@@ -6,7 +6,6 @@ FIGURE: [../figures/logo, width=100 frac=0.2]
 
 # #include "../modules/class_9.1_regularization.do.txt"
 # #include "../modules/class_9.2_unsupervised_classification.do.txt"
-
-
+# #include "../modules/class_9.3.pca.do.txt"
 
 
