@@ -186,9 +186,14 @@ _Z_ = _AB_
 
 !split
 ===== Data = Model + Noise =====
-
 !bblock
 FIGURE: [../figures/PCA-model1.eps, frac=0.9]
+!eblock
+
+!split
+===== PCA Model =====
+!bblock
+FIGURE: [../figures/PCA-model2.eps, frac=0.9]
 !eblock
 
 !split 
