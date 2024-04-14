@@ -22,15 +22,14 @@ filename=`echo class-$dofile-$class | sed 's/\.do\.txt//'`
 # LaTeX Beamer
 preprocess -DFORMAT=pdflatex ../newcommands.p.tex > newcommands_keep.tex
 doconce format pdflatex $filename --latex_title_layout=beamer --latex_table_format=footnotesize --latex_admon_title_no_period --latex_code_style=pyg --no_ampersand_quote 
-doconce slides_beamer $filename --beamer_slide_theme=red_shadow
+doconce slides_beamer $filename --beamer_slide_theme=blue_shadow
+pdflatex -shell-escape $filename
 pdflatex -shell-escape $filename
 mv ${filename}.pdf ${filename}-beamer.pdf
 
 # Handouts
-doconce format pdflatex tmp_preprocess__$filename --latex_title_layout=beamer --latex_table_format=footnotesize --latex_admon_title_no_period --latex_code_style=pyg --no_ampersand_quote 
-doconce slides_beamer tmp_preprocess__$filename --beamer_slide_theme=red_shadow --handout
-pdflatex -shell-escape tmp_preprocess__$filename.tex
-pdfjam tmp_preprocess__${filename}.pdf --no-landscape --frame true --nup 2x3 --suffix 6up
-mv tmp_preprocess__${filename}-6up.pdf ${filename}-6up.pdf
-rm tmp* 
+doconce format pdflatex $filename --latex_title_layout=beamer --latex_table_format=footnotesize --latex_admon_title_no_period --latex_code_style=pyg --no_ampersand_quote 
+doconce slides_beamer $filename --beamer_slide_theme=blue_shadow --handout
+pdflatex -shell-escape $filename
+pdfjam ${filename}.pdf --no-landscape --frame true --nup 2x3 --suffix 6up
 ./clean.sh

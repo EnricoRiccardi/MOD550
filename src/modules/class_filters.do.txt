@@ -1,0 +1,221 @@
+!split
+======= Filtering =======
+!bblock Convolution
+Convolution involves a window function that changes another function
+by *sliding* over it and performing local multiplications and
+additions. Depending on the shape of the convolution function we can
+perform
+
+
+* Smoothings
+* Deformations
+* Differentiations
+!eblock
+
+!split
+===== Convolution =====
+FIGURE: [../figures/convolution, fract=1.1]
+
+!split
+===== Convolution =====
+In general we can write the convolution between a function $f$ and a
+convolving (deforming) function $h$ as:
+
+!bblock 
+\begin{displaymath}
+g(t) = \sum_{m = -\infty}^{\infty} f(m) h(m-t)
+\end{displaymath}
+!eblock
+
+\pause
+
+Often we use a more compact notation:
+
+!bblock 
+\begin{displaymath}
+g(t) = f(t) * h(t) = h(t)*f(t)
+\end{displaymath}
+!eblock 
+
+where $*$ is the convolution operator
+
+
+!split
+===== Convolution function =====
+FIGURE: [../figures/d1_0_5_0]
+
+
+!split
+===== Peak broadening =====
+FIGURE: [../figures/d1_10_5_7_3p1, fract=0.7]
+
+
+!split
+===== Convolution operator properties =====
+
+The convolution operator follows the distributive rule:
+
+!bt
+\begin{displaymath}
+f_1(t) * \left [ f_2(t) + f_3(t)  \right ] = f_1(t) * f_2(t) +  f_1(t)*f_3(t)
+\end{displaymath}
+!et
+
+\pause
+
+It also follows the associative rule regarding order:
+
+!bt
+\begin{displaymath}
+f_1(t) * \left [ f_2(t) * f_3(t)  \right ] = \left [ f_1(t) * f_2(t)\right ] *f_3(t)
+\end{displaymath}
+!et
+
+!split
+===== Convolution operator properties =====
+
+!bblock Repeated convolutions
+
+  Take any function $g(t)$ and convolve it with any function $f(t)$
+  multiple times:
+!eblock
+
+!bt
+\begin{eqnarray*}
+a_1(t) &=& g(t)*f(t)\\
+a_2(t) &=& g(t)*a_1(t)\\
+a_3(t) &=& g(t)*a_2(t)\\
+\vdots \\
+a_n(t) &\rightarrow& \mbox{gaussian}(t)\\
+\end{eqnarray*}
+!et
+
+i.e. the result with always converge to a Gaussian function
+
+
+!split
+===== Convolution properties =====
+
+Any signal convolved with itself repeated many times will converge to
+a Gaussian function:
+
+!bt
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=7.0cm]{../figures/d1_10_5_7_1p2.eps}
+\end{figure}
+!et
+
+!split
+===== Mean Smooth operator =====
+
+This is a very simple method which works as follows:
+
+* Assume data vector *x* which contains $n$ data points
+* Start with the $k$ first points, i.e. $[x_{1},x_{2},\cdots
+  ,x_{k}]$ and compute mean $u_1$ of these $k$ points
+* Take the next $k$ points, $[x_{k+1},x_{k+2},\cdots ,x_{2k}]$ and
+  compute the mean $u_2$  of these $k$ points
+* Continue with this process until the data vector *x* is
+  exhausted of points
+
+\pause 
+There are two effects of this preprocessing:
+
+* The new data vector *u* is of length approximately
+  $1/k$'th of compared to the original
+* Each element $u_j$ has less noise due the cancelling effects of
+  computing the mean
+
+
+!split
+===== Mean Smooth operator =====
+!bt
+\begin{center}
+\includegraphics[width=9.0cm]{../figures/smoother-expl-1.eps}
+\end{center}
+!et
+
+!split
+===== Running Average Smooth operator =====
+
+
+Let $f$ be the original data profile and $g$ the smooth version of
+this profile. Then we have:
+
+!bt
+\begin{displaymath}
+g(i) = \sum_{j=-m}^{m} \frac{f(i+j)}{2m+1}
+\end{displaymath}
+!et
+
+where $m$ is the number of points in the window
+
+!split
+===== Running Average Smooth operator =====
+This is similar to the mean smoother but moves in shorter steps than
+the whole window length
+FIGURE: [../figures/smoother-expl-2]
+
+
+!split
+===== Convolution or Moving average? =====
+
+If we have a window with 3 points ($m=1$) and we want to calculate the new
+value of point no. 5 in the original profile:
+
+!bt
+\begin{displaymath}
+g(5) = [ 0 \cdot f(3) + 1 \cdot f(4) +1 \cdot f(5) +1 \cdot f(6) + 0 \cdot f(7) ] \cdot \frac{1}{3}
+\end{displaymath}
+!et
+
+!bt
+\begin{displaymath}
+g(5) = \frac{1}{3} [0~~1~~1~~1~~0] \cdot [f(3)~~f(4)~~f(5)~~f(6)~~f(7)]^{T}
+\end{displaymath}
+!et
+
+!split
+===== Convolution or Moving average? =====
+
+A moving average IS the convolution between
+the vector $\textbf{f}$ and a vector of ones (times a constant),
+i.e. :
+
+!bt
+\begin{displaymath}
+\mbox{moving average} = \textbf{f} * \textbf{h} =
+\textbf{f}*\frac{1}{n}[1~~1 \cdots 1~~1]
+\end{displaymath}
+!et
+
+!split
+===== Moving average =====
+FIGURE: [../figures/d1_1_0_0p1]
+
+!split
+===== Moving average problems =====
+
+* Broadening of peaks
+* *Spike-noise* affects the smoothed profile
+
+\pause 
+
+A better alternative:
+
+Use the median instead of the mean, then we don't have the problems
+with *spike-noise*. However, this filter is not linear
+
+!split
+===== Running average example =====
+FIGURE: [../figures/d1_1_0_0p2]
+
+!split
+===== Running mediam =====
+FIGURE: [../figures/smoother-expl-3]
+
+!split
+===== Polynomial smoothing =====
+FIGURE: [../figures/smoother-expl-4]
+
