@@ -111,7 +111,7 @@ FIGURE: [../figures/digits, frac=1]
 
 
 !split
-===== Wak supervised learning  =====
+===== Weak supervised learning  =====
 A less popular type of machine learning problem is when labels are assigned to groups of instances.
 
 The group of instances is called _bag_.
