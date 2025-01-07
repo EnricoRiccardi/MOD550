@@ -4,8 +4,8 @@ DATE: today
 
 FIGURE: [../figures/logo, width=100 frac=0.2]
 
-# #include "../modules/intro.do.txt"
-# #include "../modules/class_1.do.txt"
+# #include "../modules/class_0_intro.do.txt"
+#### #include "../modules/class_1.do.txt"
 
 
 
