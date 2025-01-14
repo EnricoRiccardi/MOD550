@@ -3,11 +3,11 @@
 
 ===== Variables and Features, Labels and Instances =====
 !bblock Population
-Exaustive, finite list of properties of interest over area of interest. 
+Exhaustive, finite list of properties of interest over area of interest.
 !eblock
 Generally the entire population is not accessible
 
-\pause 
+\pause
 
 !bblock Samples/experiments/instances
 The set of values and location that have been measured.
@@ -19,7 +19,7 @@ How many experiments are needed?
 !bblock Features
 The values to be measured for each sample/experiment/instance.
 !eblock
-How many features are needed? 
+How many features are needed?
 
 
 !split
@@ -34,26 +34,26 @@ Response = output variables
 Deviation from ...  exact value (or expected value, mean value, trend...?)
 !eblock
 
-Errors without definitions are just number. 
+Errors without definitions are just numbers.
 
 
 \pause
 
 !bblock Predictor and Response Features
-Given a model $Y=f(X_1, ..., X_M) + e$ 
+Given a model $Y=f(X_1, ..., X_M) + e$
 !eblock
 !Here and error! But is it even an error?
 
 !split
 ===== Descriptive and Predictive statistics =====
-\pause 
+\pause
 !bblock Estimation
-* Process of obtaining the best value or range of a propery in an unsampled location
-* Local accuracy takes precendence over global spatial variabiltiy
-* Not appropiate for forecasting 
+* Process of obtaining the best value or range of a property in an unsampled location
+* Local accuracy takes precedence over global spatial variability
+* Not appropriate for forecasting
 !eblock
 
-\pause 
+\pause
 !bblock Inference
 * Predict unseen samples given assumptions about the population
 * Test with a pre-trained model (ML definition)
@@ -64,32 +64,32 @@ Given a model $Y=f(X_1, ..., X_M) + e$
 !split
 ======= Simulations =======
 Process of obtaining one or more values of a property
-* Improved Global accuracy 
+* Improved Global accuracy
 * Better property distributions
 
-\pause 
+\pause
 
 !bblock Why simulations then?
 * We need to capture the full distribution of properties, extremes matter!
 * We need more realistic models.
 !eblock
 
-\pause 
+\pause
 !bblock Why not?
 * High dimensionality level
 * Computationally expensive
 * Convergence limitations
-* Costitutive equations need to be rather accurate.
+* Constitutive equations need to be rather accurate.
 !eblock
 
 
 !split
-===== Uncertainity Modeling =====
-_Given a model_, Generate multiple simulation to represent uncertainity
+===== Uncertainty Modeling =====
+_Given a model_, Generate multiple simulation to represent uncertainty
 * Realizations: for the same input parameters, different random numbers.
 * Scenarios: different input parameters.
 
-=== Sampling rapresentative ===
+=== Sampling representative ===
 
 !bblock Random sampling
 Each item of the population has an equal chance of being chosen.
@@ -102,7 +102,7 @@ Each item of the population has an equal chance of being chosen.
 \pause
 
 !bblock Bias sampling
-Selection of data is (arbitrarely) distorted
+Selection of data is (arbitrarily) distorted
 * Sample probability bias has to be corrected for
 * Might not capture the global picture
 * It might distort the system under study -> false results
@@ -112,14 +112,14 @@ Selection of data is (arbitrarely) distorted
 !split
 ===== Cognitive biases =====
 
-* anchoring: The first bits are overconsidered
+* anchoring: The first bits are over-considered
 * availability: over-estimating the importance of info
 * bandwagon: P increases with the number of people holding a belief
 * blind spot: not seen biases
 * choice supporting: commitment/decision dependent
 * clustering illusion: seeing patterns in random events
 * confirmation bias
-* concervatism bias
+* conservatism bias
 * Recency bias
 * Supervision bias
 * Many many more!
@@ -130,32 +130,32 @@ Selection of data is (arbitrarely) distorted
 
 !split
 ===== Data dimensionality =====
-!bblock 1 D 
+!bblock 1 D
 logs
 !eblock
 
-\pause 
+\pause
 
 !bblock 2 D: maps
 Quite limited but great for visualization
 !eblock
 
-\pause 
+\pause
 
-!bblock 3 D 
-3d maps, sysmic cubes. More informative mostly ok in digital formats.
+!bblock 3 D
+3d maps, seismic cubes. More informative, mostly ok in digital formats.
 !eblock
 
 
-\pause 
+\pause
 
-!bblock 4 D 
+!bblock 4 D
 Trajectories
 !eblock
 
-\pause 
+\pause
 
-!bblock x D 
+!bblock x D
 Data realm
 !eblock
 
@@ -166,9 +166,9 @@ Data realm
 
 * Categorical / Nominal (classes)
 * Categorical / Ordinal
-* Continous / Interval (e.g. Celcius)
-* Continous / Ratio
-* Discrete: binned/groupped data
+* Continuous / Interval (e.g. Celsius)
+* Continuous / Ratio
+* Discrete: binned/grouped data
 * Hard data: direct measurements
 * Soft data: indirect measurements, very uncertain
 * Primary data: variable(s) of interest
@@ -178,13 +178,13 @@ Data realm
 
 
 !split
-======= Uncertainity and Probability =======
+======= Uncertainty and Probability =======
 Probability: there is not science more worthy in out contemplations nor a more useful one for admission to our system of public education
 
 The theory of probabilities is at the bottom of nothing but common sense reduced to calculus.
 
 
-\pause 
+\pause
 
 === Clarity test ===
 
@@ -194,18 +194,20 @@ Rain in Stavanger?
 
 
 !split
-===== Uncertainity =====
+===== Uncertainty =====
 * Def 1: Not knowing if an event is true or false. (Useful)
 * Def 2: Things that cannot be measured. (Not useful)
 
-\pause 
+\pause
 
-Probability is how Uncertainity is quantified!
+Probability is how Uncertainty is quantified!
 * Clarity test
-* Assign a number between 0 and 1 to our degree of belief 
+* Assign a number between 0 and 1 to our degree of belief
 * Error definition
 
-\pause 
+\pause
 !bblock Sentence also good for fortune cookies
-Uncertainity is the only certainity
+Uncertainty is the only certainty
 !eblock
+
+

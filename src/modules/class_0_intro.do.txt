@@ -1,7 +1,7 @@
-!split
+ !split
 ======= Personal Intro =======
 
-!split 
+!split
 ===== Let me first introduce US =====
 !bslidecell 00
 Enrico Riccardi
@@ -36,7 +36,7 @@ FIGURE: [../figures/remus_gabriel_hanea, frac=0.22]
 
 
 
-!split 
+!split
 ===== Let me first introduce myself =====
 !bslidecell 00
 Enrico Riccardi
@@ -75,7 +75,7 @@ Understanding of
 * multivariate data analysis
 * machine learning techniques application
 * ensemble methods
-* Byes approach
+* Bayes approach
 * visualization and reporting
 
 !split
@@ -85,30 +85,30 @@ _!Active Learning!_
 !bpop
 * There will be a combination of lectures and tutorials.
 
-* Tutorial and hands-on will be presented during the course. 
+* Tutorial and hands-on will be presented during the course.
 
 * Study groups are strongly encouraged.
 
-* In class discussions are encouraged at any stage. 
+* In class discussions are encouraged at any stage.
 
-* Flip classroom apprach: problem first (when possible).
+* Flip classroom approach: problem first (when possible).
 
 * Feedback expected from you!
 
-* Note: each teachers, even if coordinated, will have a different approach/expectations. 
+* Note: each teacher, even if coordinated, will have a different approach/expectations.
 !epop
 
 
 !split
 ===== Python =====
-The tutorials and hands on will be mostly based on python.
+The tutorials and hands-on will be mostly based on python.
 
 !bpop
-* An introduction to python will be provided during the course. Yet, this is not a Python programming course! 
+* An introduction to python will be provided during the course. Yet, this is not a Python programming course!
 
 * You are _strogly advised_ to construct your own Git repository (and to keep it in order).
 
-* Group projects will have different roles. 
+* Group projects will have different roles.
 !epop
 
 \pause
@@ -117,16 +117,16 @@ For the next 3 weeks, you are welcome to join BIO510, where I will be providing 
 !split
 ===== A personal considerations on generative AI =====
 !bblock
-With great power comes great responsability (Spider-Man)
+With great power comes great responsibility (Spider-Man)
 !eblock
 
 LLMs can and shall be used. As their development is surging in the last years, their help
-in writing code and reports is undeniable. Studends shall learn how to master these tools. 
-Yet, while their usage is encouraged, the risk of excessevily rely on them _DO_ hinder learning.
+in writing code and reports is undeniable. Students shall learn how to master these tools.
+Yet, while their usage is encouraged, the risk of excessively rely on them _DO_ hinder learning.
 
-\pause 
+\pause
 
-If you want to be a student (i.e. whom is learning), you are encouraged to take the responsability in delivering original
+If you want to be a student (i.e. whom is learning), you are encouraged to take the responsibility in delivering original
 output.
 
 
@@ -134,21 +134,21 @@ output.
 ======= Intro to MOD550 =======
 
 
-!split 
+!split
 ===== Why are we here? Why this course? =====
 * Decisions are the hinge. What influences your decisions has value.
 
 !bpop
 !bblock
 * Better results come from better decisions. \\
-    color{blue}{*STATISTICAL argument*}
+	color{blue}{*STATISTICAL argument*}
 
-* Machine learning can be useful color{red}{ONLY} when it helps taking better decisions.
+* Machine learning can be a useful color{red}{ONLY} when it helps making better decisions.
 !eblock
 !epop
 
 !split
-===== Decions, decisions, decisions... =====
+===== Decisions, decisions, decisions... =====
 
 !bblock Life lesson?!
 Life is a sum of all your choices (Albert Camus)
@@ -161,7 +161,7 @@ Life is a sum of all your choices (Albert Camus)
 !bslidecell 00
 The only way you can purposefully influence your life, your family, your
 organization, your country or your world is through color{red}{the decisions you make}.
-!eslidecell 
+!eslidecell
 
 !bslidecell 01
 FIGURE: [../figures/decisions, width=200 frac=0.8]
@@ -169,8 +169,11 @@ FIGURE: [../figures/decisions, width=200 frac=0.8]
 
 !epop
 
+ 
+
+
 !split
-===== Uncertainity is fed to decions =====
+===== Uncertainty is fed to decisions =====
 
 !bpop
 
@@ -178,8 +181,8 @@ FIGURE: [../figures/Decisionquality, width=200 frac=0.3]
 
 \vspace{-1em}
 
-* In this course we will learn to use data and models (ML) to make better decisions. 
-* Each application will be a mere exercise of the concepts we will here introduce.
+* In this course we will learn to use data and models (ML) to make better decisions.
+* Each application will be a mere exercise of the concepts we will introduce here.
 
 \vspace{-1em}
 
@@ -191,33 +194,33 @@ FIGURE: [../figures/Decisionquality, width=200 frac=0.3]
 
 
 !split
-===== Uncertainity =====
+===== Uncertainty =====
 It is present in every stage of life (at each decision).
 
-You woud thus need to:
+You would thus need to:
 !bpop
-o Rationalize uncertainity (qualify)
-o Quantify uncertainity
-o Make decisions under uncertainity
-o Operate under uncertainity
+o Rationalize uncertainty (qualify)
+o Quantify uncertainty
+o Make decisions under uncertainty
+o Operate under uncertainty
 
 !epop
 
 !split
-===== Uncertainity or Probability? =====
+===== Uncertainty or Probability? =====
 
-Our aim here is to provide a good guidance how to link data, models and output to value creation.
+Our aim here is to provide good guidance on how to link data, models and output to value creation.
 
 !bpop
-* First we need to understand uncertainity and probability, and the difference between the two.
+* First we need to understand uncertainty and probability, and the difference between the two.
 
 !bblock
-* Spoiler: Probability is the language of uncertainity!
+* Spoiler: Probability is the language of uncertainty!
 !eblock
 
 \vspace{1em}
 
-* We will analyse, quantify and structure models as a function of uncertainity.
+* We will analyse, quantify and structure models as a function of uncertainty.
 
 * Clarity of language in probability is one of the hallmarks of decision analysis
 !epop
@@ -233,7 +236,7 @@ Our aim here is to provide a good guidance how to link data, models and output t
 * Are there such things as good data and bad data?
 
 !bblock Life lesson (or exam question, same thing ;) )
-* Data color{red}{ DO NOT always} have value.
+* Data color{red}{ DO NOT always} have value.
 !eblock
 
 \vspace{1em}
@@ -249,14 +252,14 @@ Statistics is collecting, organizing, and interpreting data
 !bpop
 
 Spatial and temporal statistics is a branch of applied statistics that
-emphasizes 
-o the context of the data, 
+emphasizes
+o the context of the data,
 o the spatial and time dependent relationship between data
 o the different relative value and precision of the data.
 !epop
 
 
-!split 
+!split
 ===== Quantifying uncertainty =====
 !bblock
 On the data sources side
@@ -274,7 +277,7 @@ On the data sources side
 !split
 ======= Modeling  =======
 
-!split 
+!split
 ===== Quantifying uncertainty =====
 !bblock
 On the modelling side
@@ -294,7 +297,7 @@ On the modelling side
 !bpop
 
 * Weather modeling: from aviation to agriculture
-* Maintenance forecasting 
+* Maintenance forecasting
 * Commodity, currency, stock and financial markets
 * Market analysis
 * Risk analysis
@@ -312,7 +315,7 @@ present (what is the present...?)
 
 !bpop
 !bblock Last life lesson for today
-Models are always wrong, but some are userful. (George Box)
+Models are always wrong, but some are useful. (George Box)
 !eblock
 !epop
 
@@ -335,7 +338,7 @@ o Machine learning
 
 * Hard modeling is preferable in laboratory experiments, where all the variables are controlled and the physicochemical nature of the dynamic model is known and can be fully described using a known mathematical model.
 
-* Hard modeling, if successful, usually gives better understanding of a system and better extrapolations. Wrong assumptions often leads to non-sense results.
+* Hard modeling, if successful, usually gives better understanding of a system and better extrapolations. Wrong assumptions often lead to non-sense results.
 !epop
 
 !split
@@ -384,7 +387,7 @@ After understanding the general problem to be solved we need to:
 !bslidecell 00
 !bblock Requirements
 !eblock
-!eslidecell 
+!eslidecell
 
 !bslidecell 10
 !bblock
@@ -393,18 +396,18 @@ Deterministic:
 * physics and expert knowledge
 * integration of various information sources
 * very complicated
-!eslidecell 
+!eslidecell
 
 !bslidecell 11
 !bblock
 Statistical:
 !eblock
 * quick
-* uncertainity assessment
+* uncertainty assessment
 * data driven approach
-* phisics can be included
+* physics can be included
 * stochastic modeling
-!eslidecell 
+!eslidecell
 
 !split
 ===== Hard models vs Soft models =====
@@ -412,7 +415,7 @@ Statistical:
 !bslidecell 00
 !bblock Behaviour
 !eblock
-!eslidecell 
+!eslidecell
 
 !bslidecell 10
 !bblock
@@ -420,16 +423,16 @@ Deterministic:
 !eblock
 * predictable
 * defined error
-!eslidecell 
+!eslidecell
 
 !bslidecell 11
-!bblock 
+!bblock
 Statistical:
 !eblock
-* outcome uncertainity
+* outcome uncertainty
 * undefined error
 * sampling resolution issues
-!eslidecell 
+!eslidecell
 
 
 !split
@@ -444,6 +447,10 @@ It is a branch of statistical analysis and model that uses spatial and time depe
 
 * Spatial and time related data come at a different range of scales
 Frequency of data collection can be dependent of time and space,
-resulting into different rappresentativity of a sample.
+resulting in different representativity of a sample.
 !epop
+
+                                              
+
+
 
