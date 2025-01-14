@@ -1,0 +1,86 @@
+!split
+======= Neural Network -NN-  =======
+One of the most famous models in Machine Learning is _Neural Network_.
+
+The name comes from how the brain functions: a set of connected neurons that are either off or active.
+
+\pause
+
+In its essence,
+!bblock
+NN is a large set of linear regressions executed both in parallel and in series.
+!eblock
+
+
+===== Neural Network -NN-  =====
+Conventional NN are composed by:
+
+!bpop
+o Input layer
+o Hidden layers
+o Output layers
+!epop
+
+which, together, can approximately approximate any function in any dimension.
+
+
+!split
+===== deep Neural Network =====
+
+FIGURE: [../figures/deep-neural-network, frac=1]
+
+!split
+===== NN Architecture =====
+
+FIGURE: [../figures/NN_a1, frac=1]
+
+!split
+===== NN Architecture =====
+
+FIGURE: [../figures/NN_a2, frac=0.8]
+
+!split
+===== NN Architecture =====
+
+
+Neural net suffers from overfitting problems.
+
+\pause
+!bblock Even more parameters
+The number of nodes, the architecture, the number of hidden layer etc are NN \alert{hyperparameters}
+!eblock
+
+
+Unfortunately, at the current status of knowledge, the best architecture can be found only by trial and error.
+
+
+\pause
+
+The best fitting NN usually have a poor validation (generalizability).
+
+!bblock
+NN is a very expensive approach and it should be used only if really needed.
+!eblock
+
+
+!split
+===== NN types =====
+
+There are many tipes of NN:
+!bpop
+* ANN (artificial NN), just another name for NN
+* DNN (deep) deep neural network
+* RNN (recurrent NN) for audio
+* CNN (convolutional NN) for images
+* Autoencoder (for PCA) to compress to a latent space and decompress data
+* Deep autoencoder (for interpretability)
+* Physics informed NN (to merge NN to differential equations)
+* ... and more ...
+!epop
+
+tensorflow, pytorch and keras are the most popular and popular libraries for NN.
+
+
+
+
+

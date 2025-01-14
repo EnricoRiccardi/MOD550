@@ -1,3 +1,6 @@
+!split
+======= Personal Intro =======
+
 !split 
 ===== Let me first introduce US =====
 !bslidecell 00
@@ -62,51 +65,73 @@ FIGURE: [../figures/torino, width=200 frac=1.0]
 !bblock
 Understanding of
 !eblock
-!bpop
+
+\pause
+
 * data sources and consequent data properties.
 * data analysis/machine learning approaches outcomes.
 * sensitivity analysis
 * predictive modeling
 * multivariate data analysis
 * machine learning techniques application
+* ensemble methods
+* Byes approach
 * visualization and reporting
-!epop
 
 !split
 ===== Teaching method =====
 _!Active Learning!_
 
-There will be a combination of (old school) lectures.
+!bpop
+* There will be a combination of lectures and tutorials.
 
-Tutorial and hands-on will be presented during the course. 
+* Tutorial and hands-on will be presented during the course. 
 
-Study groups are strongly encouraged.
+* Study groups are strongly encouraged.
 
-Discussions are encouraged at any stage. 
+* In class discussions are encouraged at any stage. 
+
+* Flip classroom apprach: problem first (when possible).
+
+* Feedback expected from you!
+
+* Note: each teachers, even if coordinated, will have a different approach/expectations. 
+!epop
 
 
 !split
 ===== Python =====
 The tutorials and hands on will be mostly based on python.
 
-An introduction to python will be provided during the course. Yet, this is not a Python programming course! 
+!bpop
+* An introduction to python will be provided during the course. Yet, this is not a Python programming course! 
 
-Git repository
+* You are _strogly advised_ to construct your own Git repository (and to keep it in order).
 
+* Group projects will have different roles. 
+!epop
 
+\pause
+For the next 3 weeks, you are welcome to join BIO510, where I will be providing an intro to Python.
 
 !split
-===== A personal consideration on generative AI =====
+===== A personal considerations on generative AI =====
 !bblock
 With great power comes great responsability (Spider-Man)
 !eblock
 
 LLMs can and shall be used. As their development is surging in the last years, their help
 in writing code and reports is undeniable. Studends shall learn how to master these tools. 
-Yet, while their usage is encouraged, the risk of excessevily rely on them could hinder learning.
+Yet, while their usage is encouraged, the risk of excessevily rely on them _DO_ hinder learning.
 
-Students, if they want to be students (i.e. learn), are encouraged to take the responsability to deliver original
+\pause 
+
+If you want to be a student (i.e. whom is learning), you are encouraged to take the responsability in delivering original
 output.
+
+
+!split
+======= Intro to MOD550 =======
 
 
 !split 
@@ -231,6 +256,52 @@ o the different relative value and precision of the data.
 !epop
 
 
+!split 
+===== Quantifying uncertainty =====
+!bblock
+On the data sources side
+!eblock
+* Confidence intervals
+!bpop
+* Relevance
+* Significance
+* Correlation
+* Causation
+* Data Filters
+* Biases identification
+!epop
+
+!split
+======= Modeling  =======
+
+!split 
+===== Quantifying uncertainty =====
+!bblock
+On the modelling side
+!eblock
+!bpop
+* Regression
+* Principal components
+* Decision tree (random forests)
+* Neural network
+* Clustering
+* Performance metrics
+!epop
+
+!split
+===== Fields of application =====
+* Spatial estimation of energy and mineral resources
+!bpop
+
+* Weather modeling: from aviation to agriculture
+* Maintenance forecasting 
+* Commodity, currency, stock and financial markets
+* Market analysis
+* Risk analysis
+* ... and much much more!
+!epop
+
+
 !split
 ===== Hard and soft modeling =====
 
@@ -308,6 +379,58 @@ After understanding the general problem to be solved we need to:
 * Perform _data analysis_ with chosen method(s).
 * Link predictions with expectations.
 
+!split
+===== Hard models vs Soft models =====
+!bslidecell 00
+!bblock Requirements
+!eblock
+!eslidecell 
+
+!bslidecell 10
+!bblock
+Deterministic:
+!eblock
+* physics and expert knowledge
+* integration of various information sources
+* very complicated
+!eslidecell 
+
+!bslidecell 11
+!bblock
+Statistical:
+!eblock
+* quick
+* uncertainity assessment
+* data driven approach
+* phisics can be included
+* stochastic modeling
+!eslidecell 
+
+!split
+===== Hard models vs Soft models =====
+
+!bslidecell 00
+!bblock Behaviour
+!eblock
+!eslidecell 
+
+!bslidecell 10
+!bblock
+Deterministic:
+!eblock
+* predictable
+* defined error
+!eslidecell 
+
+!bslidecell 11
+!bblock 
+Statistical:
+!eblock
+* outcome uncertainity
+* undefined error
+* sampling resolution issues
+!eslidecell 
+
 
 !split
 ===== Spatial and Temporal Modeling =====
@@ -322,48 +445,5 @@ It is a branch of statistical analysis and model that uses spatial and time depe
 * Spatial and time related data come at a different range of scales
 Frequency of data collection can be dependent of time and space,
 resulting into different rappresentativity of a sample.
-!epop
-
-
-!split 
-===== Quantifying uncertainty =====
-!bblock
-On the data sources side
-!eblock
-* Confidence intervals
-!bpop
-* Relevance
-* Significance
-* Correlation
-* Causation
-* Data Filters
-* Biases identification
-!epop
-
-!split 
-===== Quantifying uncertainty =====
-!bblock
-On the modelling side
-!eblock
-!bpop
-* Regression
-* Principal components
-* Decision tree (random forests)
-* Neural network
-* Clustering
-* Performance metrics
-!epop
-
-!split
-===== Fields of application =====
-* Spatial estimation of energy and mineral resources
-!bpop
-
-* Weather modeling: from aviation to agriculture
-* Maintenance forecasting 
-* Commodity, currency, stock and financial markets
-* Market analysis
-* Risk analysis
-* ... and much much more!
 !epop
 

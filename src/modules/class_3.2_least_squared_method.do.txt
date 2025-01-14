@@ -1,0 +1,662 @@
+!split
+======= Linear Regression =======
+
+!split
+===== A _linear model_ =====
+
+Considering a univariate case, we have:
+!bpop
+!bt
+\begin{displaymath}
+q = f(x)
+\end{displaymath}
+!et
+
+which relates the _independent variable_ $x$ to the _true dependent variable_ $q$.
+!epop
+
+\vspace{1em}
+
+!bpop
+
+!bblock
+_Assuming_ a linear model
+!eblock
+
+!bt
+\begin{displaymath}
+q = \beta_0 + \beta_1 x
+\end{displaymath}
+!et
+
+where $\beta_i$ are the arbitrary selected coefficients.
+!epop
+
+
+!split
+===== Model set-up =====
+
+For a given $x$ we do not
+know the true response $q$, only the measurementa $y_i$ for
+experiment $i$. 
+
+!bpop
+We have that:
+
+!bt
+\begin{displaymath}
+y_i = q_i + \epsilon_i
+\end{displaymath}
+!et
+
+!epop
+
+!bblock
+NOTE: do not proceed if you do not fully understand this equation.
+!eblock
+
+!bpop
+
+which is
+!bt
+\begin{displaymath}
+y_i =  \beta_0 + \beta_1 x_i + \epsilon_i
+\end{displaymath}
+!et
+
+!epop
+!bpop
+
+!bblock Discussion point
+Does $\epsilon_i$ matter? And why so?
+!eblock
+
+!epop
+
+
+!split
+===== Estimated model paramters =====
+The model parameters $\beta_0,\beta_1$ are unknown, but they can be
+_estimated_. To distinguish estimates from true model parameters
+we call them $b_0,b_1$. These estimates are calculated such that the
+model
+
+!bt
+\begin{displaymath}
+\hat{y} = b_0 + b_1 x
+\end{displaymath}
+!et
+
+fits the $n$ different experimental observations as well as
+possible. 
+
+
+!split
+===== Linear model example =====
+
+\vspace{1em}
+
+We would like to find the TRUTH (What it it?)
+
+\vspace{-1em}
+
+FIGURE: [../figures/d1_3_1, frac=0.8]
+
+!split
+===== Python Example =====
+
+!bblock
+
+@@@CODE ../code/linear_data_truth.py 
+
+!eblock
+
+
+!split
+===== Linear model(s) =====
+Does a linear model mean only straight lines (or hyperplanes
+in general)?
+
+!bpop
+
+That answer to this is *no*. 
+#As we shall see, polynomial regressionis still linear. 
+#_Non-linear_ regression models means something
+different.  
+In general for a model $f$ to be defined linear, it has to be
+linear with respect to the unknown parameters
+$\beta_0,\cdots, \beta_n$. The general linear model is
+
+!epop
+
+!bpop
+!bt
+\begin{displaymath}
+q = \beta_0 + \beta_{1} f_1(x_1) + \beta_{2} f_2(x_2) + \cdots + \beta_{n}f_n(x_n)
+%q = \beta_0 + \beta_1 x_1 + \cdots + \beta_n x_n = \beta_0 + \sum_{i=1}^{n} \beta_i x_i
+\label{general-linear}
+\end{displaymath}
+!et
+
+where $f_i(x_i)$ may be non-linear functions. It is the
+_form_ of the equation which makes it linear, i.e. that
+$f_i(x_i)$ does not depend on the parameters $\beta_i$.
+
+!epop
+
+
+
+!split
+===== Linear model(s) =====
+Consider the following model example - is it linear?
+
+!bpop
+!bt
+\begin{displaymath}
+q = \beta_0 + \beta_1 x_1^2 + \beta_2 x_2^{-1} + \beta_3 \mbox{log} x_3
+\end{displaymath}
+!et
+!epop
+
+!bpop
+The answer is *yes* because by simple substitution it is possible to
+convert this formula into a linear form. 
+
+With $h_1 =x_1^2$, $h_2 = x_2^{-1}$ and $h_3 = \mbox{log} x_3$, then we can
+formulate the new model:
+!epop
+
+!bpop
+!bt
+\begin{displaymath}
+q = \beta_0 + \beta_1 h_1 + \beta_2 h_2 + \beta_3h_3
+\end{displaymath}
+!et
+
+which is in the standard linear form.
+!epop
+
+
+!split
+===== Curvilinear models =====
+ A special class of linear models which we will investigate later are
+ those which are expressed in terms of *polynomials* (here in only
+ 1D):
+
+!bpop
+!bt
+\begin{displaymath}
+q = \beta_0 + \beta_1 x + \beta_2 x^2 + \cdots + \beta_m x^m = \sum_{i=0}^{n}\beta_i x^i
+\end{displaymath}
+!et
+!epop
+
+!bpop
+For n-D case there are a wide range of interaction terms and
+combinations, that can still be converted to standard
+linear form.
+
+Such models are sometimes referred to as _curvilinear_ instead of
+non-linear
+!epop
+
+
+
+!split
+===== Nonlinear models =====
+But there are many other models that cannot be substituted to such a
+form. For instance:
+
+!bpop
+!bt
+\begin{displaymath}
+q = \beta_0 + \mbox{log}(x - \beta_1)
+\end{displaymath}
+!et
+!epop
+!bpop
+!bblock
+No substitution can transform this equation to the linear form.
+!eblock
+!epop
+
+!bpop
+That is the case for all the model that:
+!bt
+\begin{displaymath}
+q \sim f(x, \beta)
+\end{displaymath}
+!et
+
+Another example is:
+!bt
+\begin{displaymath}
+f(x, \beta) = \frac{x \beta}{x+\beta}
+\end{displaymath}
+!et
+!epop
+
+!split
+===== Estimation of linear regression parameters =====
+
+For the 1-dimensional problem, we have
+!bpop
+!bt
+\begin{displaymath}
+\hat{y} = b_0 + b_1 x
+\end{displaymath}
+!et
+!epop
+
+!bpop
+where $\hat{y}$ is the estimated y-value from the approximate model
+that has been generated from a set of measurements $(x_i,y_i)$. 
+We aim to find the $b_i$ parameters such that the regression line fits 
+the observed data as well as possible. 
+!epop
+
+!bpop
+This means we want to minimise the residuals
+
+!bt
+\begin{displaymath}
+e_i = y_i - \hat{y}_i
+\end{displaymath}
+!et
+!epop
+
+
+!split
+===== Estimation of linear regression parameters =====
+
+!bpop
+* Cannot sum $e_i$ values since they might be positive and
+  negative and thus cancel
+* Could use e.g. $\sum_{i=1}^{n}|e_i|$, but is mathematically more
+  difficult to handle
+* Residual``smallness'' measured by $\sum_{i=1}^{n}e_i^2$.
+!epop
+!bpop
+
+Thus, we find the linear regression coefficients by *minimising*
+
+!bt
+\begin{displaymath}
+R = \sum_{i=1}^{n} e^2_i =  \sum_{i=1}^{n}(y_i -  \hat{y}_i)^2
+\end{displaymath}
+!et
+!epop
+
+!bpop
+!bblock How?
+Regression!
+!eblock
+
+!epop
+
+
+!split
+===== Let's recaps =====
+Before to continue, let's make sure to have all the main elements clear:
+
+!bpop
+o Splitting the data in dependent and independent variables
+o Assumption of a linear model between them
+o Recognise the difference between the truth and the estimation
+o Aiming to *minimize* the residuals 
+!epop
+!bpop
+
+!bblock Discussion
+What happen when the sun of residual is 0 ?
+!eblock
+!epop
+
+!bpop
+!bblock
+What happens where the data is heavily correlated? 
+!eblock
+!epop
+
+
+!split 
+===== Regression =====
+To minimize the sum of the square residuals, we can try to solve the following
+equations:
+!bpop
+!bt
+\begin{eqnarray*}
+\frac{\partial R}{\partial b_0} &=& 0\\
+\frac{\partial R}{\partial b_1} &=& 0\\
+\end{eqnarray*}
+!et
+!epop
+
+where:
+!bpop
+!bt
+
+\begin{eqnarray*}
+R = \sum_{i=1}^{n}(y_i -  \hat{y}_i)^2  &=& \\ \nonumber
+   \sum_{i=1}^{n}\left(y_i - (b_0 + b_1 x_i)\right)^2 = \sum_{i=1}^{n} u_i^2
+%\sum_{i=1}^{n}(y_i - 2b_0 y_i - 2b_1 x_i y_i + 2b_0b_1 x_i + b_0^2 + b_1^2 x_i^2) 
+\end{eqnarray*}
+!et
+!epop
+
+
+!split
+===== Regression =====
+Skipping the math (but you are more than welcome to try), here are the results:
+
+!bpop
+!bt
+\begin{eqnarray*}
+b_0  &=&  \bar{y} - b_1\bar{x}\\
+b_1 &=& \frac{\sum_{i=1}^{n}(x_i -  \bar{x})(y_i -  \bar{y})}{\sum_{i=1}^{n}(x_i -  \bar{x})^2}
+\end{eqnarray*}
+!et
+!epop
+
+!bpop
+!bt
+Straightforward derivation becomes very cumbersome for multiple
+variables. Thus, a different approach must be used.
+Yet, it is important to understand that there is an analytical solution (even if not all the time).
+!et
+!epop
+
+
+!split
+===== Many variable equation =====
+
+!bslidecell 00
+The general equation would look like:
+
+!bpop
+!bt
+\begin{displaymath}
+\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \cdots +   b_n x_n = \sum_{j=0}^{m} x_{ij} b_j
+\end{displaymath}
+!et
+!epop
+
+!bpop
+where we will have to solve all the $n+1$ equations (called the
+_normal equations_) of the form:
+!epop
+
+!bpop
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial b_j} = 0 ~~\forall j \in [0,n]
+\end{displaymath}
+!et
+!epop
+
+!bpop
+!bblock Is there a way for us to simplify this?
+We can use vector and matrix algebra.
+!eblock
+!epop
+
+!eslidecell 
+
+
+
+!split
+===== Regression via Matrix operation =====
+
+Remember that 
+!bt
+\begin{displaymath}
+R = \sum_{i=1}^{N}(y_i-\hat{y}_i)^2
+\end{displaymath}
+!et
+!bpop
+
+then we can define the vector _e_:
+
+!bt
+\begin{displaymath}
+\bm{e} = \bm{y} - \hat{\bm{y}}
+\end{displaymath}
+!et
+
+thus 
+
+!bt
+\begin{displaymath}
+\bm{e}^T = [(y_1 - \hat{y}_1) ~(y_2 - \hat{y}_2) \cdots ~(y_N - \hat{y}_N)]
+\end{displaymath}
+!et
+!epop
+
+
+!bpop
+and can then write
+
+!bt
+\begin{displaymath}
+R = \bm{e}^T\bm{e}
+\end{displaymath}
+!et
+!epop
+
+
+!split
+===== Regression via Matrix operation =====
+!bslidecell 00
+
+Remember that 
+!bt
+\begin{displaymath}
+R = \sum_{i=1}^{N}(y_i-\hat{y}_i)^2
+\end{displaymath}
+!et
+then we can
+define the vector _e_:
+
+!bt
+\begin{displaymath}
+\bm{e} = \bm{y} - \hat{\bm{y}}
+\end{displaymath}
+!et
+
+thus
+
+!bt
+\begin{multline*}
+\bm{e}^T = [(y_1 - \hat{y}_1) ~(y_2 - \hat{y}_2) \\
+\cdots ~(y_N - \hat{y}_N)]
+\end{multline*}
+!et
+
+and can then write
+
+!bt
+\begin{displaymath}
+R = \bm{e}^T\bm{e}
+\end{displaymath}
+!et
+!eslidecell
+
+
+!bpop
+!bslidecell 01
+
+From the following equation:
+
+!bt
+\begin{displaymath}
+\hat{y}_i = b_0 + \sum_{j=1}^{m} x_{ij} b_{j} = \sum_{j=0}^{m} x_{ij} b_j
+\end{displaymath}
+where $x_{i0}=1$
+!et
+
+we make the matrix equation:
+
+!bt
+\begin{displaymath}
+\hat{\bm{y}} = \bm{X}\bm{b}
+\end{displaymath}
+!et
+
+!bblock
+where the first column in _X_ consists of ones only.
+!eblock
+
+!eslidecell
+!epop
+
+
+!split
+===== Residual =====
+!bslidecell 00
+
+!bt
+\begin{eqnarray*}
+R &=& \bm{e}^T\bm{e}\\ 
+&=& (\bm{y} - \hat{\bm{y}})^T(\bm{y} - \hat{\bm{y}})\\
+&=& (\bm{y} - \bm{X}\bm{b})^{T}(\bm{y} - \bm{X}\bm{b}) \\
+&=& (\bm{y}^{T} - \bm{b}^{T}\bm{X}^{T})(\bm{y} - \bm{X}\bm{b}) \\
+&=& \bm{y}^{T}\bm{y} - \bm{y}^{T}\bm{X}\bm{b} - \bm{b}^{T}\bm{X}^{T}\bm{y} \\
+&+& \bm{b}^{T}\bm{X}^{T}\bm{X}\bm{b}
+\end{eqnarray*}
+!et
+
+!eslidecell
+!bslidecell 01
+All the parts of this equation are scalar values. This means e.g. that
+
+!bt
+\begin{displaymath}
+\bm{y}^{T}\bm{X}\bm{b} = \bm{b}^{T}\bm{X}^{T}\bm{y}
+\end{displaymath}
+!et
+
+This gives
+
+!bt
+\begin{displaymath}
+R= \bm{y}^{T}\bm{y} - 2 \bm{y}^{T}\bm{X}\bm{b} + \bm{b}^{T}\bm{X}^{T}\bm{X}\bm{b}
+\end{displaymath}
+!et
+!eslidecell
+
+
+
+
+!split
+===== Residual =====
+
+But how can we now compute $\frac{\partial R}{\partial b_j}$ more
+ efficiently in matrix form?
+
+  _Vector differentiation_ !  Let
+
+!bt
+\begin{displaymath}
+ y = \bm{a}^T \bm{x} = a_1x_1 + \cdots + a_nx_n
+\end{displaymath}
+!et
+
+If
+!bt
+\begin{displaymath}
+\frac{\partial y}{\partial \bm{x}} = \left[ \begin{matrix}  \frac{\partial y}{\partial x_1} \cr
+                  \frac{\partial y}{\partial x_2}\cr
+                  \vdots \cr
+  \frac{\partial y}{\partial x_n}\cr \end{matrix}
+                \right] = \left[ \begin{matrix}  a_1 \cr
+                                          \vdots \cr
+                a_n\cr \end{matrix}
+                \right] = \bm{a}
+\end{displaymath}
+!et
+
+and $y = \bm{x}^T \bm{a}$, then:
+!bt
+\begin{displaymath}
+\frac{\partial y}{\partial \bm{x}} = \bm{a}
+\end{displaymath}
+!et
+
+
+!split 
+===== General solution =====
+
+In general, when $y = \bm{x}^{T}\bm{A}\bm{x}$, then
+
+!bt
+\begin{displaymath}
+\frac{\partial y}{\partial \bm{x}} = 2 \bm{A}\bm{x}
+\end{displaymath}
+!et
+
+if _A_ is symmetric \\
+(check \textit{Matrix calculus} for more properties)
+
+We can use this to compute
+
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial \bm{b}}
+\end{displaymath}
+!et
+
+!split 
+===== General solution =====
+We have from above:
+
+!bt
+\begin{eqnarray*}
+R &=& \bm{y}^{T}\bm{y} - 2\bm{y}^{T}\bm{X}\bm{b} \\
+            &+& \bm{b}^{T}\bm{X}^{T}\bm{X}\bm{b}
+\end{eqnarray*}
+!et
+Vector differentiation gives
+
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial \bm{b}} =  0 - 2 \bm{X}^{T}\bm{y} + 2\bm{X}^{T}\bm{X}\bm{b} =0
+\end{displaymath}
+!et
+
+Solving this for $\bm{b}$ we get:
+
+!bt
+\begin{eqnarray*}
+\bm{X}^{T}\bm{X}\bm{b} &=& \bm{X}^{T}\bm{y} \\
+(\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{X}\bm{b} &=&(\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{y}\\
+\bm{b} &=&(\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{y}
+\end{eqnarray*}
+!et
+
+
+!split
+===== Multiple linear regression =====
+
+Previous equation make the solution of MLR rather obvious!
+
+When we have a matrix of y-variables _Y_:
+
+!bt
+\begin{displaymath}
+\bm{B} =  (\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{Y}
+\end{displaymath}
+!et
+
+!bpop
+in the equation:
+
+!bt
+\begin{displaymath}
+\bm{Y} = \bm{X} \bm{B}.
+\end{displaymath}
+!et
+
+These equations give us the _multiple linear regression_ (MLR)
+solution.
+!epop
+

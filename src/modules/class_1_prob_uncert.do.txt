@@ -1,165 +1,211 @@
 !split
-===== Hard models vs Soft models =====
-Deterministic and Statistrical modeling:
-deterministic: predictable
-Statistical model: system process that has an uncertainity
-Combinations: sparsely samples, heterogeneous, complex.
-
-Deterministic: 
-* physics and expert knowledge
-* integration of various information sources
-* very complicated
-
-Statistical models:
-* quick
-* uncertainity assessment
-* data driven approach
-* phisics can be included
-* stochastic modeling
-
-!split
 ======= Data concepts, Data types and Models =======
-- Statistic
-- Probability
 
 ===== Variables and Features, Labels and Instances =====
-Total porosity: all pores
-Effective porosity: all connected pores
+!bblock Population
+Exaustive, finite list of properties of interest over area of interest. 
+!eblock
+Generally the entire population is not accessible
 
-Population: exaustive, finite list of properties of interest over area of interest. Generally the entire population is not accessible
-* E
-Sample: the set of values, location that have been measured.
-* Porosity data
+\pause 
 
-Predictor and Response Feature
-Given a model Y(f(X1, ..., XM) + e
+!bblock Samples/experiments/instances
+The set of values and location that have been measured.
+!eblock
+How many experiments are needed?
 
-Predictors, = input variables, X1, ..., XM
+\pause
+
+!bblock Features
+The values to be measured for each sample/experiment/instance.
+!eblock
+How many features are needed? 
+
+
+!split
+===== Variables and Features, Labels and Instances =====
+
+Predictors = input variables, $X_1$, ..., $X_M$
 
 Response = output variables
+ 
+\pause
+!bblock Error
+Deviation from ...  exact value (or expected value, mean value, trend...?)
+!eblock
+
+Errors without definitions are just number. 
 
 
+\pause
 
-Predictive statistics
-* predict the  samples given assumptions about the population
-* where to drill the next well?
+!bblock Predictor and Response Features
+Given a model $Y=f(X_1, ..., X_M) + e$ 
+!eblock
+!Here and error! But is it even an error?
 
-Descriptive versus inferentail Process
-tretment group vs control group: statistical test to detemine if a difference is statistical significant
-
-=== Estimation ===
-* Process of obtaining the single best value of a propery in an unsampled location
+!split
+===== Descriptive and Predictive statistics =====
+\pause 
+!bblock Estimation
+* Process of obtaining the best value or range of a propery in an unsampled location
 * Local accuracy takes precendence over global spatial variabiltiy
-* Not appropiate for forecasting (too smoth)
+* Not appropiate for forecasting 
+!eblock
 
-=== Simulation ===
-Process of obtaining one or more values of a propery at an unsampled location
-* Glocal accuracy
-* Better property discritubitions
+\pause 
+!bblock Inference
+* Predict unseen samples given assumptions about the population
+* Test with a pre-trained model (ML definition)
+* Generality versus Accuracy
+!eblock
 
-Why simulations then?
-* We need to capture the full distributgion of properties, extremes matter!
+
+!split
+======= Simulations =======
+Process of obtaining one or more values of a property
+* Improved Global accuracy 
+* Better property distributions
+
+\pause 
+
+!bblock Why simulations then?
+* We need to capture the full distribution of properties, extremes matter!
 * We need more realistic models.
+!eblock
+
+\pause 
+!bblock Why not?
+* High dimensionality level
+* Computationally expensive
+* Convergence limitations
+* Costitutive equations need to be rather accurate.
+!eblock
 
 
-=== Uncertainity Modeling ===
-Generate multiple simulation models to represent uncertainity:
+!split
+===== Uncertainity Modeling =====
+_Given a model_, Generate multiple simulation to represent uncertainity
 * Realizations: for the same input parameters, different random numbers.
 * Scenarios: different input parameters.
 
-=== Examples ===
-whatever -> transfer function to make a decision (dimensionality reduction)
-* Ask questions before! The data are thereafter collected.
-* The other way around might lead to highly correlated data.
-
 === Sampling rapresentative ===
-Random sampling: when each item of the population has an equal chance of being chosen.
+
+!bblock Random sampling
+Each item of the population has an equal chance of being chosen.
+
 * Very expensive
 * Mostly not interesting
 * Gives some global properties
+!eblock
 
-=== Prediction or inference? ===
+\pause
 
-Regular sampling: regular intervals
-* less reliable
-* resonance problems!
-
-Data Collection:
-* Random sampling
-* Regular sampling
-* How can we use sampling bias to improve the data?
-* Biases have to be corrected thereafter!
-
-* Preselection bias / survivor bias
-(shut down plane)
-* we know the outcomes only of the survivors
-* cognitive bias
+!bblock Bias sampling
+Selection of data is (arbitrarely) distorted
+* Sample probability bias has to be corrected for
+* Might not capture the global picture
+* It might distort the system under study -> false results
+!eblock
 
 
-=== Cognitive biases ===
-* Anchoring: The first bits are overconsidered
-* Availability: over-estimating the importance of info
-* Bandwagon: P increases with the number of people holding a belief
-* Blind spot: not seen biases
+!split
+===== Cognitive biases =====
+
+* anchoring: The first bits are overconsidered
+* availability: over-estimating the importance of info
+* bandwagon: P increases with the number of people holding a belief
+* blind spot: not seen biases
 * choice supporting: commitment/decision dependent
-* Clustering illusion: seeing patterns in random events
+* clustering illusion: seeing patterns in random events
 * confirmation bias
 * concervatism bias
 * Recency bias
 * Supervision bias
 * Many many more!
 
-Bias DO NOT cancel out! They sum up.
+!bblock Bias DO NOT cancel out! They sum up (or multiply?)
+!eblock
 
-=== Data dimensionality ===
-1 D 
-well log
-2 D 
-maps
-3 D
-Sysmic
 
-=== Types of data ===
+!split
+===== Data dimensionality =====
+!bblock 1 D 
+logs
+!eblock
+
+\pause 
+
+!bblock 2 D: maps
+Quite limited but great for visualization
+!eblock
+
+\pause 
+
+!bblock 3 D 
+3d maps, sysmic cubes. More informative mostly ok in digital formats.
+!eblock
+
+
+\pause 
+
+!bblock 4 D 
+Trajectories
+!eblock
+
+\pause 
+
+!bblock x D 
+Data realm
+!eblock
+
+
+!split
+===== Types of data =====
+\pause
+
 * Categorical / Nominal (classes)
-* Categorical / Orginal 
+* Categorical / Ordinal
 * Continous / Interval (e.g. Celcius)
 * Continous / Ratio
 * Discrete: binned/groupped data
-
-Categorial -> ordinal or nominal scale
-Continous Data -> Interval scale, ratio scale
-
 * Hard data: direct measurements
 * Soft data: indirect measurements, very uncertain
-* Primary data: variable of interest
+* Primary data: variable(s) of interest
 * Secondary data: descriptors
+* Collective variables
+* Latent variables
 
 
-=== Coverage ===
-What proportion of the population has data available?
+!split
+======= Uncertainity and Probability =======
+Probability: there is not science more worthy in out contemplations nor a more useful one for admission to our system of public education
 
-e.g. seismic data:
-Acustic impedence, cross section
-Soft data
+The theory of probabilities is at the bottom of nothing but common sense reduced to calculus.
 
 
-===== Uncertainity and Probability =====
-Probability: there is not sceince more worthy in out contemplations nor a more useful one for admission to our system of public education
-
-The theory of probabilities is at the bottom nothing but common sense reduced to calculus.
-
+\pause 
 
 === Clarity test ===
-Beer drinker? Rain in Stavanger?
+
+Beer drinker?
+
+Rain in Stavanger?
 
 
-=== Uncertainity ===
+!split
+===== Uncertainity =====
 * Def 1: Not knowing if an event is true or false. (Useful)
 * Def 2: Things that cannot be measured. (Not useful)
+
+\pause 
 
 Probability is how Uncertainity is quantified!
 * Clarity test
 * Assign a number between 0 and 1 to our degree of belief 
+* Error definition
 
-* Uncertainity is the only certainity
- 
+\pause 
+!bblock Sentence also good for fortune cookies
+Uncertainity is the only certainity
+!eblock

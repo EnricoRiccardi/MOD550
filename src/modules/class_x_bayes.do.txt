@@ -1,0 +1,272 @@
+!split
+===== Probability is how Uncertainity is Quantified =====
+
+** Un-ambigous statement (Clarity test)
+**
+
+!split
+===== Mathematically =====
+Axioms:
+** Non negative number
+P > 0
+** Unit measure, probabiliuty of the entire sample space $\omega$ is one (unity) 
+Prob($\omega$) = 1 
+
+** Additivity of mutually exclusive events (Independent)
+
+
+!split
+===== 3 main defintions =====
+
+** Long term probability: Frequentist
+Probability is a ratio of outcome
+Requires repeated observation on an experiment
+
+** Physical tendencies: objective probabilities
+Knpwledge about the system
+COuld know the P of an experiment without actually executing it
+
+** Degrees of belief: bayesian probability
+Reflect our uncertainity abput a result
+Very flexible, assign provavility to anything, updating with new information when available
+
+!split
+===== Frequentist =====
+
+Measures the likelihood that an event will occour-
+
+For a random experiment
+
+P(A) = lim(n(A)/n($\omega$))
+
+more math
+
+!split
+===== Venn Diagrams ======
+Powerful visual tool to communicate probability.
+Some names
+** Samples
+** Events
+** Occurrence
+** Sample space
+** Union
+
+A U B = ${x:x\  \in \ A \ or \  x \ \in \ B}$
+** Intersection
+A int B = ${x:x \ \in \ A and \ x \ \ìn \ B}$
+
+!split
+===== Venn Diagrams =====
+Size of the region is probability
+
+example
+###FIGURE
+
+!split
+===== Probability Operators =====
+
+** Complementary
+** Mutually exclusive
+** Exaustive
+
+!split
+=====  Probability Operators =====
+FIGURE venn with 3 ensembles
+
+### Would be nice to put some python program here to make it
+
+
+!split
+===== Frequentist =====
+Example
+
+### make a non petroleum example
+Given 7 measurements 
+We would like to assert the probability ofr the following events:
+** Event A: porosity values less thant 0.15         P(A) = 3/7
+** Event B: porosity values greated than 0.2        P(B) = 1/7
+** Event C: porosity values between 0.14 and 0.17   P(C) = 3/7
+
+Union of events: AUB, BUC, AUC
+Intersection of events:
+Complementary events:
+All events: 1
+
+
+!split
+===== Properties =====
+Non-negativity, normalization
+P >0
+Complementary Events
+Closure P(Ac) 
+
+!split
+===== Properties =====
+Addition rule
+P(AUB) = P(A) + P(B) - P(AunionB)
+
+!split
+===== Example 1 =====
+Given the figures, calculate
+* P(A)
+* P(B)
+* P(A intersection B)
+* P(A union B)
+
+!split
+===== Example 2 =====
+Consider a fire-well campains with outcomes 1 or failure
+We want to identify the event where exactly one well was suceafull
+We can enumerate this as:
+A = {(0,0,0,0,1), (0,0,0,1,0),(0,0,1,0,0),(0,1,0,0,0), (1,0,0,0,0)}
+
+The probability for each element of A is p(1-p)^4, where 
+
+
+!split
+===== Conditional probability =====
+Probability of B given that A occurred
+
+P(B|A) = P(A union B)/P(A) = P(A and B)/P(A)
+
+where P(A and B) is a joint probability, P(A) is a marginal probability
+and P(B|A) is a conditional probability
+
+### Nice figure 
+
+
+!split
+===== Multivariate probabilioty =====
+** Univariate probability
+** Bivariate/multivariate probability
+
+### Nice figure from Raidar where you see on a ven diagram a conditional prob plot
+
+
+!split
+===== Margianl Conditional Joint Definitions =====
+** Marginal probability
+** Conditional probability
+** Joint probability
+
+!split
+===== Margianl Conditional Joint Definitions =====
+### nice figure
+
+P(C|B,A) = P(A intersect B intersect C)/P(A intersect B)
+P(B|A) = P(a intersect B)/P(A)
+
+P(A int B int C) = P(C|B,A)P(B|A)P(A)
+
+we land on the recursion of conditionals
+
+P(A1 int ... int An) = P(An|An-1 An-2 ...A1)
+
+!split
+===== Conditional probability =====
+Closure
+P(A|B) + P(Ac|B) = 1
+P(B|A) + P(Bc|A) = 1
+
+!split
+===== Conditional probability - example =====
+
+here two cases where P(A U B) = 0 and P(A inter B) = 0
+
+
+!split
+===== Conditional Probability - example =====
+
+assignemnt
+
+** Calculate P(A|B) - frequentist
+** Calculate P(B|A) 
+The normalization will be different
+
+### figure is needed for the example 
+
+
+### Elect a student rapresentative for an early evaluation
+### That is mandatory for all courses
+### Pick a feedback group
+
+
+!split
+===== Examples - Conditional, Marginal and Joint Probabilities =====
+Join distribution | Joint probability
+Margianl Distribution | Marginal Probability
+Conditional Distribution | Conditional Probability
+
+Calculate joint P, Marginalize, Integrate (check slides)
+### FIGURE Table of join Probabilities 
+### FIGURE 
+### Excel
+
+!split
+===== Multiplication rule =====
+P(A union B ) = P(B|A)P(A)
+
+If A and B are independent P(B|A) = P(B)
+
+p(A union B) 
+
+
+!split
+===== Multiplcation rule - example =====
+Suppouse to have a deck composed by 52 cards (no jockers)
+Four suites, each with 13 cards
+**Event A: Drawing a heart from the deck
+**Event B: Draw another heart 
+What is P(A, B)?
+
+P(heart and heart) = P(heart|heart)P(heart) =
+
+!split
+===== Multiplication rule - example =====
+A certain deseases affects 1% of the population, and there is a medical test for this desease
+The test has
+Sensitivity (True Positive Rate): the P that the test correctly identifies a sick person as positive is 95%
+Specificity (True Negative Rate): the P that the test correctly identifies a healthy person as negative is 98%
+
+### Make a plot showing True positive and True negative
+
+!split
+===== Evaluating Independence =====
+Example
+### Table here
+
+* Event $A_1$ : afternoon most productive source is F1
+* Event $A_2$ : evening most productinve source is F3
+
+Are $A_1$ and $A_2$ independent?
+is $P(A_1 int A_2) = P(A_1)P(A_2) or P(A_1|A_2) = P(A_1) and P(A_2|A_1) = ... $
+
+
+!split
+===== Bayes' Rule =====
+Product rule
+
+We know that
+
+Therefore, if we combine the two product rules and substitutes...
+
+We get BaYeS' RuLe
+
+!split
+===== Bayes' Rule =====
+Thomas Bayes (1702 - 1761), who was an Eglish minister nad (hobby) mathematician.
+
+Laplace reformulated this theorem (independently).
+$P(B|A) = P(A|B)P(B)/P(A)$
+
+
+!split
+===== Bayes's rule example =====
+gl
+
+
+
+
+
+
+ 

@@ -1,0 +1,791 @@
+!split
+===== Data properties =====
+* All starts from data: what are data-properties?
+
+!bpop
+* Are there such things as good data and bad data?
+
+!bblock Main lesson (next tatoo!)
+* Data color{red}{ DO NOT always} have value.
+!eblock
+
+\vspace{1em}
+
+* TRASH in TRASH out
+
+!epop
+
+
+
+!split
+===== MetaData properties =====
+Data without metadata are just number (i.e. if they are integers, they are only good to play lottery)
+
+Metadata can be pretty much anything. Depending on the application, we can distinguish between:
+!bpop
+o Descriptive : used for discovery and identification. It includes elements such as title, abstract, author, and keywords.
+o Structural : describe containers of data and indicates how compound objects are put together. It describes the types, versions, relationships, and other characteristics of digital materials.
+o Administrative : to help manage a resource, like resource type, permissions, and when and how it was created.
+o Reference : to indicate the information about the contents and quality of statistical data.
+o Statistical : (or process data), may describe processes that collect, process, or produce statistical data.
+o Legal : creator, copyright, licencing.
+!epop
+
+!bpop
+These characteristics are all needed when constructing data repositories.
+!epop
+
+
+
+!split
+===== MetaData for sharing and reuse =====
+* Metadata are more and more important in a digital open world.
+
+!bpop
+* Researchers and automatic algorithms would benefit to import data directly.
+
+* FAIR research is an important part of Open Science revolution (Findable, Accessible, interoperable, Reusable)
+
+* New application, business, discovberies can be thus enabled.
+
+* ChatGPT, Bard, Gemini, and all the LLMs are possible only thanks to this!
+
+!epop
+
+!bpop
+!bblock Super controversial (huge legal battles are ongoing)
+* Who would be responsible for them then?
+* What is the advantage for who releases the data?
+* Who gets the money for what?
+* Copyright for data and/or for data processing?
+!eblock
+!epop
+
+
+!split
+===== Good examples =====
+!bpop
+* "Norwegian offshore directorate": "https://www.sodir.no/en/diskos/"
+* "Norway Statistics": "https://www.sodir.no/en/diskos/"
+* "World statistics":"https://www.statista.com/statistics/1446052/worldwide-spending-on-ai-by-industry/"
+!epop
+
+
+
+!split
+===== Statistics =====
+
+!bblock Definition
+Statistics is the science of acquiring and utilizing data
+!eblock
+
+!bpop
+* It comprises tools for data collection, summarization, and interpretation.
+
+* The aim is identifying the underlying structure, trends, and relationships inherent in the data.
+
+* Is it all statistics then? Yes.
+
+* _Numbers to data, data to information_
+!epop
+
+
+
+!split
+===== Data properties =====
+Before to talk about machine learning, we need to establish some terminology.
+
+!bpop
+!bblock Population
+The universe of all possible outcomes and events,
+!eblock
+
+!bblock Sample
+A finite subset extracted from the population
+!eblock
+
+!bblock Exaustivity
+The samples coverd the population spectra.
+!eblock
+
+!bblock Representativity
+The population is properly described by the samples.
+!eblock
+!epop
+
+
+!split
+===== Big data =====
+We speak of bid data hen dataset are very large: i.e. many instances and features
+Models have thus a large set of parameters (and often no one has a clue anymore of what is going on).
+
+!bpop
+* Volume of data
+* Variety different type of data sources with different length and scale.
+* Frequency of data generation
+!epop
+
+
+!split
+===== Sampling =====
+
+Samples shall have not bias (to be randomly selected). If not, the bias have to be corrected for.
+!bpop
+!bblock Cycle of data
+o Data is collected
+o Checked upon
+o Some modelling
+o Analysis and visualization
+o AnOmLiEs and outliers detection (exclusion?)
+!eblock
+!epop
+
+!split
+===== Data expectation =====
+
+FIGURE: [../figures/data, width=600 frac=0.8]
+
+
+!split
+===== Data quality =====
+
+o Data has to be acquired and integrated
+o Data are passed to a quality analysis and control
+o Data cleaning, consistency check. Most of time goes here
+
+
+xxx missing something xxxx
+
+!split
+===== Modeling =====
+* Predictive modeling (supervised learning)
+Hunt for redundancy 
+Reduce dimensionality
+
+* Complicated is not sofisticated... Linear regression is a type os supervided learning
+
+* The model can be used to giude data acquisition (risky!)
+
+* Machine learning enters here. It improves the *old* statistical analysis
+
+
+!split
+===== Visualization and reporting =====
+* The data has to condensated into a visualization to provide input for decisions.
+* Depending on the goal, very very different visualizations are possible.
+* Use model to indicate what is undersampled or oversampled.
+
+
+!split
+===== Exploratory data analysis =====
+
+* Summarizing and visualizing data as a starting point for more analysis later on.
+
+* In relevance of this course, we will consider
+  * Univariate or multivariate data
+  * Categorical or numerical data type
+  xxx missing xxx
+
+!split 
+===== Possible applications =====
+The fields of appliation are huge in number. ALmost everywhere were numbers are used... !
+
+* long list:
+
+* Computing summary statistics (e.g. means and variance)
+* Determining conditional probabilities of cause+effect relationships
+* Calculating correlation and rank correlation coefficient between two variables
+* Visualizing univariate, bivariate and multivariate data
+* Estimating probabiøitu cpverage levels for different distributions
+* Analyzing behaviour of normal and lognormal distributions
+* Calculating condidence interval and smapling disteribution for the mean
+* Testing for significance of difference in means
+* Comparing two different distributions for sdtatistcal equivalence
+* Fitting simple and multiple linear regression models to observed data
+* Developing a nonparametric regression mdoel from fiven data
+* Reducing data dfimensionality with principat component analysis
+* Grouping data in k-means
+* xxx missing xxx
+
+!split
+===== Random Variables =====
+* A random variable is a real valued function that addigns a value to each outcome in the sample space
+* A random variable (RV) can be either discrte or continous 
+  * Discrete RV:
+  * Continous RV
+*The probability mass function (PMF),p, of a discrete RV, X, denotes the probabilityu that the RV is equal to a specified values, a.
+
+p(a) = p(X = a)
+
+* Similarlu, the comulative distribution function (CDF), F, denotes the sum 
+
+xxx missing eqs xxxx
+
+!split
+===== An example =====
+table
+
+code maybe
+
+python :P
+
+
+
+!split
+===== Sampling aim =====
+* What are the effective sampling ,methods for predict the maintenance of wind turbine blades
+(Time series?)
+
+* How to sample and analyze Solar Panels fo determine the efficiency of the source
+(Usage patterns, energy production forecast)
+
+
+!split
+===== Sampling approaches =====
+* Sampling with replacement
+  * The number of the members of the population does not change
+
+xxx missing
+* Sampling without replacement
+  
+
+!split
+===== Examples =====
+Pandas table
+
+Goal of the analysis:
+* Data intetpretation
+What the number actually mean? And how the different variables correlate?
+
+* Data quality vs data cleaning
+What are the erro sources?
+
+* Condense information (is the mean sufficient?)
+We need to remove all unneccesary data without loosing too much information.
+
+
+!split
+===== Univariate statistics =====
+* Displaying data:
+    histogram, frequency plots, comulativs
+
+* Measures of Location
+  Mean medial mode
+  * Quartiles, Percentiles, Quantiles
+
+* Measure of Dispersion (Spread)
+   MAD, standard deviation (sd), variance (Var), coefficient of variation 
+
+xxx missing
+
+!split
+===== Histograms =====
+
+Sample table
+
+Python code
+
+!split
+===== Frequency plots ad Histograms =====
+Given a set of data
+
+o Look for min and max values
+o Divide the range of values into a number of sensible class intervals (bins)
+o Count 
+o Make a frequency table (or percentage)
+o xxx missing 
+
+!split
+===== Example =====
+a table
+note: way too fast on the board
+
+plot histogram: use vanilla, pandas, matplotlib
+
+does this histogram rapresent uncertainity?
+No. It shoes variabilityi, but it can be used to quanitfy uncertainity.
+
+!split
+===== Class widths =====
+* Class widths (bin sizes) are usually CONSTANT
+  * the heoght of each bar is proportional to the number of values in it
+* If class width are VARIABLE
+  * the AREA of each bar is proportional to the number of values in it
+* For small samples, the shape of the histogram can be very sensitive to the number and fefinition of the class intervals 
+
+!split
+===== Sensitivity =====
+Plot with different bin sizes.
+This could be a fun exercise to lear python
+
+xxx exercise xxx
+
+
+!split
+===== Cumulative Histogram =====
+
+* Comulative freqquency 
+
+* Each data point can be plotted individually
+
+* It helps to read quantiles and compare distributions
+
+* Python code to get it?
+
+!split
+===== Measure of Location: Central Tendency, MEAN =====
+
+formulat
+$m_x = <x> = xbar = 1/n sum $
+
+if the data represent a random sample, each poit weighted equally by 1/n
+
+* Every element is the data set contributes to the values of the mean
+* An averaeg provides a common measure for comparing one set od data to another
+* THe mean is influenced by the extrme values in the data set
+* The mean may not be an actual element if the dataset
+* The sum of all deviation from the mean is zero, and the sum of squared deviation is minimized when those deviations are measured from the mean
+
+ 
+
+!split
+===== Mean means =====
+* Arithmetic
+  Mean of raw data
+
+* Geometric
+  $n^{th}$ root of product
+  mean of logarithms
+
+* Harmonic
+  Mean of inverses
+
+
+!split
+===== Mediam =====
+* The central value in a data set when the data points are put in ascending or descending order
+
+median =formula odd/even
+
+Average xxxmissing
+
+!split
+===== Mode =====
+* The mode is the most frequently occouring data element
+or the most likely or most probablu value (for a pmf)
+
+* A data set may have more than one mode and it thus called multimodal
+
+xxx
+
+!split
+===== Examples of different distributions =====
+
+normal, simmetrical, asimmetrical, multimodal, skewed
+Mode != Median != Mean
+
+!split
+===== Quantiles =====
+* Quartiles: As median splits data into two halves, the quartiles psli the data into quartes
+
+* Deciles
+
+* Percentiles
+- splits the data into hundreths
+
+* Quantiles
+are a generalization of splotting data into any fraction
+
+!split
+===== From CDF to Quantiles =====
+
+plot
+
+make a cdm, draw the quartiles. Quantiles are on the x. The percentiles are on the y.
+
+nice plot here
+
+!split
+===== Dispersion (Spread) =====
+* Range 
+
+R = maximum - miniimun
+
+* Inter-quantile Range
+
+IQR = Q3 - Q1
+
+* Mean Deviation from the Mean?
+
+MD = sum
+
+* Mean Absolute Deviation
+
+MAD = sum
+
+
+!split
+===== Variance and Standard Deviation =====
+Variance is the average of squared differences between the dample data points and their mean
+
+Variance  $s_x^2 = /fract{1}{n} formula
+
+Standard Deviation formula
+
+
+!split
+===== Standard deviation =====
+$sd = \sqrt{Var}$ : average squared difference from the mean
+
+Plot with 
+1 sd distance : normal distribution 1sd covers 2/3 of data
+1 sd: 68\%
+2 sd: 95\%
+3 sd: 99.7\%
+
+
+
+!split
+===== Variance of the mean =====
+xxx plots
+
+!split
+===== Effect of Sample size (random sample): Standard Error (SE) of the mean =====
+Central limit theory: the more sample I have, the more 'sure' I am
+
+SE_x
+
+!split
+===== Coefficient of Variability =====
+
+A bit out of use
+
+CV = Sx/X
+
+* A CV of greater than 1 can
+
+xxx
+
+!split
+===== Discrete and continous CDF =====
+
+* Discrete CDF
+For a discrete RV that attains values $x_1, x_2, ... $ 
+
+summation
+
+nice eqs
+nice plots
+
+* Continous CDF 
+
+integral
+
+
+!split
+===== Discrete PMF and Continous PDF =====
+
+=== Discrete PMF ===
+plots and functions 
+
+
+=== Continous PDF ===
+The PDF f(x) is a non-negative function that characterized the relative probability (frequency of occurrence) of realization values for a RV at a neighbourhood of a point
+
+eq and plots
+ 
+
+!split
+===== Empirical PMF (from data) =====
+o Sort the data points in an ascending order such taht x_1 < x_2 ...
+
+xxx
+
+!split
+===== PMFs and CDFs =====
+
+Symmetric, Right-Skewed, Left-Skewed
+
+plots
+
+!split
+===== Measure of Shape: Modality =====
+Number of Modes: unimodal, bimodal, polymodal
+
+plots
+
+!split
+===== Measure of Shape: Skewness =====
+Measure of symmetry in the distribution of the data values
+
+Sk = /fract{/fract{1}{n}/sum{n}{i=n}
+
+a bit out of fashion with ML
+xxx
+
+!split
+===== Measure of Shape: Kurtosis =====
+Measures the 'flatness'
+
+a bit out of fashion with ML
+
+
+!split
+===== Example: python on data =====
+
+pd.summary()
+
+!split
+===== Box Plots =====
+
+plot
+
+
+!split
+===== Summary =====
+* Mean
+* Variance
+* Standard deviation
+* Median
+* Mode
+* lost: the other
+
+
+!split
+======= Distributions =======
+Distributions: means of expressing uncertainity or variability
+Emp
+
+
+!split
+===== Distribution Models =====
+* Uniform: useful when only upper nad lower bounds are known
+* Triangular: useful when estimates of min, max, mode [P10, P50, P90] are available
+* Normal: symmetric model of random errors or unbiased incetainities with mean of stanrad deviation specified
+* very common for observed data
+* additive processes tend to be normal as a result of the Centrlal Limit Theorem
+* log normal comes from multiplicative unbcertainities with mean and standard deviation specified
+
+!split
+===== Central Limit Theorem ====
+
+buh
+
+!split
+===== Uniform Distribution ====
+* The uniform distribution is useful as a rough model for representing low states of knowlrdge when only the uppoer and lower bounds are known.
+* All possible valies withing the specified maximum ad minimum valuies are equally likjely (b=max, a=min):
+PDF f(x) = /fract{1}{b-a}, a=<x=<b
+CDF:
+Moments:
+Notation: X \pf U(a, b)
+
+plots
+
+!split
+===== Example =====
+Wind turbine example
+
+!split
+===== Solution =====
+
+!split
+===== Tiangular distribution =====
+* The triangular distribution can be used for modeling situations, where nonextremal (central) values are more likely than the upper and lower bounds.
+
+* Taeke min, mode and max as inputs. Typically on the vasis of subjective judgement:
+
+PDF: f(x)
+
+CDF:
+
+Moments:
+
+It can be simmetric or asimmetric
+
+
+!split
+===== Normal Distribution =====
+* The normal distribution ('bell curve' or Gaussian) for modeling unbiased uncertainities and random errors of the additive kind of symmetrical distributions of many matiural process and phenomena.
+* A commonly cited rational for assuming normal distributio is the central limit theorem, which states that the sum of indipendent ovservations asymptiticallyu approachews a normal distribution regardless of the shape of the undfelying distributsions(s=
+
+PDF: f(x)
+CDF: F(x) has no closed form solution but is often presented using the complementary erro function solution
+Æ It can also be expressed in terms of the stands normal CDF, G()
+F(x) = G{/fract{x-/mu}{7sigma} = G(z)
+
+xxx
+
+!split
+===== Probability Levels - Normal distribution =====
+
+Plot
+!split
+===== Examples of Normal Distrib ution - PDF =====
+nice plot
+
+!split
+===== Nomal Distribution =====
+* The CDF, F(x), has no closed fomr solution and is expressed in therms of the standard normal CDF, G()
+F
+ where z =
+Note that z is a dimensionless variable with zero mean and unit variance
+
+$z= /fract{}{}$
+
+with the quantile, q, being used as an approximation of the cumulative provavility, F
+
+more elegantly, that can be expressed as $ x =/mu + /sigma G^{-1}(q) = /mu + /sigma z $
+* The inverse normal CDF, or the z-score, can be calucated using:
+python scipy  nornm.ppf(z, loc=0, scale = 1)
+
+
+
+!split
+===== Exercise =====
+Given a xxx distribution, determine the 95\%
+
+
+!split
+===== Normal distribution =====
+python script
+
+!split
+===== Data transformations (?!) =====
+* Often, it is useful to transform a sample distribution into the space of an equivalen normal distribution, where many statistical operations can be exasily performed and visualized
+* THe approach involves a rank-preserving one-to-one transformation, as chematicallly.
+* Trasfonrming the data so that their distribution matches a prescribed (targe) distribution
+* SOmetimes we must thus transform the data...
+
+!split
+===== Normal Score Transformation =====
+
+o From data to comulative distribution.
+
+o From comulative distribution and map back.
+
+plot
+
+The analysis can be performed on the gaussian distribution, and then moved back to the original distribution
+
+
+!split
+===== Normal Score Transformation =====
+For any given values, xi of the origianl variable, the empirical cumulative probability of quantile q is set equal to
+
+
+!split
+===== Log - Normal distribution ====
+For a lognormal distribution, we define the standard normal variate as
+
+$ \alfa = means \ of \ ln(x) $
+$ \beta = SD \ of \ ln(x) $
+
+
+$F(x) = G { } = G(z)$
+$z = \fract{ln(x) - \alpha}{\beta}$
+
+* Graph of ln(x) versus G-1(q) should yeld straight line with 
+
+
+!split
+===== Log - Normal Distribution =====
+* Working with lognormal distributions involves 
+
+* The following relationship are useful in this context
+
+It can be done promplty with scipy
+
+!split
+===== Log - Normal Distribution =====
+formulats
+* $G(x) = G(/fract{ln(x9-/alpha}{/beta}$ 
+
+
+exercise
+
+
+!split
+===== pp and qq plots =====
+pp - probability/probability plot 
+qq- quantile/qualtile plot
+
+
+!split
+===== Probability Plots =====
+* Help compare data to postpulated distributions
+* Observations plotted (after transformation)
+*
+
+!split
+===== Comparing any two distributions =====
+plot
+
+!split
+===== Making a qq plot: =====
+o For a given quantile, read off corresponding variable values from respective variable CDFs.
+
+plots
+
+o Cross-plot the variable values
+plot 
+
+o Do same for a range of other quantiles
+plot
+
+!split
+===== Interpretation of qq plots =====
+* If points line on a stright line then the two distributions are the same
+* A systematic departire above or below the 45o line (but parallel to it) 
+
+!split
+===== Intepretation of pp plots =====
+o For a given fatum Value, read off corresponding variable percentile from respective variable CDFs.
+
+plots
+
+o Cross plot the varialbe valies
+
+o Do same for a range of other VALIES
+
+!split
+===== Example =====
+pp and qq
+
+!split
+===== Differences between qq and pp =====
+blabla
+
+!split
+===== Normal Score Transformation =====
+Transform any distribution to a normal
+
+###python script yo match quantiles
+
+!split
+===== Change data distribution =====
+Transform the data to a univariate Gaussian distribution
+Proceed with algorithms that take advantage of the properties of the Gaussian distribution (could also be a uniform distribution)
+Back transform results to original
+
+
+!split
+===== Assumption =====
+Hypothesis testing through t-test adn z-test
+ANaøusis of varianve (ANOVA)
+Sequencenmtial Gaussian simulation in spatial nalusis
+Control limits in control chart
+
+!split
+===== QUantile Transform =====
+A quantile distribution doesn't have to be rank preserving
+
+* Forwards transformation
+
+* Reverse transform
+
+!split
+===== Transform process =====
+o Each data value x_i in the dataset is assigned to a rank
+check jupyther noteook
+

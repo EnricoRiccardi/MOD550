@@ -1,0 +1,486 @@
+!split
+======= Agglomerative algorithms =======
+
+Agglomerative cluster analysis "clumps" objects together according
+to a definition of similarity or dissimilarity. The objects are merged
+progressively into larger clusters until only one cluster remains
+which consists of all the objects in the data set
+
+This can be summarised in a \alert{hierarchical cluster tree}.
+
+\pause
+ 
+FIGURE: [../figures/small_tree.eps, frac=0.7]
+
+
+!split
+===== Clumping objects =====
+One of the simpliest iterative approaches for unsupervised clustering is:
+
+n\_clusters = n\_datapoints
+
+o WHILE no. clusters $>$ 1
+o Find smallest \alert{distance} between clusters A and B
+o Merge clusters A and B
+o Define a new cluster (AB)
+o \alert{Distance} matrix between all clusters
+o ENDWHILE
+
+
+
+!split
+===== Cluster distances =====
+
+!bslidecell 00
+!bblock Cluster distances
+
+\textbf{Single linkage}
+!bt
+\begin{displaymath}
+d_{AB} = \mbox{min}(f_{i_A,j_B}), \forall i \in A,j \in B
+\end{displaymath}
+!et
+
+\textbf{Complete linkage}
+!bt
+\begin{displaymath}
+d_{AB} = \mbox{max}(f_{i_A,j_B}), \forall i \in A,j \in B
+\end{displaymath}
+!et
+
+\textbf{Group average (UPGMA)}
+!bt
+\begin{displaymath}
+d_{AB} = \frac{1}{nm} \sum_{i \in A}\sum_{j \in B} f_{i_A,j_B},
+\end{displaymath}
+\begin{displaymath}
+ \forall i \in A,j \in B
+\end{displaymath}
+!et
+
+!eblock
+
+!eslidecell 
+
+!bslidecell 01
+
+FIGURE: [../figures/linkages.eps, frac=0.8]
+
+!eslidecell 
+
+
+!split
+===== Ward's method =====
+
+Assume we have partitioned a set of objects into *K* clusters. For
+each cluster we can compute the total within-cluster error sum of
+squares:
+
+!bt
+\begin{displaymath}
+E_m = \sum_{i=1}^{n_m} \sum_{j=1}^{M} \left[ x_{ij}^{(m)} - \bar{x}_{j}^{(m)}\right]^2
+\end{displaymath}
+!et
+
+where $n_m$ is the number of objects in cluster $m$.
+$\bar{x}_{j}^{(m)}$ is the $j$'th variable for the mean vector of
+cluster $m$. $M$ is the total number of variables.
+
+!split
+===== Ward Equation =====
+
+Now we sum all these $E_m$'s for every cluster:
+
+!bt
+\begin{displaymath}
+E_{tot}^{(0)} = \sum_{m=1}^{K} E_m
+\end{displaymath}
+!et
+
+Assume we merge two clusters A and B so we are left with $K-1$
+clusters. For the new clusters we compute $E_{tot}^{(1)}$ for the
+$K-1$ clusters.
+
+
+!split
+===== The Ward criterion =====
+
+The Ward criterion for merging A and B is that we
+want the number:
+
+!bt
+\begin{displaymath}
+\phi = E_{tot}^{(1)}- E_{tot}^{(0)}
+\end{displaymath}
+!et
+
+to be as small as possible. So in order to find this number we need to
+check $\phi$ for every possible merging of two clusters. In general
+there are 
+
+!bt
+\begin{displaymath}
+\frac{K(K-1)}{2}
+\end{displaymath}
+!et
+
+number of such possible pairs of clusters. The pair A and B which gave
+the smallest number is chosen to be merged.
+
+!split
+===== Example Ward's method =====
+
+FIGURE: [../figures/wards-method.eps, frac=0.8]
+
+
+!split
+===== Example dendrogram =====
+
+FIGURE: [../figures/dendrogram1.pdf, frac=0.8 witdth=100]
+
+
+
+!split
+======= k-means cluster analysis =======
+With the raise of Machine Learning, one of the most popular approach is k-means.
+
+The algorithm consists of:
+
+o Select the number of clusters $K\leq K_{max}$ to look for
+
+o Start by creating $K$  random cluster centres $\textbf{m}_k$
+
+o For each object $\textbf{x}_j$ assign it to the cluster center it
+  is nearest to
+
+o Re-compute center points $\textbf{m}_k$ for the new clusters and
+  re-iterate towards convergence
+
+
+!bblock
+This procedure minimises the within-cluster variance
+!eblock
+
+
+!split
+===== Optimal no of clusters =====
+
+ In k-means cluster analysis we assume a _true_ number of clusters.
+
+ To estimate the optimal no. of clusters $K^*$ from data we
+ may do as follows:
+
+o Compute k means for $K \in [1,2, \cdots , K_{max}]$
+o Compute the mean \alert{within cluster variance} $W_K$ for each selection of
+  $K \in [1,K_{max}]$
+o The variances $[W_1,W_2,\cdots ,W_{max}]$ generally decrease
+  with increasing $K$. This will even be the case for an independent
+  test set such that cross-validation cannot be used.
+
+
+
+!split
+===== Optimal no of clusters =====
+
+o Intuitively, when $K < K^*$ we expect that an additional
+  cluster will lower the within cluster variance: $W_{K+1} \ll W_K$.
+o When $K > K^*$ the decrease of the variance will be less evident.
+
+!bblock Optimal $n\_clusters$
+This means there will be flattening of the $W_j$ curve. A sharp drop
+in the variance may be used to identify the optimal no. of clusters.
+!eblock
+
+!split
+===== Optimal no of clusters, example =====
+
+FIGURE: [../figures/q_CLUST_1_1p1.eps, frac=0.8]
+
+
+!split
+===== Optimal no of clusters, example =====
+
+FIGURE: [../figures/q_CLUST_1_2p1.eps, frac=0.8]
+
+Each curve is for a dataset with a different distance between clusters.
+
+
+
+!split
+======= Self Organising Feature Mapping (SOFM) =======
+
+ A technique invented by T. Kohonen in 1982. It is used for performing
+ non-linear unsupervised classification. The results are presented as
+ 2D maps where the different classes are distributed as political
+ geographical map of the Earth.  The map consists of a matrix of
+ neurons that compete for the samples.
+
+\pause 
+
+Typical application areas are:
+
+o Biological taxonomy
+o Chemistry
+o Image analysis
+o Geo-plotting 
+
+
+
+!split 
+===== SOFM algorithm =====
+
+o Initialize network by setting all weights to random numbers. However note that
+
+!bt
+\begin{displaymath}
+{\bf w}_j(0) \neq {\bf w}_k(0),  ~\forall k \neq j
+\end{displaymath}
+!et
+
+$i \in 1,2,\cdots , N$ where $N$ is the number of nodes in the lattice
+
+
+o Take one sample *x* from the training (calibration) data set
+
+o What node $i$ is most similar to _x_? We look at $\| \textbf{x}- \textbf{w}_j \|$
+for nodes $j \in [1,2,\cdots ,N]$
+
+o Adjust the connection weights:
+
+!bt
+\begin{displaymath}
+\textbf{w}_j(n+1) = \left\{ \begin{array}{ll}
+\textbf{w}_j(n) + \eta(n)(\textbf{x} - \textbf{w}_j(n))  & \forall j \in \Lambda_i(n) \\
+\textbf{w}_j(n) & \mbox{otherwise} \end{array} \right. 
+\end{displaymath}
+!et
+
+$\Lambda_i(n)$ is the neighbourhood function centered around the winning node $i$.
+Both $\eta(n)$ and $\Lambda_i(n)$ vary dynamically during learning. $\Lambda_i(n)$ 
+becomes smaller - a shrinking effect
+
+
+!split
+===== SOFM map =====
+
+FIGURE: [../figures/SOM_clusters.eps, frac=0.8]
+
+
+
+
+!split
+======= Fisher's method =======
+!bslidecell 00
+ Fisher's approach is to find a plane which minimises the 
+ _within-class variance_ and maxmimises the _between-class
+   variance_. In other words: We want to find new coordinates 
+ _canonical variates_ which produces tight clusters that are far
+ from each other. These are _latent variables_ which are best
+ suited to separate the classes.
+!eslidecell 
+!bslidecell 01
+
+FIGURE: [../figures/R_A_Fischer.eps, frac=0.8]
+
+!eslidecell 
+
+ Method called Fisher's Linear Discriminant Analysis (LDA),
+ Discriminant Function Analysis (DFA) or Canonical Discriminant
+ Analysis (CDA)
+
+
+!split 
+===== Fisher's Method =====
+o Transformation performed in  $K-1$ dimensions where
+  $K$ is the number of classes.
+o No assumptions of distributions are needed
+o New coordinates based on "importance of discrimination" and "maximum variation"
+o Hopefully objects are more separated into classes in the new
+  coordinates (scores).
+o Fisher's method can also be used as a postprocessing step,
+  i.e. analysis of results from e.g. sophisticated non-linear
+  classification methods.
+
+
+!split
+===== Fisher's method =====
+The new variables can be seen as a linear combination of the original
+variables:
+!bt
+\begin{equation}
+z_{i} = \sum_{j=1}^{M} X_{ij}r_{j} = \textbf{X}\textbf{r}
+\end{equation}
+!et
+
+where $\textbf{r}$ is the direction of the new DFA coordinate
+system. It is analogous to a principal component. What criterion
+should be used to compute $\textbf{r}$?
+
+
+!split
+===== Fisher's method =====
+ To have isolated class clusters we want two things: Good separation
+ of the mean centres and clusters with little variance (i.e. tight
+ clusters with little variance). This corresponds to maximizing the
+ between class variance and minimize the within class variance. This
+ is closely linked to analysis of variance (ANOVA). To compare
+ variance we can make use of the $F$ ratio which we want to maximise:
+
+!bt
+\begin{equation}
+  F_{max} = \underset{\textbf{r}}{\mbox{arg
+      max}}\left(\frac{\textbf{r}^{T}\textbf{B}\textbf{r}}{\textbf{r}^{T}\textbf{W}\textbf{r}}\right )
+\end{equation}
+!et
+
+
+where $\textbf{r}^{T}\textbf{B}\textbf{r}$ is the between-class
+variance and $\textbf{r}^{T}\textbf{W}\textbf{r}$ is the within-class
+variance with the constraint that $\textbf{r}_i\textbf{W}\textbf{r}_j
+= \delta_{ij}$.
+
+
+!split
+===== Fisher's method =====
+
+!bt
+ \input{../figures/within-between-variance-concept}
+!et
+
+!split
+===== Fisher's method =====
+We have that:
+
+!bt
+\begin{equation}
+\textbf{B} = \sum_{i=1}^{K}\frac{n_i}{N}\left(\overline{\textbf{x}}_i - \overline{\textbf{x}} \right)\left(\overline{\textbf{x}}_i - \overline{\textbf{x}} \right)^{T}
+\end{equation}
+!et
+
+where $\overline{\textbf{x}}_i$ is the mean vector of class $i$ objects,
+$\overline{\textbf{x}}$ is the mean vector for {\em all} objects and
+
+!bt
+\begin{equation}
+\textbf{W} = \sum_{i=1}^{K}\frac{n_i}{N} \textbf{C}_i
+\end{equation}
+!et
+
+where $\textbf{C}_i$ is the covariance matrix of class $i$.
+
+
+
+!split
+===== Fisher's method =====
+To find
+the vectors which maximise the $F$ function above we make use of _eigenvalue decomposition_.
+To do it we need generalised eigenvector decomposition:
+
+!bt
+\begin{equation}
+\textbf{BR} = \textbf{WR}\Lambda
+\end{equation}
+!et
+
+where $\textbf{R} = [\textbf{r}_1, \textbf{r}_2,\cdots
+,\textbf{r}_{K-1}]$. Multiplying with $\textbf{W}^{-1}$ on both sides
+we get:
+!bt
+\begin{equation}
+\textbf{W}^{-1}\textbf{B}\textbf{R} = \textbf{R}\Lambda.
+\end{equation}
+!et
+
+where we assume that $\textbf{W}^{-1}$ exists.
+
+
+!split
+===== Fisher's method =====
+ In many cases
+this may not be the case, in particular for problems where we
+typically have many more variables than samples. The solution
+$\textbf{R}$ of the above equation can also diagonalise $\textbf{B}$:
+
+!bt
+\begin{equation}
+\textbf{R}^{T}\textbf{B}\textbf{R} = \Lambda.
+\end{equation}
+!et
+
+Note that $\textbf{W}^{-1}\textbf{B}$ in general is not a symmetric
+matrix. We can convert it into one by performing Cholesky
+decomposition using a lower triangular matrix $\textbf{L}$ and
+assuming:
+
+!bt
+\begin{equation}
+\textbf{W} = \textbf{L}\textbf{L}^{T}.
+\end{equation}
+!et
+
+
+
+!split
+===== Fisher's method =====
+If $\textbf{W}$ is close to singular then the eigenvectors of
+$\textbf{W}^{-1}\textbf{B}$ cannot be computed properly and we need to
+handle the problem. Two popular approaches are:
+
+o Perform pseudo-inverse using SVD or PCA such that
+  $\textbf{W}^{-1}$ is replaced with $\textbf{W}^{+}$ where
+  $\textbf{W}^{+} = \textbf{V}\textbf{S}^{+}\textbf{U}^{T}$. PCA
+  can be used as a preprocessing step where the scores matrix
+  $\textbf{T}$ is used instead of the original data matrix
+  $\textbf{X}$ (see below).
+o Use of perturbation where the $\textbf{W}$ is stabilised by
+  assuming a small perturbation matrix $\textbf{G}$ to it.
+
+
+
+!split
+===== Fisher's method =====
+
+o Problem: The new coordinates $\textbf{R}$ do not perform
+  classification. Actual assignment of class memberships to new
+  objects is not performed.
+o Suggested solution: Create discriminant functions which involve
+  the $\textbf{R}$.
+o The discriminant functions become:
+
+!bt
+\begin{displaymath}
+g_i(\textbf{x}) =\mbox{ln}p(c_i) - \frac{1}{2}\overline{{\bf
+      x}}_i^{T}\textbf{R}\textbf{R}^{T}\overline{\textbf{x}}_i +
+  \textbf{x}^{T}\textbf{R}\textbf{R}^{T}\overline{\textbf{x}}_i
+\end{displaymath}
+!et
+
+!split
+===== Using PCA scores in DFA =====
+o  Very often the number of variables is much larger than the number of
+ objects so we need to find a solution.
+
+o A popular solution is to use PCA where the scores vectors
+  contained in the matrix _T_ are used instead of the original
+  data matrix _X_.
+
+o This is possible since the scores vectors are _linearly independent_ or _orthogonal_.
+
+
+!split
+===== Using PCA scores in DFA =====
+!bslidecell 00
+The optimal no. of PCA factors is determined iteratively:
+o Use $A$ no. of PCA factors and produce scores matrix _T_
+o Use _T_ in the LDA routine
+o Assess by using independent data
+o $A$ selected with lowest classification error
+!eslidecell
+
+!bslidecell 01
+
+FIGURE: [../figures/LDA_PCA-xval.eps, frac=1.0]
+
+!eslidecell
+
+

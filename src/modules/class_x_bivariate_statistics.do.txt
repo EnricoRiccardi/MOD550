@@ -1,0 +1,208 @@
+!split
+===== Correlated variables =====
+Let's make a few example of correlated variables:
+
+!bpop
+o Basketball playing skill and hight
+o Age and hair loss
+o Oil and gas production vs oil price
+o Wind and wind turbine efficiency 
+o Wind and energy production
+o Rain and energy production
+o Solar irradiance and energy production
+!epop
+
+
+!split
+===== How to approach =====
+There are a set of questions that one shall pose when relating two variables.
+
+o Statistical dependence
+Two variables have their distribution and, even if very similar, are unrelated
+o Causal dependence
+Two variables depend on each other.
+
+!bblock Discussion point
+How this relates to soft and hard modeling?
+!eblock
+
+
+!split
+===== Scatterplots =====
+Python notebook
+
+It is between one of the simplest way of graphically display their relationship (it can be 3D).
+
+
+
+!split
+===== Correlation =====
+The covariance or joint variance between two random ravirables is an extension of the concept of variance.
+
+Cov[XY]=\sigma_x_y=E[(X-\bar Z)(Y - \bar Y)] = /fract{1}{N-1}'/sum{N}{i=1}(x_i - /bar X)(y_i - \bar Y)=/fract{N}{N-1}{E[XY]-E[X]E[Y]}
+
+' Generalization of cariance
+' Consider the covariance of a variable with itself
+
+Cov [XY]
+
+Variance: always positive
+Covariance: positive or negative
+
+!split
+===== Correlation Analysis =====
+* The correlation between two random variables is a measure of the strenght of theur linear relationship
+
+* Parametric Correlation
+ Measures a linear (Pearson) dependence between two variables ($x$ and $y$) is know as paramretric correlati0on test becaise it depends
+
+xxx
+
+!split
+===== Pearson's $\ro$ Value =====
+The correlation coefficient $/rho$ between to 
+* It is closely linked to the conept of covariance:
+
+* Assumes normal distribution
+* /rho ranges betweeen -1 (per
+
+xxxx
+
+!split
+===== Correlation examples =====
+
+Strong negative, weak and Strong Positive
+-1  0  +1
+
+!split
+===== Example in python =====
+python
+
+note: the implementaion gives the covariance matrix (Cov(x, y)
+
+!split
+===== Correlation Coefficinet - Interpretation =====
+!bblock What do I do with this number
+The variation of $x$ *explains* a corr coef variation of $y$
+!eblock
+
+!bblock What does it mean explain?
+Correlation is not causation!!
+!eblock
+
+!split
+===== Regression Coefficient - interpretation =====
+Plotting two variables on a scatter plot,
+a streight line means a $/who$ = +/- 1
+
+!split
+===== Regression Coefficient - examples =====
+Python
+
+!split
+===== Regression Coefficient - limitation =====
+Anscorbe's Quartet - Four different pairs of variables
+
+- 4 distributions with the same means (7.5), standard deviation (4.12), correlation (0.81) and regression line (y=3 + 0.5x)
+
+plots
+
+!split 
+===== Spearman Rank Correlation ======
+THe Spearman correlation evaluates a mpnmptonic relationship between two variables - Continous or Ordinal and it is based on the *ranked* values for each variable rather than the raw data-
+
+Plots
+Not monotonic fails (more advanced methods for this)
+
+
+!split
+===== Spearman Rank Correlation =====
+* Rank correlation compares the ranks (ordering)
+
+
+!split
+===== Pearson vs Spearman =====
+Figures
+
+
+!split
+===== Spearman Rank Correlation =====
+* Calculated the same way as the Person correlation coefficient but using ranks instead of values
+
+missing
+
+!split
+===== Spearman Rank Correlation example =====
+
+python
+
+
+!split
+===== Kendall tau =====
+quick, not so much used
+
+
+!split
+===== Correlation does NOT indicate Causation =====
+
+Fancy slides here
+
+
+!split
+===== Graphing Bivariate Data =====
+Scatterplots between two variables is one of the most
+
+R2 coefficient of determination 
+
+
+!split
+===== Scatterplots combined with Histograms =====
+plots
+
+
+!split
+===== Uncorrelated and Independent Random Variables =====
+The two random variablex X and Y are said to be
+
+_Uncorrelate_ if : Cov(X,Y) = 0 /arrow 
+_Independent_ if : f_{XY}(x,y) = f_X(x)f_Y(y)
+
+
+!split
+===== Correlation versus Dependence =====
+* Uncorrelated Random Variables
+Random variables are uncortrelated if there is no linear relationshp between them
+Mathematically, two random variables X and Y are uncorrelated if ther covariance is zero. Cov(X,Y)=0
+
+*
+
+!split
+===== Causation Implies Dependency =====
+Statistical dependency:
+Variables are causally related myst be statistically dependent
+
+* Causal Dependency
+
+
+!split
+===== Dependency Does not Imply Causation =====
+* Correlation without Causation
+Two variables might be correlated (and hence dependent) due to a coincidence, a lurking variable, or confounding factor.
+
+* Common cause
+Two varibles might be dependent because they are both influenced by athird variable
+
+
+!split
+===== Correlation is not causation =====
+Fun pictures!
+
+!split
+===== Bivariate data visualization =====
+python notebook
+
+
+
+
+
+

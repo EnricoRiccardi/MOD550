@@ -1,0 +1,209 @@
+!split
+======= Data properties =======
+
+
+!split
+===== Data =====
+FIGURE: [../figures/data, frac=0.4]
+
+
+
+!split
+===== Representation =====
+A representation should _capture_ the nature of the subject being studied.
+
+!bpop
+Example:
+If you want to evaluate the 3D structure of a wind turbine, a set of descriptors an be:
+!epop
+!bpop
+o Blade length
+o Turbine height
+o Geographical position
+o Output power
+o Wind direction
+!epop
+
+which are two decimal numbers, a 2d tuple, a 1D time series and a 2D time series (or 3D even).
+
+
+!split
+===== Comparability =====
+Same meaning _represenations_ for different objects (inputs).
+
+
+\vspace{3em}
+!bpop
+!bblock Discussion point!
+How do we compare two wind turbines accounting for the 5 variables
+previously introduced?
+!eblock
+!epop
+
+!split
+===== Data properties =====
+
+* All starts from data: what are data-properties?
+
+!bpop
+* Are there such things as good data and bad data?
+
+!bblock Life lesson (or exam question, same thing ;) )
+* Data color{red}{ DO NOT always} have value.
+!eblock
+
+\vspace{1em}
+
+* TRASH in TRASH out
+
+!epop
+
+
+!split
+===== Sampling point representation (SPR) =====
+
+!bpop
+* An intuitive way to represent curves and spectra is the _sampling point representation_.
+
+* We sample at regular intervals where each sample point is represented by a variable
+
+FIGURE: [../figures/SPR_example, width=90 frac=0.8]
+!epop
+
+
+!split
+===== Sampling point representation (SPR) =====
+!bpop
+* SPR is useful until point *i* in a curve has the same meaning of the point *i* in another curve.
+
+FIGURE: [../figures/SPR-shift-problem, frac=0.5]
+
+* Which parts of the profiles or shapes are comparable, i.e. have the same meaning?
+!epop
+
+!split
+===== Data structures =====
+Given a representation, it is then needed to decide on a suitable _data structure_ for the problem.
+
+!bpop
+!bblock Definition
+A data structure is a way of storing
+ and organising data in a computer so that it can be used effectively.
+!eblock
+!epop
+!bpop
+
+Typical data structures used in data analysis are:
+!epop
+!bpop
+
+  * Data points
+
+  * Arrays (vectors, matrices, N-mode (way) arrays)
+
+  * Graphs (trees)
+
+  * Databases
+!epop
+
+
+
+!split
+===== Workflow =====
+Data has to be prepared with these steps in mind
+
+!bpop
+o Plan experiments: Use experimental design to set up experiments
+  in a *systematic* way
+
+o Pre-processing: Is there systematic variation in the data which should be removed  Can cross-checking/validation procedures be designed?
+
+o Examine the data: Look at data (tables and plots). Strange behaviours? Smooth behaviour? WARNING!
+
+o Define desired model outcomes (speed, accuracy, false positive/negatives rate)
+
+o Estimate and validate model: What do the results tell us?  Is
+  the generated model general (valid for future sampling)?
+
+o Apply model to unknown samples
+!epop
+
+
+
+!split
+===== Spatial and Temporal Data =====
+
+ Statistics is collecting, organising, and interpreting data
+
+\pause 
+
+Spatial and temporal statistics is a branch of applied statistics that
+emphasises:
+!bpop
+o the geo context of the data
+o the spatial and time dependent relationship between data
+o the different relative value and precision of the data.
+!epop
+
+
+!split
+===== Actual data =====
+
+The data matrix is an extremely common data structure.
+
+!bt
+\begin{displaymath}
+{\bf X}=  \left[ \begin{matrix}
+95 & 89 & 82 \cr
+23 & 76 & 44 \cr
+61 & 46 & 62 \cr
+49 & 2 & 79 \cr
+\end{matrix}\right]
+\end{displaymath}
+!et
+
+In python these can be saved as
+!bpop
+* lists (vanilla python)
+* numpy.arrays
+* pandas dataframes
+!epop
+
+!split
+===== Nomenclature =====
+
+There are different conventions.
+Commonly we will construct data matrix such that:
+
+!bpop
+* Rows are called instances, objects or samples.
+* Columns are called features, variables.
+!epop
+
+!bpop
+One can think of each row to be an experiment, and the rows its properties.
+Each row (experiment, object, sample, ...) is thus a list of values, one for property.
+!epop
+
+!bpop
+!bblock Note
+Mathematically speaking, this is just a notation. As long as one keeps track and is consistent, columns can be used as rows and vice versa.
+!eblock
+!epop
+
+
+!split
+===== A quick example =====
+Environmental measurements of rivers. The features (properties) can be:
+* pH
+* Temperature
+* Concentration of pollutants
+* Flow rate
+* water speed
+\pause
+The experiments/observations/sample can be:
+* Po
+* Danube
+* Rio delle Amazzoni
+* Sjoa
+* Atna
