@@ -1,0 +1,52 @@
+!split
+======= Git =======
+Git is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different computers). [Wiki]
+
+\pause
+!bblock Let's try to be more accessible. 
+Git is a computer program/tool to save and download files on a hosting server (e.g. GitHub and GitLab).
+!eblock
+
+!split
+===== A distributed version control system =====
+GIT
+!bpop
+* Git facilitates users to track the various versions of files. It is not a necessary tool, but it can be very very helpful. Generally, the time spent to learn its syntax is well paid off 
+(do you remember to save some file like $manuscript\_draft\_v4.02\_final\_definitive\_forreal\_lastcomments\_editedbyER\_submittedVersion\_revised\_wrongversiontokeep.doc$? Exactly! Imagine to do that for a repository of files...)   
+* It permits to save and share the intermediate stages of a work in progress (which software is complete and always up to date?) in an accessible, consistent and structured way, allowing an effective version tracking. It allows retrieval of previous working versions, limiting the risk to overwrite useful files.
+!epop
+
+!split
+===== What is git actually for =====
+
+!bblock
+The tool is particularly useful for programmers working in teams or in projects whose outcomes can be used by others.
+!eblock
+
+!bpop
+* Git helps to co-develop a code, test its functions and the compatibility of the various code sections. 
+* A long list of further possibilities became possible by git.
+* Different software integration on development platforms, based on git, will help you to develop and co-develop your code. 
+* The platform GitLab and GitHub have a large set of functionalities to further support code documentation and public releases. 
+* Files can be disclosed to the public, becoming a great integration of your CV, showing what you are able to do in an open and accessible way. 
+!epop
+
+!split
+===== Why should I care? =====
+As the open libraries are exploding in numbers, you might need some criteria to assert the reliability of a project.
+
+Unit test driven development! 
+
+That is taking full advantage of python object oriented structure.
+
+\pause 
+
+!bblock  Community
+Good project are not only used by communities, but also _supported_
+!eblock
+
+Git allows the development of projects without a clear lead.
+The community engagement is generally a desirable target to help develop to directly integrate feedbacks by users (and fix bugs).
+
+
+ 

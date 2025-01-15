@@ -9,6 +9,12 @@ It started in 1932, with the _mechanical brain_ by Georges Artsrouni that was su
 Here "a nice recaps of Generative AI": "https://www.techtarget.com/searchenterpriseai/definition/generative-AI"
 and its "storyline" : "https://cdn.ttgtmedia.com/rms/onlineimages/generative_ai_evolution.png"
 
+!split
+===== Current status =====
+
+"A valuable report":"https://hai.stanford.edu/news/ai-index-state-ai-13-charts"
+
+A foundation model, also known as large X model (LxM), is a machine learning or deep learning model that is trained on vast datasets so it can be applied across a wide range of use cases.
 
 !split
 ===== Generative AI =====

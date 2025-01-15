@@ -1,0 +1,52 @@
+
+!split
+===== Developing approaches =====
+Different code editors are available to interpret python language.
+
+!bpop
+
+* jupyter notebooks are mostly dedicated to learning (Markdown)
+
+* ipython is for interactive coding (similar to R, Matlab, etc)
+
+* python packages (.py) developing suites (debug possibilities and git integration)
+
+!epop
+
+!split
+===== Introducing code standards =====
+When developing code, there are _guidelines_ and best practices aimed at improving the
+color{red}{quality, readability, and maintainability} of a code.
+
+!bpop
+There are different levels of coding quality, mostly depending on the code intended usage (and developer skills).
+
+* Private codes can be whatever (Cpt. Obvious)
+
+* Public packages shall use a 'Golden code standards' such to be used and eventually supported by communities.
+
+!epop
+
+
+!split
+===== Golden code standard =====
+
+Principle of 'clean coding':
+
+!bpop
+o Readability and Clarity: A good code shall be possible to read as when reading a book
+o Structure and object oriented: A code shall be composed by objects, each of them connected in the less redundant way possible.
+o Consistency and Style: Variable naming, function naming and classes naming has to be consistent.
+o Documentation: Each file, each function and each class shall contain the relative description of its aim and its usage
+o Maintainability: Code dependencies have to be stated and consistently defined and updated, such that a suitable environment can be developed at any point in time.
+!epop
+
+!split
+===== Golden code standard =====
+
+!bpop
+o Testing: Unit testing shall cover the majority of the code
+o Error Handling: Each error shall be captured and properly identified.
+o Examples and benchmarks: Users shall be able to execute minimal examples of the code for computational checks.
+o Performance Optimization: Libraries shall be able to use the available computational power in the machine (e.g. GPU-CUDA)
+!epop
