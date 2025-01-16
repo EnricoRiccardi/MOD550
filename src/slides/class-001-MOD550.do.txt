@@ -7,4 +7,3 @@ FIGURE: [../figures/logo, width=100 frac=0.2]
 # #include "../modules/class_1.1_prob_uncert.do.txt"
 # #include "../modules/class_1.2_stats_ml_ai.do.txt"
 # #include "../modules/class_1.3_metadata.do.txt"
-# #include "../modules/class_1.4_data.do.txt"
