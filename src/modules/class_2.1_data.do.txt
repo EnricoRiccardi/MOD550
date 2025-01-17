@@ -12,17 +12,17 @@ FIGURE: [../figures/data, frac=0.4]
 ===== Representation =====
 A representation should _capture_ the nature of the subject being studied.
 
-!bpop
+\pause 
+
 Example:
 If you want to evaluate the 3D structure of a wind turbine, a set of descriptors an be:
-!epop
-!bpop
+\pause 
+
 o Blade length
 o Turbine height
 o Geographical position
 o Output power
 o Wind direction
-!epop
 
 which are two decimal numbers, a 2d tuple, a 1D time series and a 2D time series (or 3D even).
 
@@ -45,7 +45,6 @@ previously introduced?
 
 * All starts from data: what are data-properties?
 
-!bpop
 * Are there such things as good data and bad data?
 
 !bblock Life lesson (or exam question, same thing ;) )
@@ -56,7 +55,6 @@ previously introduced?
 
 * TRASH in TRASH out
 
-!epop
 
 
 !split
@@ -85,17 +83,13 @@ FIGURE: [../figures/SPR-shift-problem, frac=0.5]
 ===== Data structures =====
 Given a representation, it is then needed to decide on a suitable _data structure_ for the problem.
 
-!bpop
 !bblock Definition
 A data structure is a way of storing
  and organising data in a computer so that it can be used effectively.
-!eblock
-!epop
-!bpop
+
+\pause
 
 Typical data structures used in data analysis are:
-!epop
-!bpop
 
   * Data points
 
@@ -104,7 +98,6 @@ Typical data structures used in data analysis are:
   * Graphs (trees)
 
   * Databases
-!epop
 
 
 
@@ -139,11 +132,9 @@ o Apply model to unknown samples
 
 Spatial and temporal statistics is a branch of applied statistics that
 emphasises:
-!bpop
 o the geo context of the data
 o the spatial and time dependent relationship between data
 o the different relative value and precision of the data.
-!epop
 
 
 !split
@@ -162,34 +153,28 @@ The data matrix is an extremely common data structure.
 \end{displaymath}
 !et
 
+\pause 
+
 In python these can be saved as
-!bpop
 * lists (vanilla python)
 * numpy.arrays
 * pandas dataframes
-!epop
 
 !split
-===== Nomenclature =====
+===== Nomenclature Reminder =====
 
 There are different conventions.
 Commonly we will construct data matrix such that:
 
-!bpop
 * Rows are called instances, objects or samples.
 * Columns are called features, variables.
-!epop
 
-!bpop
 One can think of each row to be an experiment, and the rows its properties.
 Each row (experiment, object, sample, ...) is thus a list of values, one for property.
-!epop
 
-!bpop
 !bblock Note
 Mathematically speaking, this is just a notation. As long as one keeps track and is consistent, columns can be used as rows and vice versa.
 !eblock
-!epop
 
 
 !split
