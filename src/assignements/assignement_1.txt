@@ -1,0 +1,14 @@
+Construct a class that is able to generate a 2D dataset. 
+
+The 2d dataset can be: 2d random, noise around a FUNCTION, your truth (not a line). 
+
+Use the classes previously created to generate 2 dataset, and add them. That is, append one dataset to the other.
+
+Write a file with the data and save the plots. 
+
+You also saved the metadata, right?!?
+
+Save via git your dataset and import the datasets from someone else.
+
+Generate/integrate the metadata file of the imported data, what truth the other group used to generate the data?
+

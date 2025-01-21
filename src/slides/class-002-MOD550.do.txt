@@ -4,5 +4,10 @@ DATE: today
 
 FIGURE: [../figures/logo, width=100 frac=0.2]
 
+# #include "../modules/part-1.1.why_python.do.txt"
+
+# #include "../modules/part-1.4-code_quality.do.txt"
+# #include "../modules/part-1.3.git.do.txt"
+
 # #include "../modules/class_2.1_data.do.txt"
 # #include "../modules/class_2.2_intro_to_ml.do.txt"

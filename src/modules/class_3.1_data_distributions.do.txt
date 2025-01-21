@@ -697,12 +697,12 @@ Back transform results to original
 !split
 ===== Assumption =====
 Hypothesis testing through t-test adn z-test
-ANaøusis of varianve (ANOVA)
+Analysis of varianve (ANOVA)
 Sequencenmtial Gaussian simulation in spatial nalusis
 Control limits in control chart
 
 !split
-===== QUantile Transform =====
+===== Quantile Transform =====
 A quantile distribution doesn't have to be rank preserving
 
 * Forwards transformation

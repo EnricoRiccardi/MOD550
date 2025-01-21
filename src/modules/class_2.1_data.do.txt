@@ -86,6 +86,7 @@ Given a representation, it is then needed to decide on a suitable _data structur
 !bblock Definition
 A data structure is a way of storing
  and organising data in a computer so that it can be used effectively.
+!eblock
 
 \pause
 

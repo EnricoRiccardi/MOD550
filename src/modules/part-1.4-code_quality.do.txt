@@ -1,3 +1,7 @@
+!split
+===== Flexible =====
+FIGURE: [../figures/trade, width=100]
+
 
 !split
 ===== Developing approaches =====
@@ -29,7 +33,7 @@ There are different levels of coding quality, mostly depending on the code inten
 
 
 !split
-===== Golden code standard =====
+===== Community level standards =====
 
 Principle of 'clean coding':
 
@@ -42,7 +46,7 @@ o Maintainability: Code dependencies have to be stated and consistently defined 
 !epop
 
 !split
-===== Golden code standard =====
+===== Community level standard =====
 
 !bpop
 o Testing: Unit testing shall cover the majority of the code
@@ -50,3 +54,4 @@ o Error Handling: Each error shall be captured and properly identified.
 o Examples and benchmarks: Users shall be able to execute minimal examples of the code for computational checks.
 o Performance Optimization: Libraries shall be able to use the available computational power in the machine (e.g. GPU-CUDA)
 !epop
+
