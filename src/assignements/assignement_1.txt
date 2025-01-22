@@ -14,4 +14,5 @@ Deadline: 4 Feb
 
 7. Generate/integrate the metadata file of the imported data, what truth the other group used to generate the data?
 
+8. Select 3 github/github repository and make an assesment on the coding standards they use.
 

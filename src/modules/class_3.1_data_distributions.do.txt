@@ -1,4 +1,5 @@
-===== Statistics =====
+!split
+======= Statistics =======
 
 !bblock Definition
 Statistics is the science of acquiring and utilizing data
@@ -18,19 +19,19 @@ Statistics is the science of acquiring and utilizing data
 
 !split
 ===== Data properties =====
-Before to talk about machine learning, we need to establish some terminology.
+Before we talk about machine learning, we need to refresh some terminology.
 
 !bpop
 !bblock Population
-The universe of all possible outcomes and events,
+The universe of all possible outcomes and events.
 !eblock
 
 !bblock Sample
-A finite subset extracted from the population
+A finite subset extracted from the population.
 !eblock
 
-!bblock Exaustivity
-The samples coverd the population spectra.
+!bblock Exhaustivity
+The samples covered the population spectra.
 !eblock
 
 !bblock Representativity
@@ -41,12 +42,12 @@ The population is properly described by the samples.
 
 !split
 ===== Big data =====
-We speak of bid data hen dataset are very large: i.e. many instances and features
+We speak of big data when dataset are very large: i.e. many instances and features
 Models have thus a large set of parameters (and often no one has a clue anymore of what is going on).
 
 !bpop
 * Volume of data
-* Variety different type of data sources with different length and scale.
+* Variety different types of data sources with different length and scale.
 * Frequency of data generation
 !epop
 
@@ -54,21 +55,19 @@ Models have thus a large set of parameters (and often no one has a clue anymore 
 !split
 ===== Sampling =====
 
-Samples shall have not bias (to be randomly selected). If not, the bias have to be corrected for.
+Samples shall have no bias (to be randomly selected). If not, the bias has to be corrected for.
 !bpop
 !bblock Cycle of data
 o Data is collected
 o Checked upon
 o Some modelling
 o Analysis and visualization
-o AnOmLiEs and outliers detection (exclusion?)
 !eblock
 !epop
 
-!split
-===== Data expectation =====
+FIGURE: [../figures/circle, width=600 frac=0.33]
 
-FIGURE: [../figures/data, width=600 frac=0.8]
+ 
 
 
 !split
@@ -78,639 +77,552 @@ o Data has to be acquired and integrated
 o Data are passed to a quality analysis and control
 o Data cleaning, consistency check. Most of time goes here
 
+ 
+FIGURE: [../figures/decide, width=600 frac=0.3]
 
-xxx missing something xxxx
 
 !split
-===== Modeling =====
+===== Preliminary Modeling =====
+
+!bblock Main tasks:
+o Hunt for redundancy
+o Reduce dimensionality
+o AnOmAlIes removal
+!eblock
+
+* Descriptive modeling (unsupervised learning)
+
 * Predictive modeling (supervised learning)
-Hunt for redundancy 
-Reduce dimensionality
 
-* Complicated is not sofisticated... Linear regression is a type os supervided learning
-
-* The model can be used to giude data acquisition (risky!)
-
-* Machine learning enters here. It improves the *old* statistical analysis
-
+* The model can be used to guide data acquisition (risky!)
+ 
+ 
 
 !split
 ===== Visualization and reporting =====
-* The data has to condensated into a visualization to provide input for decisions.
+* The data has to be condensed into a visualization to provide input for decisions.
 * Depending on the goal, very very different visualizations are possible.
-* Use model to indicate what is undersampled or oversampled.
+* Use a model to indicate what is undersampled or oversampled.
 
 
-!split
-===== Exploratory data analysis =====
 
-* Summarizing and visualizing data as a starting point for more analysis later on.
-
-* In relevance of this course, we will consider
-  * Univariate or multivariate data
-  * Categorical or numerical data type
-  xxx missing xxx
-
-!split 
-===== Possible applications =====
-The fields of appliation are huge in number. ALmost everywhere were numbers are used... !
-
-* long list:
+!bblock Summarizing and visualizing data as a starting point for more analysis later on.
 
 * Computing summary statistics (e.g. means and variance)
 * Determining conditional probabilities of cause+effect relationships
 * Calculating correlation and rank correlation coefficient between two variables
 * Visualizing univariate, bivariate and multivariate data
-* Estimating probabiøitu cpverage levels for different distributions
-* Analyzing behaviour of normal and lognormal distributions
-* Calculating condidence interval and smapling disteribution for the mean
+* ...
+
+!eblock
+
+
+!split
+===== Exploratory data analysis =====
+
+!bblock Summarizing and visualizing data as a starting point for more analysis later on.
+* ...
+* Estimating probability coverage levels for different distributions
+* Analyzing behaviour of normal distributions
+* Calculating confidence interval and sampling distribution for the mean
 * Testing for significance of difference in means
-* Comparing two different distributions for sdtatistcal equivalence
-* Fitting simple and multiple linear regression models to observed data
-* Developing a nonparametric regression mdoel from fiven data
-* Reducing data dfimensionality with principat component analysis
-* Grouping data in k-means
-* xxx missing xxx
+* Comparing two different distributions for statistical equivalence
+* Developing a nonparametric regression model from given data
+* Reducing data dimensionality  
+* Grouping data   
+
+!eblock
+
 
 !split
 ===== Random Variables =====
-* A random variable is a real valued function that addigns a value to each outcome in the sample space
-* A random variable (RV) can be either discrte or continous 
-  * Discrete RV:
-  * Continous RV
-*The probability mass function (PMF),p, of a discrete RV, X, denotes the probabilityu that the RV is equal to a specified values, a.
+* A random variable is a real valued function that assigns a value to each outcome in the sample space
+* A random variable (RV) can be either discrete or continuous
+  * Discrete RV
+  * Continuous RV
 
+\pause
+
+* The probability mass function (PMF),P, of a discrete RV, X, denotes the probability that the RV is equal to a specified value, a.
 p(a) = p(X = a)
 
-* Similarlu, the comulative distribution function (CDF), F, denotes the sum 
+\pause
 
-xxx missing eqs xxxx
-
-!split
-===== An example =====
-table
-
-code maybe
-
-python :P
-
+* The cumulative distribution function (CDF), F, denotes the sum
+!bt
+$ F(a) = P(X\leq a) = \sum_{0}^{a} f(x) dx $
+!et
 
 
 !split
-===== Sampling aim =====
-* What are the effective sampling ,methods for predict the maintenance of wind turbine blades
-(Time series?)
+===== Random Variables =====
+FIGURE: [../figures/cdf, width=600 frac=1.1]
+ 
+!split
+===== Sampling =====
+* What are the effective sampling strategies? (Wind turbine example)
 
-* How to sample and analyze Solar Panels fo determine the efficiency of the source
-(Usage patterns, energy production forecast)
+* Solar Panels to determine the efficiency of the source (Usage patterns, energy production forecast)
+
+* Drilling (penetration rate)
+
+* Corrosion extension
+
+* Concrete Rigidity
+
+* etc
+
+
+
+ 
+
+!split
+===== Wind turbine example example =====
+
+FIGURE: [../figures/wind, width=600 frac=1.1]
+
+ 
 
 
 !split
 ===== Sampling approaches =====
-* Sampling with replacement
-  * The number of the members of the population does not change
 
-xxx missing
-* Sampling without replacement
-  
+!bblock Experimental design
+Grid, parallel, series.
+!eblock
+
+\pause
+
+!bblock Sampling without replacement
+ SPR (single point representation).
+!eblock
+
+
+\pause
+
+!bblock Sampling with replacement
+ The number of the members of the population does not change.
+!eblock
+
+
+
+
+
 
 !split
-===== Examples =====
-Pandas table
+======= Univariate statistics =======
+\pause
 
-Goal of the analysis:
-* Data intetpretation
-What the number actually mean? And how the different variables correlate?
+* Easy to displaying data:
+  * histogram
+  * frequency plots
+  * cumulative
 
-* Data quality vs data cleaning
-What are the erro sources?
-
-* Condense information (is the mean sufficient?)
-We need to remove all unneccesary data without loosing too much information.
-
-
-!split
-===== Univariate statistics =====
-* Displaying data:
-    histogram, frequency plots, comulativs
-
+\pause
 * Measures of Location
-  Mean medial mode
+  * Mean, median, mode
   * Quartiles, Percentiles, Quantiles
 
+\pause
 * Measure of Dispersion (Spread)
-   MAD, standard deviation (sd), variance (Var), coefficient of variation 
+  * Standard deviation (sd)
+  * Sariance (Var) or coefficient of variation
 
-xxx missing
+\pause
+* Measures of shape
+  * Skewness, modality
+
+
 
 !split
 ===== Histograms =====
 
-Sample table
+ * Task 1: make a histogram from a 2d random distribution
+ * Task 2: make a 2d heat map from a 2d random distribution
 
-Python code
 
 !split
-===== Frequency plots ad Histograms =====
+===== Frequency plots and Histograms =====
 Given a set of data
 
 o Look for min and max values
 o Divide the range of values into a number of sensible class intervals (bins)
-o Count 
+o Count
 o Make a frequency table (or percentage)
-o xxx missing 
+o Plot (see jupyter notebook)
 
-!split
-===== Example =====
-a table
-note: way too fast on the board
+\pause
 
-plot histogram: use vanilla, pandas, matplotlib
+!bblock Does this histogram represent uncertainty?
+No. It shows variability, but it can be used to quantify uncertainty.
+!eblock
 
-does this histogram rapresent uncertainity?
-No. It shoes variabilityi, but it can be used to quanitfy uncertainity.
-
+ 
 !split
 ===== Class widths =====
 * Class widths (bin sizes) are usually CONSTANT
-  * the heoght of each bar is proportional to the number of values in it
+  * the height of each bar is proportional to the number of values in it
 * If class width are VARIABLE
   * the AREA of each bar is proportional to the number of values in it
-* For small samples, the shape of the histogram can be very sensitive to the number and fefinition of the class intervals 
+* For small samples, the shape of the histogram can be very sensitive to the number and definition of the class intervals
 
-!split
-===== Sensitivity =====
-Plot with different bin sizes.
-This could be a fun exercise to lear python
+\pause
 
-xxx exercise xxx
+!bblock Exercise
+Plot a histogram from different random number distributions and bin sizes.
+!eblock
 
 
 !split
 ===== Cumulative Histogram =====
 
-* Comulative freqquency 
+* Cumulative frequency
 
 * Each data point can be plotted individually
 
 * It helps to read quantiles and compare distributions
 
-* Python code to get it?
+* Practice with your jupyter notebook
 
+ 
 !split
 ===== Measure of Location: Central Tendency, MEAN =====
+ 
+!bt
+\centering $m_x = \  <x> \  = \ \bar x \ = \frac{1}{n} \sum^n_{i=1} x_i$
+!et
 
-formulat
-$m_x = <x> = xbar = 1/n sum $
+\pause
 
-if the data represent a random sample, each poit weighted equally by 1/n
+Each point weighted equally by $\frac{1}{n}$ (assumption)
+
+\pause
 
 * Every element is the data set contributes to the values of the mean
-* An averaeg provides a common measure for comparing one set od data to another
-* THe mean is influenced by the extrme values in the data set
+* An average provides a common measure for comparing one set of data to another
+* The mean is influenced by the extreme values in the data set
 * The mean may not be an actual element if the dataset
 * The sum of all deviation from the mean is zero, and the sum of squared deviation is minimized when those deviations are measured from the mean
 
- 
 
+
+ 
 !split
-===== Mean means =====
+===== Means =====
 * Arithmetic
-  Mean of raw data
+  * Mean of raw data
+ 
+!bt
+\centering $\frac{1}{n} \sum^n_{i=1} x_i$
+!et
+
+\pause
 
 * Geometric
-  $n^{th}$ root of product
-  mean of logarithms
+  * $n^{th}$ root of product
+!bt
+\centering $ \left( \prod^n_{i=1} x_i \right)^{\frac{1}{n}} $
+!et
+* Geometric
+	* Mean of logarithms
+
+!bt
+\centering $ exp \left( \frac{1}{n} \sum^n_{i=1} ln(x_i) \right) $
+!et
+
+\pause
 
 * Harmonic
-  Mean of inverses
+  * Mean of inverses
+!bt
+\vspace{-4em}
+\begin{center}
+$ \left( \frac{1}{n} \sum^n_{i=1} \frac{1}{x_i} \right)^{-1}$
+\end{center}
+!et
 
 
 !split
-===== Mediam =====
-* The central value in a data set when the data points are put in ascending or descending order
+===== Median =====
+@@@CODE ../code/median.py
 
-median =formula odd/even
+* On a cumulative density plot, the value of the x-axis that corresponds to 50 \% of the y-axis
 
-Average xxxmissing
+* Not influenced by extreme values
+* May not be contained in the dataset (if n is even)
+* For a perfectly symmetrical dataset, means = median
+
+
 
 !split
 ===== Mode =====
-* The mode is the most frequently occouring data element
-or the most likely or most probablu value (for a pmf)
+* The mode is the most frequently occurring data element
+or the most likely or most probable value (for a pmf)
 
 * A data set may have more than one mode and it thus called multimodal
+* A mode is always a data element in the set
+* For a perfectly symmetrical dataset, means = median = mode
 
-xxx
+
 
 !split
-===== Examples of different distributions =====
+===== Distribution Descriptors =====
+FIGURE: [../figures/mode, width=600 frac=1.0]
 
-normal, simmetrical, asimmetrical, multimodal, skewed
-Mode != Median != Mean
+
 
 !split
 ===== Quantiles =====
-* Quartiles: As median splits data into two halves, the quartiles psli the data into quartes
+!bblock Quartiles
+The data split into quarters.
+!eblock
 
-* Deciles
+\pause
+!bblock Deciles
+The data are split into tenths. The fifth decile is also the median.
+!eblock
 
-* Percentiles
-- splits the data into hundreths
+\pause
+!bblock Percentiles
+The data are split into hundredths.  P10, P25, P50, P75 and P90 are the most commonly used.
+!eblock
 
-* Quantiles
-are a generalization of splotting data into any fraction
-
-!split
-===== From CDF to Quantiles =====
-
-plot
-
-make a cdm, draw the quartiles. Quantiles are on the x. The percentiles are on the y.
-
-nice plot here
-
-!split
-===== Dispersion (Spread) =====
-* Range 
-
-R = maximum - miniimun
-
-* Inter-quantile Range
-
-IQR = Q3 - Q1
-
-* Mean Deviation from the Mean?
-
-MD = sum
-
-* Mean Absolute Deviation
-
-MAD = sum
-
-
-!split
-===== Variance and Standard Deviation =====
-Variance is the average of squared differences between the dample data points and their mean
-
-Variance  $s_x^2 = /fract{1}{n} formula
-
-Standard Deviation formula
-
-
-!split
-===== Standard deviation =====
-$sd = \sqrt{Var}$ : average squared difference from the mean
-
-Plot with 
-1 sd distance : normal distribution 1sd covers 2/3 of data
-1 sd: 68\%
-2 sd: 95\%
-3 sd: 99.7\%
-
-
-
-!split
-===== Variance of the mean =====
-xxx plots
-
-!split
-===== Effect of Sample size (random sample): Standard Error (SE) of the mean =====
-Central limit theory: the more sample I have, the more 'sure' I am
-
-SE_x
-
-!split
-===== Coefficient of Variability =====
-
-A bit out of use
-
-CV = Sx/X
-
-* A CV of greater than 1 can
-
-xxx
-
-!split
-===== Discrete and continous CDF =====
-
-* Discrete CDF
-For a discrete RV that attains values $x_1, x_2, ... $ 
-
-summation
-
-nice eqs
-nice plots
-
-* Continous CDF 
-
-integral
-
-
-!split
-===== Discrete PMF and Continous PDF =====
-
-=== Discrete PMF ===
-plots and functions 
-
-
-=== Continous PDF ===
-The PDF f(x) is a non-negative function that characterized the relative probability (frequency of occurrence) of realization values for a RV at a neighbourhood of a point
-
-eq and plots
+\pause
+!bblock Quantiles
+A generalization of splitting data into any fraction
+!eblock
  
 
 !split
-===== Empirical PMF (from data) =====
-o Sort the data points in an ascending order such taht x_1 < x_2 ...
-
-xxx
-
-!split
-===== PMFs and CDFs =====
-
-Symmetric, Right-Skewed, Left-Skewed
-
-plots
-
-!split
-===== Measure of Shape: Modality =====
-Number of Modes: unimodal, bimodal, polymodal
-
-plots
-
-!split
-===== Measure of Shape: Skewness =====
-Measure of symmetry in the distribution of the data values
-
-Sk = /fract{/fract{1}{n}/sum{n}{i=n}
-
-a bit out of fashion with ML
-xxx
-
-!split
-===== Measure of Shape: Kurtosis =====
-Measures the 'flatness'
-
-a bit out of fashion with ML
+===== Distribution Descriptors =====
+FIGURE: [../figures/quant, width=600 frac=1.0]
 
 
 !split
-===== Example: python on data =====
+===== Dispersion (Spread) =====
+!bblock Range
+!bt
+\centering  R = maximum - minimum
+!et
+!eblock
 
-pd.summary()
+
+!bblock Inter-quantile Range
+!bt
+\centering  IQR = Q3 - Q1
+!et
+!eblock
+
+
+!bblock Mean Deviation from the Mean
+!bt
+\centering  MD = $\sum^n_{i=1} (x_i - \bar x)/n$
+!et
+!eblock
+
+!bblock Mean Absolute Deviation
+!bt
+\centering  MAD = $\sum^n_{i=1} |x_i - \bar x|/n$
+!et
+!eblock
+
 
 !split
-===== Box Plots =====
+===== Variance =====
 
-plot
+The variance is the average of squared differences between the sample data points and their mean
+
+!bblock Variance
+!bt
+\centering  $s_x^2 = \frac{1}{n} \sum^n_{i=1} (x_i - \bar x)^2$
+!et
+!eblock
+
+
+!bblock Standard Deviation (SD)
+!bt
+\centering  $s_x = \sqrt{\frac{1}{n} \sum^n_{i=1} (x_i - \bar x)^2}$
+!et
+!eblock
 
 
 !split
-===== Summary =====
-* Mean
-* Variance
-* Standard deviation
-* Median
-* Mode
-* lost: the other
+===== Standard Deviation =====
+FIGURE: [../figures/sd, width=600 frac=1.0]
+
+!split
+===== Standard Deviation =====
+FIGURE: [../figures/sd2, width=600 frac=1.0]
+
+
+
+!split
+===== Measures of dispersion =====
+!bblock Standard Deviation (SD)
+!bt
+\centering  $  SE_x = \frac{s_x}{\sqrt{n}}$
+!et
+!eblock
+
+!bblock Coefficient of Variability
+!bt
+\centering  $CV = \frac{s_x}{\bar x}$
+!et
+!eblock
+
+
+!split
+===== Modality =====
+* Unimodal
+* Bimodal
+* Polymodal
+
+FIGURE: [../figures/multimode, width=600 frac=0.7]
+
+!split
+===== Skewness =====
+It measures the symmetry in a distribution
+
+!bt
+\centering  $Sk = \frac{\frac{1}{n} \sum^n_{i=1} (x_i - \bar x)^3}{s^3}$
+!et
+
+FIGURE: [../figures/skness, width=600 frac=1.0]
+
+
+A bit out of fashion with ML
 
 
 !split
 ======= Distributions =======
-Distributions: means of expressing uncertainity or variability
-Emp
-
 
 !split
 ===== Distribution Models =====
-* Uniform: useful when only upper nad lower bounds are known
+!bblock Distribution
+means of expressing uncertainty or variability
+!eblock
+
+Models
+* Uniform: useful when only upper and lower bounds are known
 * Triangular: useful when estimates of min, max, mode [P10, P50, P90] are available
-* Normal: symmetric model of random errors or unbiased incetainities with mean of stanrad deviation specified
-* very common for observed data
-* additive processes tend to be normal as a result of the Centrlal Limit Theorem
-* log normal comes from multiplicative unbcertainities with mean and standard deviation specified
+* Normal: symmetric model of random errors or unbiased uncertainties with mean of standard deviation specified
+  * very common for observed data
+  * additive processes tend to be normal as a result of the Central Limit Theorem
+* log normal comes from multiplicative uncertainties with mean and standard deviation specified
+
+
 
 !split
-===== Central Limit Theorem ====
+===== Uniform Distribution =====
+* The uniform distribution is useful as a rough model for representing low states of knowledge when only the upper and lower bounds are known.
+* All possible values within the specified maximum and minimum values are equally likely (b=max, a=min):
+* It can express maximum uncertainity
 
-buh
+!bblock PDF: $f(x) =$ 
+!bt 
+$/frac{1}{b-a}, a \leq x \leq b $
+!et
+!eblock
+
+
+!bblock CDF: $ F(x) = $ 
+!bt
+$/frac{x-a}{b-a} $
+!et
+!eblock
+
+
+Notation: $ X  \sim U(a, b)$
+
+
 
 !split
-===== Uniform Distribution ====
-* The uniform distribution is useful as a rough model for representing low states of knowlrdge when only the uppoer and lower bounds are known.
-* All possible valies withing the specified maximum ad minimum valuies are equally likjely (b=max, a=min):
-PDF f(x) = /fract{1}{b-a}, a=<x=<b
-CDF:
-Moments:
-Notation: X \pf U(a, b)
+===== Uniform Distribution =====
 
-plots
+FIGURE: [../figures/uniform, width=600 frac=1]
+
+
 
 !split
-===== Example =====
-Wind turbine example
+===== Triangular distribution =====
+* The triangular distribution can be used for modeling situations, where non extremal (central) values are more likely than the upper and lower bounds.
+
+* Take min, mode and max as inputs. Typically on the basis of subjective judgement:
+
+!bblock PDF: $f(x) =$ 
+
+!bt 
+ $  \frac{2 (x-a)}{(b-a)(c-a)}; \ \text{if}\ a \leq x \leq c $
+ 
+ $  \frac{2 (b-x)}{(b-a)(c-a)}; \ \text{if}\ c \leq x \leq b $
+!et
+!eblock
+
+!bblock CDF: $ F(x) = $ 
+ 
+!bt 
+ $  \frac{(x-a) ^2 }{(b-a)(c-a)}; \ \text{if}\ a \leq x \leq c $
+ 
+ $  1 - \frac{(b-x)^2}{(b-a)(c-a)}; \ \text{if}\ c \leq x \leq b $
+!et
+!eblock
+
+
 
 !split
-===== Solution =====
+===== Triangular Distribution =====
 
-!split
-===== Tiangular distribution =====
-* The triangular distribution can be used for modeling situations, where nonextremal (central) values are more likely than the upper and lower bounds.
+Notation: $ X  \sim T(a, b, c)$
 
-* Taeke min, mode and max as inputs. Typically on the vasis of subjective judgement:
+FIGURE: [../figures/triangolar, width=600 frac=1]
 
-PDF: f(x)
 
-CDF:
+It can be symmetric or asymmetric
 
-Moments:
-
-It can be simmetric or asimmetric
 
 
 !split
 ===== Normal Distribution =====
-* The normal distribution ('bell curve' or Gaussian) for modeling unbiased uncertainities and random errors of the additive kind of symmetrical distributions of many matiural process and phenomena.
-* A commonly cited rational for assuming normal distributio is the central limit theorem, which states that the sum of indipendent ovservations asymptiticallyu approachews a normal distribution regardless of the shape of the undfelying distributsions(s=
+* The normal distribution ('bell curve' or Gaussian) for modeling unbiased uncertainties and random errors of the additive kind of symmetrical distributions of many material processes and phenomena.
+* A commonly cited rational for assuming normal distribution is the central limit theorem, which states that the sum of independent observations asymptotically approaches a normal distribution regardless of the shape of the underlying distributions(s=
 
-PDF: f(x)
-CDF: F(x) has no closed form solution but is often presented using the complementary erro function solution
-Æ It can also be expressed in terms of the stands normal CDF, G()
-F(x) = G{/fract{x-/mu}{7sigma} = G(z)
 
-xxx
+!bblock PDF: 
+!bt 
+$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} exp \left\{ -\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right) ^2 \right\}; \ - \infty \leq x \leq \infty $
+!et
+!eblock
 
-!split
-===== Probability Levels - Normal distribution =====
 
-Plot
-!split
-===== Examples of Normal Distrib ution - PDF =====
-nice plot
+!bblock CDF: $ F(x) = $ 
+has no closed form solution but is often presented using the complementary error function solution
+!eblock
 
-!split
-===== Nomal Distribution =====
-* The CDF, F(x), has no closed fomr solution and is expressed in therms of the standard normal CDF, G()
-F
- where z =
-Note that z is a dimensionless variable with zero mean and unit variance
-
-$z= /fract{}{}$
-
-with the quantile, q, being used as an approximation of the cumulative provavility, F
-
-more elegantly, that can be expressed as $ x =/mu + /sigma G^{-1}(q) = /mu + /sigma z $
-* The inverse normal CDF, or the z-score, can be calucated using:
-python scipy  nornm.ppf(z, loc=0, scale = 1)
 
 
 
 !split
-===== Exercise =====
-Given a xxx distribution, determine the 95\%
+===== Normal Distribution =====
 
+Notation: $ X  \sim G(\mu, \sigma)$
 
-!split
-===== Normal distribution =====
-python script
+!bblock
+It is a Symmeytic distribution around the mean 
+!eblock
 
-!split
-===== Data transformations (?!) =====
-* Often, it is useful to transform a sample distribution into the space of an equivalen normal distribution, where many statistical operations can be exasily performed and visualized
-* THe approach involves a rank-preserving one-to-one transformation, as chematicallly.
-* Trasfonrming the data so that their distribution matches a prescribed (targe) distribution
-* SOmetimes we must thus transform the data...
+$\mu$ is the mean, $ \sigma $ is the standard deviation
 
-!split
-===== Normal Score Transformation =====
+$\mu \pm \sigma : 68.3 \% probability $
 
-o From data to comulative distribution.
+$\mu \pm 2 \sigma : 95.4 \% probability $
 
-o From comulative distribution and map back.
-
-plot
-
-The analysis can be performed on the gaussian distribution, and then moved back to the original distribution
-
+$\mu \pm 3 \sigma : 99.7 \% probability $
 
 !split
-===== Normal Score Transformation =====
-For any given values, xi of the origianl variable, the empirical cumulative probability of quantile q is set equal to
+===== Normal Distribution =====
+FIGURE: [../figures/normal, width=600 frac=0.8]
 
 
-!split
-===== Log - Normal distribution ====
-For a lognormal distribution, we define the standard normal variate as
+ 
 
-$ \alfa = means \ of \ ln(x) $
-$ \beta = SD \ of \ ln(x) $
-
-
-$F(x) = G { } = G(z)$
-$z = \fract{ln(x) - \alpha}{\beta}$
-
-* Graph of ln(x) versus G-1(q) should yeld straight line with 
-
-
-!split
-===== Log - Normal Distribution =====
-* Working with lognormal distributions involves 
-
-* The following relationship are useful in this context
-
-It can be done promplty with scipy
-
-!split
-===== Log - Normal Distribution =====
-formulats
-* $G(x) = G(/fract{ln(x9-/alpha}{/beta}$ 
-
-
-exercise
-
-
-!split
-===== pp and qq plots =====
-pp - probability/probability plot 
-qq- quantile/qualtile plot
-
-
-!split
-===== Probability Plots =====
-* Help compare data to postpulated distributions
-* Observations plotted (after transformation)
-*
-
-!split
-===== Comparing any two distributions =====
-plot
-
-!split
-===== Making a qq plot: =====
-o For a given quantile, read off corresponding variable values from respective variable CDFs.
-
-plots
-
-o Cross-plot the variable values
-plot 
-
-o Do same for a range of other quantiles
-plot
-
-!split
-===== Interpretation of qq plots =====
-* If points line on a stright line then the two distributions are the same
-* A systematic departire above or below the 45o line (but parallel to it) 
-
-!split
-===== Intepretation of pp plots =====
-o For a given fatum Value, read off corresponding variable percentile from respective variable CDFs.
-
-plots
-
-o Cross plot the varialbe valies
-
-o Do same for a range of other VALIES
-
-!split
-===== Example =====
-pp and qq
-
-!split
-===== Differences between qq and pp =====
-blabla
-
-!split
-===== Normal Score Transformation =====
-Transform any distribution to a normal
-
-###python script yo match quantiles
-
-!split
-===== Change data distribution =====
-Transform the data to a univariate Gaussian distribution
-Proceed with algorithms that take advantage of the properties of the Gaussian distribution (could also be a uniform distribution)
-Back transform results to original
-
-
-!split
-===== Assumption =====
-Hypothesis testing through t-test adn z-test
-Analysis of varianve (ANOVA)
-Sequencenmtial Gaussian simulation in spatial nalusis
-Control limits in control chart
-
-!split
-===== Quantile Transform =====
-A quantile distribution doesn't have to be rank preserving
-
-* Forwards transformation
-
-* Reverse transform
-
-!split
-===== Transform process =====
-o Each data value x_i in the dataset is assigned to a rank
-check jupyther noteook
 
