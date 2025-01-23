@@ -516,16 +516,16 @@ Models
 ===== Uniform Distribution =====
 * The uniform distribution is useful as a rough model for representing low states of knowledge when only the upper and lower bounds are known.
 * All possible values within the specified maximum and minimum values are equally likely (b=max, a=min):
-* It can express maximum uncertainity
+* It can express maximum uncertainty
 
-!bblock PDF: $f(x) =$ 
-!bt 
+!bblock PDF: $f(x) =$
+!bt
 $/frac{1}{b-a}, a \leq x \leq b $
 !et
 !eblock
 
 
-!bblock CDF: $ F(x) = $ 
+!bblock CDF: $ F(x) = $
 !bt
 $/frac{x-a}{b-a} $
 !et
@@ -549,18 +549,18 @@ FIGURE: [../figures/uniform, width=600 frac=1]
 
 * Take min, mode and max as inputs. Typically on the basis of subjective judgement:
 
-!bblock PDF: $f(x) =$ 
+!bblock PDF: $f(x) =$
 
-!bt 
+!bt
  $  \frac{2 (x-a)}{(b-a)(c-a)}; \ \text{if}\ a \leq x \leq c $
  
  $  \frac{2 (b-x)}{(b-a)(c-a)}; \ \text{if}\ c \leq x \leq b $
 !et
 !eblock
 
-!bblock CDF: $ F(x) = $ 
+!bblock CDF: $ F(x) = $
  
-!bt 
+!bt
  $  \frac{(x-a) ^2 }{(b-a)(c-a)}; \ \text{if}\ a \leq x \leq c $
  
  $  1 - \frac{(b-x)^2}{(b-a)(c-a)}; \ \text{if}\ c \leq x \leq b $
@@ -587,14 +587,14 @@ It can be symmetric or asymmetric
 * A commonly cited rational for assuming normal distribution is the central limit theorem, which states that the sum of independent observations asymptotically approaches a normal distribution regardless of the shape of the underlying distributions(s=
 
 
-!bblock PDF: 
-!bt 
+!bblock PDF:
+!bt
 $f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} exp \left\{ -\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right) ^2 \right\}; \ - \infty \leq x \leq \infty $
 !et
 !eblock
 
 
-!bblock CDF: $ F(x) = $ 
+!bblock CDF: $ F(x) = $
 has no closed form solution but is often presented using the complementary error function solution
 !eblock
 
@@ -607,10 +607,10 @@ has no closed form solution but is often presented using the complementary error
 Notation: $ X  \sim G(\mu, \sigma)$
 
 !bblock
-It is a Symmeytic distribution around the mean 
+It is a Symmetric distribution around the mean
 !eblock
 
-$\mu$ is the mean, $ \sigma $ is the standard deviation
+$\mu$ is the mean, $ \sigma $ is the standard deviation
 
 $\mu \pm \sigma : 68.3 \% probability $
 
@@ -623,6 +623,31 @@ $\mu \pm 3 \sigma : 99.7 \% probability $
 FIGURE: [../figures/normal, width=600 frac=0.8]
 
 
+
+
+!split
+===== Data transformations =====
+* Often, it is useful to transform a sample distribution into the space of an equivalent normal distribution, where many statistical operations can be easily performed and visualized
+* The approach involves a rank-preserving one-to-one transformation.
+* Transforming the data so that their distribution matches a prescribed (target) distribution.
+* Sometimes we must transform the data...
+
+!split
+===== Normal Score Transformation =====
+
+o From data to cumulative distribution.
+
+o From cumulative distribution and map back.
  
+
+FIGURE: [../figures/nst, width=600 frac=0.8]
+
+The analysis can be performed on the gaussian distribution, and then moved back to the original distribution
+
+ 
+ 
+
+
+
 
 
