@@ -211,7 +211,6 @@ Grid, parallel, series.
 
 !split
 ======= Univariate statistics =======
-\pause
 
 * Easy to displaying data:
   * histogram
@@ -219,16 +218,19 @@ Grid, parallel, series.
   * cumulative
 
 \pause
+
 * Measures of Location
   * Mean, median, mode
   * Quartiles, Percentiles, Quantiles
 
 \pause
+
 * Measure of Dispersion (Spread)
   * Standard deviation (sd)
-  * Sariance (Var) or coefficient of variation
+  * Variance (Var) or coefficient of variation
 
 \pause
+
 * Measures of shape
   * Skewness, modality
 
@@ -325,7 +327,6 @@ Each point weighted equally by $\frac{1}{n}$ (assumption)
 !et
 * Geometric
 	* Mean of logarithms
-
 !bt
 \centering $ exp \left( \frac{1}{n} \sum^n_{i=1} ln(x_i) \right) $
 !et
@@ -347,7 +348,6 @@ $ \left( \frac{1}{n} \sum^n_{i=1} \frac{1}{x_i} \right)^{-1}$
 @@@CODE ../code/median.py
 
 * On a cumulative density plot, the value of the x-axis that corresponds to 50 \% of the y-axis
-
 * Not influenced by extreme values
 * May not be contained in the dataset (if n is even)
 * For a perfectly symmetrical dataset, means = median
@@ -356,9 +356,7 @@ $ \left( \frac{1}{n} \sum^n_{i=1} \frac{1}{x_i} \right)^{-1}$
 
 !split
 ===== Mode =====
-* The mode is the most frequently occurring data element
-or the most likely or most probable value (for a pmf)
-
+* The mode is the most frequently occurring data element or the most likely or most probable value (for a pmf)
 * A data set may have more than one mode and it thus called multimodal
 * A mode is always a data element in the set
 * For a perfectly symmetrical dataset, means = median = mode

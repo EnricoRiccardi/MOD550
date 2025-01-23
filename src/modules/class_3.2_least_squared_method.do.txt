@@ -112,6 +112,138 @@ FIGURE: [../figures/d1_3_1, frac=0.8]
 !eblock
 
 
+
+!split
+===== Estimation of linear regression parameters =====
+
+For the 1-dimensional problem, we have
+!bpop
+!bt
+\begin{displaymath}
+\hat{y} = b_0 + b_1 x
+\end{displaymath}
+!et
+!epop
+
+!bpop
+where $\hat{y}$ is the estimated y-value from the approximate model
+that has been generated from a set of measurements $(x_i,y_i)$. 
+We aim to find the $b_i$ parameters such that the regression line fits 
+the observed data as well as possible. 
+!epop
+
+!bpop
+This means we want to minimise the residuals
+
+!bt
+\begin{displaymath}
+e_i = y_i - \hat{y}_i
+\end{displaymath}
+!et
+!epop
+
+
+!split
+===== Estimation of linear regression parameters =====
+
+!bpop
+* Cannot sum $e_i$ values since they might be positive and
+  negative and thus cancel
+* Could use e.g. $\sum_{i=1}^{n}|e_i|$, but is mathematically more
+  difficult to handle
+* Residual``smallness'' measured by $\sum_{i=1}^{n}e_i^2$.
+!epop
+!bpop
+
+Thus, we find the linear regression coefficients by *minimising*
+
+!bt
+\begin{displaymath}
+R = \sum_{i=1}^{n} e^2_i =  \sum_{i=1}^{n}(y_i -  \hat{y}_i)^2
+\end{displaymath}
+!et
+!epop
+
+!bpop
+!bblock How?
+Regression!
+!eblock
+
+!epop
+
+
+!split
+===== Let's recaps =====
+Before to continue, let's make sure to have all the main elements clear:
+
+!bpop
+o Splitting the data in dependent and independent variables
+o Assumption of a linear model between them
+o Recognise the difference between the truth and the estimation
+o Aiming to *minimize* the residuals 
+!epop
+!bpop
+
+!bblock Discussion
+What happen when the sum of residual is 0 ?
+!eblock
+!epop
+
+!bpop
+!bblock
+What happens where the data is heavily correlated? 
+!eblock
+!epop
+
+
+!split 
+===== Regression =====
+To minimize the sum of the square residuals, we can try to solve the following
+equations:
+!bpop
+!bt
+\begin{eqnarray*}
+\frac{\partial R}{\partial b_0} &=& 0\\
+\frac{\partial R}{\partial b_1} &=& 0\\
+\end{eqnarray*}
+!et
+!epop
+
+where:
+!bpop
+!bt
+
+\begin{eqnarray*}
+R = \sum_{i=1}^{n}(y_i -  \hat{y}_i)^2  &=& \\ \nonumber
+   \sum_{i=1}^{n}\left(y_i - (b_0 + b_1 x_i)\right)^2 = \sum_{i=1}^{n} u_i^2
+%\sum_{i=1}^{n}(y_i - 2b_0 y_i - 2b_1 x_i y_i + 2b_0b_1 x_i + b_0^2 + b_1^2 x_i^2) 
+\end{eqnarray*}
+!et
+!epop
+
+
+!split
+===== Regression =====
+Skipping the math (but you are more than welcome to try), here are the results:
+
+!bpop
+!bt
+\begin{eqnarray*}
+b_0  &=&  \bar{y} - b_1\bar{x}\\
+b_1 &=& \frac{\sum_{i=1}^{n}(x_i -  \bar{x})(y_i -  \bar{y})}{\sum_{i=1}^{n}(x_i -  \bar{x})^2}
+\end{eqnarray*}
+!et
+!epop
+
+!bpop
+!bt
+Straightforward derivation becomes very cumbersome for multiple
+variables. Thus, a different approach must be used.
+Yet, it is important to understand that there is an analytical solution (even if not all the time).
+!et
+!epop
+
+
 !split
 ===== Linear model(s) =====
 Does a linear model mean only straight lines (or hyperplanes
@@ -233,136 +365,6 @@ Another example is:
 \begin{displaymath}
 f(x, \beta) = \frac{x \beta}{x+\beta}
 \end{displaymath}
-!et
-!epop
-
-!split
-===== Estimation of linear regression parameters =====
-
-For the 1-dimensional problem, we have
-!bpop
-!bt
-\begin{displaymath}
-\hat{y} = b_0 + b_1 x
-\end{displaymath}
-!et
-!epop
-
-!bpop
-where $\hat{y}$ is the estimated y-value from the approximate model
-that has been generated from a set of measurements $(x_i,y_i)$. 
-We aim to find the $b_i$ parameters such that the regression line fits 
-the observed data as well as possible. 
-!epop
-
-!bpop
-This means we want to minimise the residuals
-
-!bt
-\begin{displaymath}
-e_i = y_i - \hat{y}_i
-\end{displaymath}
-!et
-!epop
-
-
-!split
-===== Estimation of linear regression parameters =====
-
-!bpop
-* Cannot sum $e_i$ values since they might be positive and
-  negative and thus cancel
-* Could use e.g. $\sum_{i=1}^{n}|e_i|$, but is mathematically more
-  difficult to handle
-* Residual``smallness'' measured by $\sum_{i=1}^{n}e_i^2$.
-!epop
-!bpop
-
-Thus, we find the linear regression coefficients by *minimising*
-
-!bt
-\begin{displaymath}
-R = \sum_{i=1}^{n} e^2_i =  \sum_{i=1}^{n}(y_i -  \hat{y}_i)^2
-\end{displaymath}
-!et
-!epop
-
-!bpop
-!bblock How?
-Regression!
-!eblock
-
-!epop
-
-
-!split
-===== Let's recaps =====
-Before to continue, let's make sure to have all the main elements clear:
-
-!bpop
-o Splitting the data in dependent and independent variables
-o Assumption of a linear model between them
-o Recognise the difference between the truth and the estimation
-o Aiming to *minimize* the residuals 
-!epop
-!bpop
-
-!bblock Discussion
-What happen when the sun of residual is 0 ?
-!eblock
-!epop
-
-!bpop
-!bblock
-What happens where the data is heavily correlated? 
-!eblock
-!epop
-
-
-!split 
-===== Regression =====
-To minimize the sum of the square residuals, we can try to solve the following
-equations:
-!bpop
-!bt
-\begin{eqnarray*}
-\frac{\partial R}{\partial b_0} &=& 0\\
-\frac{\partial R}{\partial b_1} &=& 0\\
-\end{eqnarray*}
-!et
-!epop
-
-where:
-!bpop
-!bt
-
-\begin{eqnarray*}
-R = \sum_{i=1}^{n}(y_i -  \hat{y}_i)^2  &=& \\ \nonumber
-   \sum_{i=1}^{n}\left(y_i - (b_0 + b_1 x_i)\right)^2 = \sum_{i=1}^{n} u_i^2
-%\sum_{i=1}^{n}(y_i - 2b_0 y_i - 2b_1 x_i y_i + 2b_0b_1 x_i + b_0^2 + b_1^2 x_i^2) 
-\end{eqnarray*}
-!et
-!epop
-
-
-!split
-===== Regression =====
-Skipping the math (but you are more than welcome to try), here are the results:
-
-!bpop
-!bt
-\begin{eqnarray*}
-b_0  &=&  \bar{y} - b_1\bar{x}\\
-b_1 &=& \frac{\sum_{i=1}^{n}(x_i -  \bar{x})(y_i -  \bar{y})}{\sum_{i=1}^{n}(x_i -  \bar{x})^2}
-\end{eqnarray*}
-!et
-!epop
-
-!bpop
-!bt
-Straightforward derivation becomes very cumbersome for multiple
-variables. Thus, a different approach must be used.
-Yet, it is important to understand that there is an analytical solution (even if not all the time).
 !et
 !epop
 
