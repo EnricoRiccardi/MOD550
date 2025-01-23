@@ -5,4 +5,5 @@ DATE: today
 FIGURE: [../figures/logo, width=100 frac=0.2]
 
 # #include "../modules/class_3.1_data_distributions.do.txt"
+# #include "../modules/class_3.2_least_squared_method.do.txt"
 

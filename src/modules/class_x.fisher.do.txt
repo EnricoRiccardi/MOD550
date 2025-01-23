@@ -1,0 +1,221 @@
+ 
+
+
+
+
+!split
+======= Fisher's method =======
+!bslidecell 00
+ Fisher's approach is to find a plane which minimises the 
+ _within-class variance_ and maxmimises the _between-class
+   variance_. In other words: We want to find new coordinates 
+ _canonical variates_ which produces tight clusters that are far
+ from each other. These are _latent variables_ which are best
+ suited to separate the classes.
+!eslidecell 
+!bslidecell 01
+
+FIGURE: [../figures/R_A_Fischer.eps, frac=0.8]
+
+!eslidecell 
+
+ Method called Fisher's Linear Discriminant Analysis (LDA),
+ Discriminant Function Analysis (DFA) or Canonical Discriminant
+ Analysis (CDA)
+
+
+!split 
+===== Fisher's Method =====
+o Transformation performed in  $K-1$ dimensions where
+  $K$ is the number of classes.
+o No assumptions of distributions are needed
+o New coordinates based on "importance of discrimination" and "maximum variation"
+o Hopefully objects are more separated into classes in the new
+  coordinates (scores).
+o Fisher's method can also be used as a postprocessing step,
+  i.e. analysis of results from e.g. sophisticated non-linear
+  classification methods.
+
+
+!split
+===== Fisher's method =====
+The new variables can be seen as a linear combination of the original
+variables:
+!bt
+\begin{equation}
+z_{i} = \sum_{j=1}^{M} X_{ij}r_{j} = \textbf{X}\textbf{r}
+\end{equation}
+!et
+
+where $\textbf{r}$ is the direction of the new DFA coordinate
+system. It is analogous to a principal component. What criterion
+should be used to compute $\textbf{r}$?
+
+
+!split
+===== Fisher's method =====
+ To have isolated class clusters we want two things: Good separation
+ of the mean centres and clusters with little variance (i.e. tight
+ clusters with little variance). This corresponds to maximizing the
+ between class variance and minimize the within class variance. This
+ is closely linked to analysis of variance (ANOVA). To compare
+ variance we can make use of the $F$ ratio which we want to maximise:
+
+!bt
+\begin{equation}
+  F_{max} = \underset{\textbf{r}}{\mbox{arg
+      max}}\left(\frac{\textbf{r}^{T}\textbf{B}\textbf{r}}{\textbf{r}^{T}\textbf{W}\textbf{r}}\right )
+\end{equation}
+!et
+
+
+where $\textbf{r}^{T}\textbf{B}\textbf{r}$ is the between-class
+variance and $\textbf{r}^{T}\textbf{W}\textbf{r}$ is the within-class
+variance with the constraint that $\textbf{r}_i\textbf{W}\textbf{r}_j
+= \delta_{ij}$.
+
+
+!split
+===== Fisher's method =====
+
+!bt
+ \input{../figures/within-between-variance-concept}
+!et
+
+!split
+===== Fisher's method =====
+We have that:
+
+!bt
+\begin{equation}
+\textbf{B} = \sum_{i=1}^{K}\frac{n_i}{N}\left(\overline{\textbf{x}}_i - \overline{\textbf{x}} \right)\left(\overline{\textbf{x}}_i - \overline{\textbf{x}} \right)^{T}
+\end{equation}
+!et
+
+where $\overline{\textbf{x}}_i$ is the mean vector of class $i$ objects,
+$\overline{\textbf{x}}$ is the mean vector for {\em all} objects and
+
+!bt
+\begin{equation}
+\textbf{W} = \sum_{i=1}^{K}\frac{n_i}{N} \textbf{C}_i
+\end{equation}
+!et
+
+where $\textbf{C}_i$ is the covariance matrix of class $i$.
+
+
+
+!split
+===== Fisher's method =====
+To find
+the vectors which maximise the $F$ function above we make use of _eigenvalue decomposition_.
+To do it we need generalised eigenvector decomposition:
+
+!bt
+\begin{equation}
+\textbf{BR} = \textbf{WR}\Lambda
+\end{equation}
+!et
+
+where $\textbf{R} = [\textbf{r}_1, \textbf{r}_2,\cdots
+,\textbf{r}_{K-1}]$. Multiplying with $\textbf{W}^{-1}$ on both sides
+we get:
+!bt
+\begin{equation}
+\textbf{W}^{-1}\textbf{B}\textbf{R} = \textbf{R}\Lambda.
+\end{equation}
+!et
+
+where we assume that $\textbf{W}^{-1}$ exists.
+
+
+!split
+===== Fisher's method =====
+ In many cases
+this may not be the case, in particular for problems where we
+typically have many more variables than samples. The solution
+$\textbf{R}$ of the above equation can also diagonalise $\textbf{B}$:
+
+!bt
+\begin{equation}
+\textbf{R}^{T}\textbf{B}\textbf{R} = \Lambda.
+\end{equation}
+!et
+
+Note that $\textbf{W}^{-1}\textbf{B}$ in general is not a symmetric
+matrix. We can convert it into one by performing Cholesky
+decomposition using a lower triangular matrix $\textbf{L}$ and
+assuming:
+
+!bt
+\begin{equation}
+\textbf{W} = \textbf{L}\textbf{L}^{T}.
+\end{equation}
+!et
+
+
+
+!split
+===== Fisher's method =====
+If $\textbf{W}$ is close to singular then the eigenvectors of
+$\textbf{W}^{-1}\textbf{B}$ cannot be computed properly and we need to
+handle the problem. Two popular approaches are:
+
+o Perform pseudo-inverse using SVD or PCA such that
+  $\textbf{W}^{-1}$ is replaced with $\textbf{W}^{+}$ where
+  $\textbf{W}^{+} = \textbf{V}\textbf{S}^{+}\textbf{U}^{T}$. PCA
+  can be used as a preprocessing step where the scores matrix
+  $\textbf{T}$ is used instead of the original data matrix
+  $\textbf{X}$ (see below).
+o Use of perturbation where the $\textbf{W}$ is stabilised by
+  assuming a small perturbation matrix $\textbf{G}$ to it.
+
+
+
+!split
+===== Fisher's method =====
+
+o Problem: The new coordinates $\textbf{R}$ do not perform
+  classification. Actual assignment of class memberships to new
+  objects is not performed.
+o Suggested solution: Create discriminant functions which involve
+  the $\textbf{R}$.
+o The discriminant functions become:
+
+!bt
+\begin{displaymath}
+g_i(\textbf{x}) =\mbox{ln}p(c_i) - \frac{1}{2}\overline{{\bf
+      x}}_i^{T}\textbf{R}\textbf{R}^{T}\overline{\textbf{x}}_i +
+  \textbf{x}^{T}\textbf{R}\textbf{R}^{T}\overline{\textbf{x}}_i
+\end{displaymath}
+!et
+
+!split
+===== Using PCA scores in DFA =====
+o  Very often the number of variables is much larger than the number of
+ objects so we need to find a solution.
+
+o A popular solution is to use PCA where the scores vectors
+  contained in the matrix _T_ are used instead of the original
+  data matrix _X_.
+
+o This is possible since the scores vectors are _linearly independent_ or _orthogonal_.
+
+
+!split
+===== Using PCA scores in DFA =====
+!bslidecell 00
+The optimal no. of PCA factors is determined iteratively:
+o Use $A$ no. of PCA factors and produce scores matrix _T_
+o Use _T_ in the LDA routine
+o Assess by using independent data
+o $A$ selected with lowest classification error
+!eslidecell
+
+!bslidecell 01
+
+FIGURE: [../figures/LDA_PCA-xval.eps, frac=1.0]
+
+!eslidecell
+
+
