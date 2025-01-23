@@ -16,3 +16,14 @@ Deadline: 4 Feb
 
 8. Select 3 github/gitlab repository and make an assesment on the coding standards they use.
 
+==========================================
+Delivery:
+
+Make a Github open repository
+(Make sure that I have access to your github repository)
+
+Add a folder with name MOD550/data to store the outcome of your library
+Add a folder with name MOD550/code where you upload your code in .py format.
+Name your program as exercise_1.py, it has to generate, as an output, a text file for point 8 of the assiment and a plot for point 7. The plot of point 7 shall show the imported data and your assumed model.
+
+I should be able to download your program and execute it with a script. Be precide in the naming.
