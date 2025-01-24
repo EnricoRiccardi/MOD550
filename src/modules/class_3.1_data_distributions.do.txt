@@ -642,9 +642,16 @@ FIGURE: [../figures/nst, width=600 frac=0.8]
 
 The analysis can be performed on the gaussian distribution, and then moved back to the original distribution
 
- 
- 
 
+
+!split
+===== Log - Normal distribution =====
+For a log-normal distribution, we define the standard normal variate as
+
+$ \alfa = means \ of \ ln(x) $
+$ \beta = SD \ of \ ln(x) $
+
+Notation: $ ln(X)  \sim G(\mu, \sigma)$
 
 
 

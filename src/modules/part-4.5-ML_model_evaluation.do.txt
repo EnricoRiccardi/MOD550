@@ -1,0 +1,105 @@
+!split
+======= Model evaluation =======
+
+We can measure the accuracy of a prediction only when we have a 'truth' to
+compare with.
+
+!bblock Model outcome
+The accuracy of a prediction is limited by the available data set (not an universal quantity).
+!eblock
+
+
+\pause 
+
+Given a dataset, we split the data in a \alert{train} and a {test} set.
+
+One has to be extremely careful to not introduce a _bias_ in each of them when splitting.
+(or to introduce a bias properly, when for example, working with time series.
+
+
+
+!split
+===== Train =====
+
+A train dataset is a subset of the original data. Generally it is circa a 70 \% (common practice, not a rule) of the
+*INSTANCES*.
+
+For each selected instance, all the features are kept, as their labels.
+
+\pause 
+
+!bblock Random measurements
+Some models are able to also consider the sequence of instances; the selection of the \alert{train} dataset has to be randomised.
+!eblock
+
+The opposite consideration shall be done for time series, where each data point is correlated to the previous.
+
+
+!split
+===== Validation =====
+A validation dataset is a subset of the original data. Generally it is circa a 15 \% (common practice, not a rule) of the *INSTANCES*.
+
+It is aimed to provide a \alert{unbiased estimate of the model prediction error}. This information is then used
+to *tune* the model set up (indirectly). I.e. it is not independent from the test phase.
+
+For each selected instance, all the features are kept, as their labels.
+
+\pause 
+!bblock Random measurements
+Some models are able to also consider the sequence of instances; the selection of the \alert{validation} dataset has to be randomised.
+!eblock
+
+The opposite consideration shall be done for time series, where each data point is correlated to the previous.
+
+
+!split
+===== Test =====
+
+A test dataset is a subset of the original data. Generally it is circa a 70 \% (common practice, not a rule) of the
+*INSTANCES*.
+
+For each selected instance, all the features are kept, as their labels.
+
+\pause 
+
+!bblock Random measurements
+Some models are able to also consider the sequence of instances, the selection of the alert{test} dataset has to be randomised.
+!eblock
+
+
+
+!split
+===== Model evaluation =====
+
+!bblock Train-Validation-Test
+!bpop
+o Data is split into train, validation and test dataset
+o A model is trained on the train dataset
+o The model (hyper)parameters are improved on the validation dataset
+o The model performances (e.g. accuracy) are tested on the test dataset
+!epop
+!eblock
+
+!split
+===== Model evaluation =====
+
+FIGURE: [../figures/test-validation-train, frac=1.2]
+
+!split
+===== Cross validation =====
+
+!bblock Cross validation-Test
+!bpop
+o Data is split into train and test.
+o Train dataset is then split into k-folds (different subsets, usually 5 to 10)
+o A model is trained on all k subset but one, sequentially
+o The model is tested on the remaining  k data subset and its output averaged
+o The model performances (e.g. accuracy) are tested on the test dataset
+!epop
+!eblock
+
+!split
+===== Cross validation =====
+FIGURE: [../figures/cross_validation, frac=1.1]
+
+

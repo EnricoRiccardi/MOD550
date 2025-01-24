@@ -1,0 +1,353 @@
+!split
+======= Linear Regression =======
+
+!split
+===== Let's recaps =====
+Before to continue, let's make sure to have all the main elements clear:
+
+!bpop
+o Splitting the data in dependent and independent variables
+o Assumption of a linear model between them
+o Recognise the difference between the truth and the estimation
+o Aiming to *minimize* the residuals 
+!epop
+!bpop
+
+!bblock Discussion
+What happen when the sum of residual is 0 ?
+!eblock
+!epop
+
+!bpop
+!bblock
+What happens where the data is heavily correlated? 
+!eblock
+!epop
+
+
+!split 
+===== Regression =====
+To minimize the sum of the square residuals, we can try to solve the following
+equations:
+!bt
+\begin{eqnarray*}
+\frac{\partial R}{\partial b_0} &=& 0\\
+\frac{\partial R}{\partial b_1} &=& 0\\
+\end{eqnarray*}
+!et
+
+where:
+!bt
+
+\begin{eqnarray*}
+R = \sum_{i=1}^{n}(y_i -  \hat{y}_i)^2  &=& \\ \nonumber
+   \sum_{i=1}^{n}\left(y_i - (b_0 + b_1 x_i)\right)^2 = \sum_{i=1}^{n} u_i^2
+%\sum_{i=1}^{n}(y_i - 2b_0 y_i - 2b_1 x_i y_i + 2b_0b_1 x_i + b_0^2 + b_1^2 x_i^2) 
+\end{eqnarray*}
+!et
+
+
+!split
+===== Regression =====
+Skipping the math (but you are more than welcome to try), here are the results:
+
+!bt
+\begin{eqnarray*}
+b_0  &=&  \bar{y} - b_1\bar{x}\\
+b_1 &=& \frac{\sum_{i=1}^{n}(x_i -  \bar{x})(y_i -  \bar{y})}{\sum_{i=1}^{n}(x_i -  \bar{x})^2}
+\end{eqnarray*}
+!et
+!bt
+Straightforward derivation becomes very cumbersome for multiple
+variables. Thus, a different approach must be used.
+Yet, it is important to understand that there is an analytical solution (even if not all the time).
+!et
+
+
+
+!split
+===== Many variable equation =====
+
+!bslidecell 00
+The general equation would look like:
+
+!bt
+\begin{displaymath}
+\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \cdots +   b_n x_n = \sum_{j=0}^{m} x_{ij} b_j
+\end{displaymath}
+!et
+
+where we will have to solve all the $n+1$ equations (called the
+_normal equations_) of the form:
+
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial b_j} = 0 ~~\forall j \in [0,n]
+\end{displaymath}
+!et
+
+/pause 
+!bblock Is there a way for us to simplify this?
+We can use vector and matrix algebra.
+!eblock
+
+!eslidecell 
+
+
+
+!split
+===== Regression via Matrix operation =====
+
+Remember that 
+!bt
+\begin{displaymath}
+R = \sum_{i=1}^{N}(y_i-\hat{y}_i)^2
+\end{displaymath}
+!et
+!bpop
+
+then we can define the vector _e_:
+
+!bt
+\begin{displaymath}
+\bm{e} = \bm{y} - \hat{\bm{y}}
+\end{displaymath}
+!et
+
+thus 
+
+!bt
+\begin{displaymath}
+\bm{e}^T = [(y_1 - \hat{y}_1) ~(y_2 - \hat{y}_2) \cdots ~(y_N - \hat{y}_N)]
+\end{displaymath}
+!et
+!epop
+
+
+!bpop
+and can then write
+
+!bt
+\begin{displaymath}
+R = \bm{e}^T\bm{e}
+\end{displaymath}
+!et
+!epop
+
+
+!split
+===== Regression via Matrix operation =====
+!bslidecell 00
+
+Remember that 
+!bt
+\begin{displaymath}
+R = \sum_{i=1}^{N}(y_i-\hat{y}_i)^2
+\end{displaymath}
+!et
+then we can
+define the vector _e_:
+
+!bt
+\begin{displaymath}
+\bm{e} = \bm{y} - \hat{\bm{y}}
+\end{displaymath}
+!et
+
+thus
+
+!bt
+\begin{multline*}
+\bm{e}^T = [(y_1 - \hat{y}_1) ~(y_2 - \hat{y}_2) \\
+\cdots ~(y_N - \hat{y}_N)]
+\end{multline*}
+!et
+
+and can then write
+
+!bt
+\begin{displaymath}
+R = \bm{e}^T\bm{e}
+\end{displaymath}
+!et
+!eslidecell
+
+
+!bpop
+!bslidecell 01
+
+From the following equation:
+
+!bt
+\begin{displaymath}
+\hat{y}_i = b_0 + \sum_{j=1}^{m} x_{ij} b_{j} = \sum_{j=0}^{m} x_{ij} b_j
+\end{displaymath}
+where $x_{i0}=1$
+!et
+
+we make the matrix equation:
+
+!bt
+\begin{displaymath}
+\hat{\bm{y}} = \bm{X}\bm{b}
+\end{displaymath}
+!et
+
+!bblock
+where the first column in _X_ consists of ones only.
+!eblock
+
+!eslidecell
+!epop
+
+
+!split
+===== Residual =====
+!bslidecell 00
+
+!bt
+\begin{eqnarray*}
+R &=& \bm{e}^T\bm{e}\\ 
+&=& (\bm{y} - \hat{\bm{y}})^T(\bm{y} - \hat{\bm{y}})\\
+&=& (\bm{y} - \bm{X}\bm{b})^{T}(\bm{y} - \bm{X}\bm{b}) \\
+&=& (\bm{y}^{T} - \bm{b}^{T}\bm{X}^{T})(\bm{y} - \bm{X}\bm{b}) \\
+&=& \bm{y}^{T}\bm{y} - \bm{y}^{T}\bm{X}\bm{b} - \bm{b}^{T}\bm{X}^{T}\bm{y} \\
+&+& \bm{b}^{T}\bm{X}^{T}\bm{X}\bm{b}
+\end{eqnarray*}
+!et
+
+!eslidecell
+!bslidecell 01
+All the parts of this equation are scalar values. This means e.g. that
+
+!bt
+\begin{displaymath}
+\bm{y}^{T}\bm{X}\bm{b} = \bm{b}^{T}\bm{X}^{T}\bm{y}
+\end{displaymath}
+!et
+
+This gives
+
+!bt
+\begin{displaymath}
+R= \bm{y}^{T}\bm{y} - 2 \bm{y}^{T}\bm{X}\bm{b} + \bm{b}^{T}\bm{X}^{T}\bm{X}\bm{b}
+\end{displaymath}
+!et
+!eslidecell
+
+
+
+
+!split
+===== Residual =====
+
+But how can we now compute $\frac{\partial R}{\partial b_j}$ more
+ efficiently in matrix form?
+
+  _Vector differentiation_ !  Let
+
+!bt
+\begin{displaymath}
+ y = \bm{a}^T \bm{x} = a_1x_1 + \cdots + a_nx_n
+\end{displaymath}
+!et
+
+If
+!bt
+\begin{displaymath}
+\frac{\partial y}{\partial \bm{x}} = \left[ \begin{matrix}  \frac{\partial y}{\partial x_1} \cr
+                  \frac{\partial y}{\partial x_2}\cr
+                  \vdots \cr
+  \frac{\partial y}{\partial x_n}\cr \end{matrix}
+                \right] = \left[ \begin{matrix}  a_1 \cr
+                                          \vdots \cr
+                a_n\cr \end{matrix}
+                \right] = \bm{a}
+\end{displaymath}
+!et
+
+and $y = \bm{x}^T \bm{a}$, then:
+!bt
+\begin{displaymath}
+\frac{\partial y}{\partial \bm{x}} = \bm{a}
+\end{displaymath}
+!et
+
+
+!split 
+===== General solution =====
+
+In general, when $y = \bm{x}^{T}\bm{A}\bm{x}$, then
+
+!bt
+\begin{displaymath}
+\frac{\partial y}{\partial \bm{x}} = 2 \bm{A}\bm{x}
+\end{displaymath}
+!et
+
+if _A_ is symmetric \\
+(check \textit{Matrix calculus} for more properties)
+
+We can use this to compute
+
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial \bm{b}}
+\end{displaymath}
+!et
+
+!split 
+===== General solution =====
+We have from above:
+
+!bt
+\begin{eqnarray*}
+R &=& \bm{y}^{T}\bm{y} - 2\bm{y}^{T}\bm{X}\bm{b} \\
+            &+& \bm{b}^{T}\bm{X}^{T}\bm{X}\bm{b}
+\end{eqnarray*}
+!et
+Vector differentiation gives
+
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial \bm{b}} =  0 - 2 \bm{X}^{T}\bm{y} + 2\bm{X}^{T}\bm{X}\bm{b} =0
+\end{displaymath}
+!et
+
+Solving this for $\bm{b}$ we get:
+
+!bt
+\begin{eqnarray*}
+\bm{X}^{T}\bm{X}\bm{b} &=& \bm{X}^{T}\bm{y} \\
+(\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{X}\bm{b} &=&(\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{y}\\
+\bm{b} &=&(\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{y}
+\end{eqnarray*}
+!et
+
+
+!split
+===== Multiple linear regression =====
+
+Previous equation make the solution of MLR rather obvious!
+
+When we have a matrix of y-variables _Y_:
+
+!bt
+\begin{displaymath}
+\bm{B} =  (\bm{X}^{T}\bm{X})^{-1}\bm{X}^{T}\bm{Y}
+\end{displaymath}
+!et
+
+!bpop
+in the equation:
+
+!bt
+\begin{displaymath}
+\bm{Y} = \bm{X} \bm{B}.
+\end{displaymath}
+!et
+
+These equations give us the _multiple linear regression_ (MLR)
+solution.
+!epop
+
