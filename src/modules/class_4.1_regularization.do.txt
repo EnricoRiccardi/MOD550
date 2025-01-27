@@ -204,8 +204,7 @@ FIGURE: [../figures/n65, width=100 frac=1.0]
 
 !split
 ===== Regularization =====
-$\lambda$ is the regularisation strength. The larger value it has, the more the
-target function is "wrong". For $\lambda=0$, no regularisation is imposed.
+$\lambda$ is the regularisation strength. The larger value it has, the more the target function is "wrong". For $\lambda=0$, no regularisation is imposed.
 
 
 \pause
@@ -237,7 +236,7 @@ bias[q(x)] = \mathbb{E}[q(x)] - f(x)
 !et
 
 
-Variances is the expectation of the squared deviation of q(x) from its expected value $\mathbb{E}[q(x)]$.
+Variance is the expectation of the squared deviation of q(x) from its expected value $\mathbb{E}[q(x)]$.
 !bt
 \[
 var[q(x)] = \mathbb{E}[(q(x) - \mathbb{E}[q(x))^2]
