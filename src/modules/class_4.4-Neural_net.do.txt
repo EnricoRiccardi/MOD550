@@ -1,0 +1,163 @@
+!split
+======= Neural Network -NN-  =======
+One of the most famous models in Machine Learning is _Neural Network_.
+
+The name comes from how the brain functions: a set of connected neurons that are either off or active.
+
+\pause
+
+In its essence,
+!bblock
+NN is a large set of (linear) regressions executed both in parallel and in series.
+!eblock
+
+
+===== Neural Network -NN-  =====
+Conventional NN are composed by:
+
+!bpop
+o Input layer
+o Hidden layers
+o Output layers
+!epop
+
+which, together, can approximately approximate any function in any dimension.
+
+!split
+===== deep Neural Network =====
+
+FIGURE: [../figures/deep-neural-network, frac=1]
+
+!split
+===== How do they work? =====
+Each node is called \alert{neuron}
+
+FIGURE: [../figures/neuron, frac=1]
+
+Use many of these, many times, and you have builded a NN!
+
+\pause
+* It is really just a $Y = f(X)$, where $w_i$ and $b_i$ are the unknowns to solve for.
+* As in linear regression, this becomes mainly a number of numerical recipes.
+* As the problem's dimensionality is significant, several strategies have been developed.
+ 
+
+!split
+===== How do they work? =====
+
+!bblock
+o We thus need also an \alert{activation function}.
+
+o The \alert{NN structure}
+
+o Also, we might need to specify the number of \alert{epochs}.
+!eblock
+
+Using NN is essentially running a simulation campaign: a set of numerical experiments
+
+\pause
+
+!bblock Please say yes
+Have you already heard of experimental design?  
+!eblock
+
+FIGURE: [../figures/nn, frac=0.4]
+
+
+!split
+===== Activation function =====
+Each node applies an activation function on the weighted sum of the previous nodes.
+
+Such functions are called activation functions. There are MANY!
+
+The most popular has been the logistic
+FIGURE: [../figures/logistic, frac=1.0]
+
+Now the most common is ReLU (Rectified linear unit)
+FIGURE: [../figures/relu, frac=1.0]
+
+
+
+!split
+===== NN Architecture =====
+\pause
+
+FIGURE: [../figures/NN_a1, frac=1]
+
+!split
+===== NN Architecture =====
+
+FIGURE: [../figures/NN_a2, frac=0.8]
+
+
+!split
+===== NN Architecture =====
+
+
+Neural net suffers from overfitting problems.
+
+\pause
+!bblock Even more parameters
+The number of nodes, the architecture, the number of hidden layer etc are NN \alert{hyperparameters}
+!eblock
+
+
+Unfortunately, at the current status of knowledge, the best architecture can be found only by trial and error.
+
+
+\pause
+
+The best fitting NN usually has a poor validation (generalizability).
+
+!bblock
+NN is a very expensive approach and it should be used only if really needed.
+!eblock
+
+!split
+===== Epoch =====
+FIGURE: [../figures/epoch, frac=1.0]
+
+!split
+===== Epoch =====
+
+!bblock Pro
+o Better performance
+o Progress tracking
+o Memory efficiency
+o Improved stopping criteria
+o More effective training
+!eblock
+
+
+\pause
+
+!bblock Cons
+o Overfitting risk
+o Computational cost
+o One more hyperparameter
+!eblock
+
+!split
+===== NN types =====
+
+There are many types of NN:
+!bpop
+* ANN (artificial NN), just another name for NN
+* DNN (deep) deep neural network
+* RNN (recurrent NN) for audio
+* CNN (convolutional NN) for images
+* Autoencoder (for PCA) to compress to a latent space and decompress data
+* Deep autoencoder (for interpretability)
+* Physics informed NN (to merge NN to differential equations)
+* ... and more ...
+!epop
+
+tensorflow, pytorch and keras are the most popular and popular libraries for NN.
+
+
+
+
+
+
+
+

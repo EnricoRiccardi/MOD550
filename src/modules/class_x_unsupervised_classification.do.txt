@@ -1,0 +1,429 @@
+!split
+======= Classification types =======
+
+There are two main types of classification methods for analysis of a set
+of objects stored in matrix *X*:
+
+
+!bslidecell 00
+\pause
+!bblock Unsupervised classification
+* Only the *X* data is used
+* "Natural" classes/clusters/groupings in *X* are discovered 
+!eblock
+!eslidecell
+
+!bslidecell 01
+\pause
+!bblock Supervised classification
+* We know the class/group/cluster membership of every object/sample
+* Class information is stored in an *Y* matrix
+!eblock
+!eslidecell
+
+!split
+===== Classification types =====
+Several approaches can be found in classification tasks:
+
+!bslidecell 00
+\pause
+!bblock Unsupervised classification
+* Principal component analysis (PCA)
+* Agglomerative (hierarchical) cluster analysis.
+* k-means cluster analysis
+* Fuzzy c-means cluster analysis 
+* Self organising feature maps (SOFM)
+!eblock
+!eslidecell 
+
+!bslidecell 01
+\pause
+!bblock Supervised classification
+* Linear discriminant analysis (LDA)
+* k-nearest neighbours (kNN)
+* Discriminant partial least squares
+* Soft independent modelling of class analogies (SIMCA)
+!eblock
+!eslidecell
+
+
+!split 
+===== Limitations of unsupervised classification =====
+
+* Do "natural" clusters in a data set exist and/or have any meaning?
+
+* First we must have a definition of what is a cluster. To do this we
+must define what we mean by \alert{similar} or \alert{dissimilar} objects.
+
+* Objects that are \alert{close} have low dissimilarity and high similarity.
+
+\pause 
+
+!bblock
+A metric system is required.
+!eblock
+
+!split
+===== Proximity: Continuous variables ===== 
+
+!bblock Triangle inequality
+
+Considering a vectors in an N-dimensional space, to be a \alert{distance} it must satisfy the \alert{triangle inequality}:
+
+!eblock
+
+!bt
+\begin{displaymath}
+d_{ij} + d_{im} \geq d_{jm}
+\end{displaymath}
+!et
+
+If also $d_{jj}=0$, if $i=j$ and $d_{jj}-d_{ii}=0$, then we call it a {\em metric}.
+ 
+FIGURE: [../figures/triangleineq.eps, frac=0.3]
+
+
+!split
+===== Proximity: Continuous measures =====
+
+!bblock Common metrics:
+* Euclidean. 
+
+!bt
+\begin{displaymath}
+d_{ij}^{(E)} = \left[ \sum_{k=1}^{N} (x_{ik} - x_{jk})^2 \right]^{\frac{1}{2}}
+\end{displaymath}
+!et
+
+* Manhattan
+!bt
+\begin{displaymath}
+d_{ij}^{(M)} = \sum_{k=1}^{N} \|x_{ik} - x_{jk} \|
+\end{displaymath}
+!et
+
+* Minkowski
+!bt
+\begin{displaymath}
+d_{ij}^{(M(p))} = \left[ \sum_{k=1}^{N} (x_{ik} - x_{jk})^p \right]^{\frac{1}{p}}
+\end{displaymath}
+!et
+!eblock
+
+
+!split
+===== Mahalanobis distance =====
+
+ P.C. Mahalanobis invented in 1936 a distance measure which takes into
+ consideration the covariance of a population when computing the
+ distance between two vectors: 
+
+
+!bslidecell 00
+FIGURE: [../figures/mahalanobis-1, frac=0.8]
+!eslidecell 
+!bslidecell 01
+\pause 
+The Euclidean distance from C to D is shorter than A to
+B, but the Mahalanobis distance A-B is smaller than C-D because A and B are
+oriented along the same direction.
+!eslidecell 
+
+
+
+!split
+===== Proximity: Categorical variables =====
+
+* Many applications consist of binary vectors, typical is "yes"
+  and "no" answers to a lot of tests
+* It is tempting to use distance between binary vectors to signify
+  distance. However that is *by far* not optimal. 
+
+\pause 
+
+Lets look at an example:
+
+* $ \textbf{v}_1 = [1~1~0~0~0~0]$
+* $ \textbf{v}_2 = [0~0~1~1~0~0]$
+* $ \textbf{v}_3 = [1~1~1~1~1~1]$
+
+It makes NO SENSE to compute the Euclidean distances between these vectors
+
+
+!split
+===== Proximity: Categorical variables: Binary matching =====
+
+!bt
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}  \hline \hline
+                       & {\em Object B} value 1 & {\em Object B}  value 0  \\ \hline
+{\em Object A} value 1 &      a                 &       b      \\ \hline
+{\em Object A} value 0 &      c                 &       d      \\ \hline \hline
+\end{tabular}
+\end{center}
+\end{table}
+!et
+ 
+
+!bblock Example
+
+!bslidecell 00
+!bt
+\begin{eqnarray*}
+\textbf{a} = \left[0~0~0~1\right]  \\ \nonumber
+\textbf{b} = \left[1~1~0~1\right]  \\ \nonumber
+\end{eqnarray*}
+!et
+!eslidecell 
+
+!bslidecell 01
+* $c=2$: two places where A has 0 and B has 1.
+* $d=1$: one place where A and B are equal to 0.
+* $a=1$: one place where A and B are equal to 1.
+!eslidecell 
+!eblock
+
+
+
+!split
+===== Binary proximity measures =====
+
+!bblock Types of binary proximity measures
+!bt
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|c}  \hline \hline
+{\em Binary proximity measure}  &  {\em Formula}  \\ \hline
+   Matching coefficient       &   $d_{AB} = \frac{a+d}{a+b+c+d}$    \\ %\hline
+   Jackard                    &     $d_{AB} = \frac{a}{a+b+c}$       \\ %\hline \hline
+   Rogers and Tanimoto        &     $d_{AB} = \frac{a+d}{a+2(b+c)}$       \\ %\hline \hline
+   Sokal and Sneath           &     $d_{AB} = \frac{a}{a+2(b+c)}$       \\ %\hline \hline
+\end{tabular}
+\end{center}
+\end{table}
+!et
+!eblock
+
+
+
+
+!split
+======= Agglomerative algorithms =======
+
+Agglomerative cluster analysis "clumps" objects together according
+to a definition of similarity or dissimilarity. The objects are merged
+progressively into larger clusters until only one cluster remains
+which consists of all the objects in the data set
+
+This can be summarised in a \alert{hierarchical cluster tree}.
+
+\pause
+ 
+FIGURE: [../figures/small_tree.eps, frac=0.7]
+
+
+
+
+!split
+===== Clumping objects =====
+One of the simpliest iterative approaches for unsupervised clustering is:
+
+n\_clusters = n\_datapoints
+
+o WHILE no. clusters $>$ 1
+o Find smallest \alert{distance} between clusters A and B
+o Merge clusters A and B
+o Define a new cluster (AB)
+o \alert{Distance} matrix between all clusters
+o ENDWHILE
+
+
+
+!split
+===== Distance between clusters =====
+
+What is the distance between one cluster of objects to the next? The
+most common approaches are:
+
+o Single linkage 
+o Complete linkage
+o Group average (unweighted pair group method average, UPGMA)
+o Ward's method
+
+
+
+!split
+===== Cluster distances =====
+
+!bslidecell 00
+!bblock Cluster distances
+
+\textbf{Single linkage}
+!bt
+\begin{displaymath}
+d_{AB} = \mbox{min}(f_{i_A,j_B}), \forall i \in A,j \in B
+\end{displaymath}
+!et
+
+\textbf{Complete linkage}
+!bt
+\begin{displaymath}
+d_{AB} = \mbox{max}(f_{i_A,j_B}), \forall i \in A,j \in B
+\end{displaymath}
+!et
+
+\textbf{Group average (UPGMA)}
+!bt
+\begin{displaymath}
+d_{AB} = \frac{1}{nm} \sum_{i \in A}\sum_{j \in B} f_{i_A,j_B},
+\end{displaymath}
+\begin{displaymath}
+ \forall i \in A,j \in B
+\end{displaymath}
+!et
+
+!eblock
+
+!eslidecell 
+
+!bslidecell 01
+
+FIGURE: [../figures/linkages.eps, frac=0.8]
+
+!eslidecell 
+
+
+!split
+===== Ward's method =====
+
+Assume we have partitioned a set of objects into *K* clusters. For
+each cluster we can compute the total within-cluster error sum of
+squares:
+
+!bt
+\begin{displaymath}
+E_m = \sum_{i=1}^{n_m} \sum_{j=1}^{M} \left[ x_{ij}^{(m)} - \bar{x}_{j}^{(m)}\right]^2
+\end{displaymath}
+!et
+
+where $n_m$ is the number of objects in cluster $m$.
+$\bar{x}_{j}^{(m)}$ is the $j$'th variable for the mean vector of
+cluster $m$. $M$ is the total number of variables.
+
+!split
+===== Ward Equation =====
+
+Now we sum all these $E_m$'s for every cluster:
+
+!bt
+\begin{displaymath}
+E_{tot}^{(0)} = \sum_{m=1}^{K} E_m
+\end{displaymath}
+!et
+
+Assume we merge two clusters A and B so we are left with $K-1$
+clusters. For the new clusters we compute $E_{tot}^{(1)}$ for the
+$K-1$ clusters.
+
+
+!split
+===== The Ward criterion =====
+
+The Ward criterion for merging A and B is that we
+want the number:
+
+!bt
+\begin{displaymath}
+\phi = E_{tot}^{(1)}- E_{tot}^{(0)}
+\end{displaymath}
+!et
+
+to be as small as possible. So in order to find this number we need to
+check $\phi$ for every possible merging of two clusters. In general
+there are 
+
+!bt
+\begin{displaymath}
+\frac{K(K-1)}{2}
+\end{displaymath}
+!et
+
+number of such possible pairs of clusters. The pair A and B which gave
+the smallest number is chosen to be merged.
+
+!split
+===== Example Ward's method =====
+
+FIGURE: [../figures/wards-method.eps, frac=0.8]
+
+
+!split
+===== Example dendrogram =====
+
+FIGURE: [../figures/dendrogram2.png, frac=1.0 witdth=100]
+
+
+
+
+!split
+======= Self Organising Feature Mapping (SOFM) =======
+
+ A technique invented by T. Kohonen in 1982. It is used for performing
+ non-linear unsupervised classification. The results are presented as
+ 2D maps where the different classes are distributed as political
+ geographical map of the Earth.  The map consists of a matrix of
+ neurons that compete for the samples.
+
+\pause 
+
+Typical application areas are:
+
+o Biological taxonomy
+o Chemistry
+o Image analysis
+o Geo-plotting 
+
+
+
+!split 
+===== SOFM algorithm =====
+
+o Initialize network by setting all weights to random numbers. However note that
+
+!bt
+\begin{displaymath}
+{\bf w}_j(0) \neq {\bf w}_k(0),  ~\forall k \neq j
+\end{displaymath}
+!et
+
+$i \in 1,2,\cdots , N$ where $N$ is the number of nodes in the lattice
+
+
+o Take one sample *x* from the training (calibration) data set
+
+o What node $i$ is most similar to _x_? We look at $\| \textbf{x}- \textbf{w}_j \|$
+for nodes $j \in [1,2,\cdots ,N]$
+
+o Adjust the connection weights:
+
+!bt
+\begin{displaymath}
+\textbf{w}_j(n+1) = \left\{ \begin{array}{ll}
+\textbf{w}_j(n) + \eta(n)(\textbf{x} - \textbf{w}_j(n))  & \forall j \in \Lambda_i(n) \\
+\textbf{w}_j(n) & \mbox{otherwise} \end{array} \right. 
+\end{displaymath}
+!et
+
+$\Lambda_i(n)$ is the neighbourhood function centered around the winning node $i$.
+Both $\eta(n)$ and $\Lambda_i(n)$ vary dynamically during learning. $\Lambda_i(n)$ 
+becomes smaller - a shrinking effect
+
+
+!split
+===== SOFM map =====
+
+FIGURE: [../figures/SOM_clusters.eps, frac=0.8]
+
+
+

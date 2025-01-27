@@ -1,0 +1,3 @@
+Deadline 18.2
+1. Fix the mse_scaling_2.py code presented in the slides.
+2. 

@@ -4,11 +4,11 @@ DATE: today
 
 FIGURE: [../figures/logo, width=100 frac=0.2]
 
-# #include "../modules/class_3.3_least_squared_method.do.txt"
-# #include "../modules/part-4.5-ML_model_evaluation.do.txt"
-# #include "../modules/class_4.1_regularization.do.txt"
+# #include "../modules/class_4.0_least_squared_method.do.txt"
+# #include "../modules/class_4.2-ML_model_evaluation.do.txt"
+# #include "../modules/class_4.3_regularization.do.txt"
 
-# #include "../modules/part-4.4-Neural_net.do.txt"
+# #include "../modules/class_4.4-Neural_net.do.txt"
 
 
 

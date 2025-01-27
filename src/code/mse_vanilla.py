@@ -3,15 +3,15 @@ def mean_squared_error(observed, predicted):
 
     Paramets:
     ---------
-    observed : list
+    observed : list,
         The observed values.
-    predicted : list
-        The predicted values
+    predicted : list,
+        The predicted values.
 
     Output:
     ------
-    mse : float
-       mean squared error.
+    sys[0] : float,
+       Mean squared error.
 
     """
     if len(observed) != len(predicted):

@@ -1,0 +1,255 @@
+!split
+======= Loss function =======
+One of the main core concepts behind machine learning is the _loss function_.
+
+
+In mathematical optimization and decision theory, a loss function or cost function (sometimes also called an error function) is a function that maps an event or values of one or more variables onto a real number intuitively representing some "cost" associated with the event. [Wiki]
+
+
+\pause
+
+
+!bblock Loss function in Machine Learning
+It quantifies the difference between the predicted outputs of a machine learning algorithm and the actual target values.
+!eblock
+
+
+
+
+!split
+===== Loss function aims =====
+
+
+It provides a set of core quantifications/possibilities:
+
+
+!bpop
+o Performance measurement: it provides the metric of the prediction performances
+
+
+o Direction for improvement: it allows the identification of convergent solutions
+
+
+o Balancing bias and variance: it allows to account for artefact in the sampling phase
+
+
+o Influencing model behaviour: it allows to bridge data driven methods with mathematics/physics
+!epop
+
+
+
+
+!split
+===== Most common loss function in machine learning =====
+
+
+Most popular entries:
+!bpop
+o Mean Square Error (regression): Fast computations, good convergence.
+
+
+o Mean Absolute Error (regression): No focus on the outliers, poor convergence.
+
+
+o Entropy Loss (classification): measures the difference between the model probability distribution outcomes and the predicted values
+
+
+!epop
+
+
+!split
+===== Losses =====
+
+
+!bblock Mean absolute error, L1 loss
+!bt
+\[
+MAE = \frac{1}{n} \sum_{i=1}^n (|y_i -\bar y|)
+\]
+!et
+!eblock
+
+
+\space
+
+
+!bblock Mean square error, L2 loss
+!bt
+\[
+MSE = \frac{1}{n} \sum_{i=1}^n (y_i -\bar y)^2
+\]
+!et
+!eblock
+
+
+!bblock Log Loss for binary classification
+!bt
+\[
+Log\_Loss = -[y \ log(f(x)) + (1-y) log(1-f(x))]
+\]
+!et
+!eblock
+
+
+
+
+!split
+===== MSE in Vanilla Python =====
+
+
+!bblock
+@@@CODE ../code/mse_vanilla.py fromto: def mean@# Loop
+!eblock
+
+
+
+
+!split
+===== MSE in Vanilla Python =====
+
+
+!bblock
+@@@CODE ../code/mse_vanilla.py fromto:sum_squared_error@
+!eblock
+
+
+
+
+!split
+===== MSE in Numpy Python =====
+!bblock
+@@@CODE ../code/mse_numpy.py
+!eblock
+
+
+!split
+===== MSE in Python =====
+!bblock
+@@@CODE ../code/mse.py
+!eblock
+
+
+!split
+===== MSE in benchmark =====
+!bblock
+@@@CODE ../code/mse_scaling.py
+!eblock
+
+
+!split
+===== Coding MSE =====
+!bblock
+@@@CODE ../code/mse_scaling_2.py
+!eblock
+
+
+!split
+===== Coding MSE =====
+!bblock
+Remove the comment line from the previous slide and compare the three methods.
+for Assignment 2
+### @@@CODE ../code/mse_scaling_3.py
+!eblock
+
+
+
+
+!split
+======= Regularization =======
+
+
+Conventionally, MSE is used as loss function:
+
+
+!bblock
+!bt
+\[
+MSE = \frac{1}{n} \sum_{i=1}^n (y_i -\bar y)^2
+\]
+!et
+!eblock
+
+
+We might want to force our model not not fit so well the data,
+i.e. we *penalise* the model.
+
+
+!bt
+\[
+L1\_loss\_regularized = MSE + \lambda \sum_{i=1}^m |b_i|
+\]
+
+\[
+L2\_loss\_regularized = MSE + \lambda \sum_{i=1}^m b_i^2
+\]
+
+\[
+Elastic \ Net = MSE + \lambda_1 \sum_{i=1}^m |b_i| + \lambda_2 \sum_{i=1}^m b_i^2
+\]
+!et
+
+
+
+!split
+===== Norms =====
+FIGURE: [../figures/norm, width=100 frac=1.0]
+
+
+!split
+===== Outcomes =====
+FIGURE: [../figures/n65, width=100 frac=1.0]
+
+
+
+
+!split
+===== Regularization =====
+$\lambda$ is the regularisation strength. The larger value it has, the more the target function is "wrong". For $\lambda=0$, no regularisation is imposed.
+
+
+\pause
+
+
+Forcing a model to be "wrong" might sound rather counter-intuitive.
+Furthermore, we have introduced one more parameter that has not much meaning?!
+
+
+\pause
+!bblock Bias - variance trade off
+!bt
+\[
+Error = bias^2 + variance + statistical \ error
+\]
+!et
+!eblock
+
+
+!split
+===== Bias =====
+Bias is the difference of the average value of predictions ($q$) from the true relationship function ($f$):
+
+
+!bt
+\[
+bias[q(x)] = \mathbb{E}[q(x)] - f(x)
+\]
+!et
+
+
+Variance is the expectation of the squared deviation of q(x) from its expected value $\mathbb{E}[q(x)]$.
+!bt
+\[
+var[q(x)] = \mathbb{E}[(q(x) - \mathbb{E}[q(x))^2]
+\]
+!et
+
+
+!split
+===== Bias-Variance =====
+FIGURE: [../figures/bias_variance, width=200 frac=1.0]
+
+
+!split
+===== Bias-Variance =====
+FIGURE: [../figures/bias_variance_2, width=100 frac=1.0]
+  
