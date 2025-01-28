@@ -32,7 +32,9 @@ FIGURE: [../figures/deep-neural-network, frac=1]
 ===== How do they work? =====
 Each node is called \alert{neuron}
 
-FIGURE: [../figures/neuron, frac=1]
+FIGURE: [../figures/neuron, frac=0.54]
+
+\vspace{-1.5em}
 
 Use many of these, many times, and you have builded a NN!
 
@@ -44,6 +46,7 @@ Use many of these, many times, and you have builded a NN!
 
 !split
 ===== How do they work? =====
+\vspace{1em}
 
 !bblock
 o We thus need also an \alert{activation function}.
@@ -61,7 +64,9 @@ Using NN is essentially running a simulation campaign: a set of numerical experi
 Have you already heard of experimental design?  
 !eblock
 
-FIGURE: [../figures/nn, frac=0.4]
+\vspace{-1em}
+
+FIGURE: [../figures/nn, frac=0.30]
 
 
 !split
@@ -70,8 +75,12 @@ Each node applies an activation function on the weighted sum of the previous nod
 
 Such functions are called activation functions. There are MANY!
 
+\pause 
+
 The most popular has been the logistic
 FIGURE: [../figures/logistic, frac=1.0]
+
+\pause 
 
 Now the most common is ReLU (Rectified linear unit)
 FIGURE: [../figures/relu, frac=1.0]
