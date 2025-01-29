@@ -1,3 +1,29 @@
 Deadline 18.2
-1. Fix the mse_scaling_2.py code presented in the slides.
-2. 
+1. Fix the mse_scaling_2.py code presented in the slides. Make sure to pass the test mse_vanilla == mse_numpy == mse_ske and print the time taken for each approach.
+2. Make a function that makes data: 1d oscillatory function with and without noise.
+3. Use LR,  NN and PINNS to make a regression of such data.
+4. Plot the solution as a function of the number of executed iterations (NN and PINNs).
+5. Plot the error in respect to the truth as a function of the executed iteration (LR, NN and PINNs).
+6. Assume to not know the truth any longer, select a method to monitor the progress of the calculations and plot its outcome (LR, NN and PINNs).
+
+
+
+==========================================
+Delivery:
+
+Make a Github open repository
+(Make sure that I have access to your github repository)
+
+Add a folder with name MOD550/data to store the outcome of your library
+Add a folder with the name MOD550/code where you upload your code in .py format.
+Name your program as exercise_2.py.
+
+
+
+
+
+I should be able to download your program and execute it with a script. Be preside in the naming.
+
+
+
+

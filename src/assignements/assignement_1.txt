@@ -8,11 +8,13 @@ Deadline: 4 Feb
 
 4. Write a file with the data and save the plots. 
 
-5. You also saved the metadata, right?!?
+5. You also saved the metadata, right?!? If not, make a dedicated file with information about your data.
 
-6. Save via git your dataset and import the datasets from someone else.
+6. Save via git your dataset and import the datasets from a fellow student or from a open 2D dataset.
 
-7. Generate/integrate the metadata file of the imported data, what truth the other group used to generate the data?
+7. Generate/integrate the metadata file of the imported data, and state your assumption on the truth the source data has been orginated from.
+
+7.b (bonus) Make a regression on the imported data.
 
 8. Select 3 github/gitlab repository and make an assesment on the coding standards they use.
 
