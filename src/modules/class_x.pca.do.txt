@@ -200,8 +200,7 @@ FIGURE: [../figures/PCA-model2.eps, frac=0.9]
 ===== PCA sorting =====
 The PC's are sorted according to variance
 
-o The new latent variables are _sorted with repspect to how much variance they explain_.
- This means the first component explains the most, followed by no.2 etc.
+o The new latent variables are _sorted with respect to how much variance they explain_. This means the first component explains the most, followed by no.2 etc.
 o Only the $A < A_{max}$ components are actually used
 o The remaining last $K$ components are related to noise (or are zero).
 

@@ -361,8 +361,73 @@ FIGURE: [../figures/wards-method.eps, frac=0.8]
 !split
 ===== Example dendrogram =====
 
-FIGURE: [../figures/dendrogram2.png, frac=1.0 witdth=100]
+FIGURE: [../figures/dendrogram2, frac=0.8 witdth=100]
 
+
+
+!split
+======= k-means cluster analysis =======
+With the raise of Machine Learning, one of the most popular approach is k-means.
+
+The algorithm consists of:
+
+o Select the number of clusters $K\leq K_{max}$ to look for
+
+o Start by creating $K$  random cluster centres $\textbf{m}_k$
+
+o For each object $\textbf{x}_j$ assign it to the cluster center it
+  is nearest to
+
+o Re-compute center points $\textbf{m}_k$ for the new clusters and
+  re-iterate towards convergence
+
+
+!bblock
+This procedure minimises the within-cluster variance
+!eblock
+
+
+!split
+===== Optimal no of clusters =====
+
+ In k-means cluster analysis we assume a _true_ number of clusters.
+
+ To estimate the optimal no. of clusters $K^*$ from data we
+ may do as follows:
+
+o Compute k means for $K \in [1,2, \cdots , K_{max}]$
+o Compute the mean \alert{within cluster variance} $W_K$ for each selection of
+  $K \in [1,K_{max}]$
+o The variances $[W_1,W_2,\cdots ,W_{max}]$ generally decrease
+  with increasing $K$. This will even be the case for an independent
+  test set such that cross-validation cannot be used.
+
+
+
+!split
+===== Optimal no of clusters =====
+
+o Intuitively, when $K < K^*$ we expect that an additional
+  cluster will lower the within cluster variance: $W_{K+1} \ll W_K$.
+o When $K > K^*$ the decrease of the variance will be less evident.
+
+!bblock Optimal $n\_clusters$
+This means there will be flattening of the $W_j$ curve. A sharp drop
+in the variance may be used to identify the optimal no. of clusters.
+!eblock
+
+!split
+===== Optimal no of clusters, example =====
+
+FIGURE: [../figures/q_CLUST_1_1p1.eps, frac=0.8]
+
+
+!split
+===== Optimal no of clusters, example =====
+
+FIGURE: [../figures/q_CLUST_1_2p1.eps, frac=0.8]
+
+Each curve is for a dataset with a different distance between clusters.
 
 
 

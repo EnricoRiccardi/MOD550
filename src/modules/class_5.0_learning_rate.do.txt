@@ -1,0 +1,102 @@
+!split
+======= Optimization =======
+
+Optimization is a field on its own.
+
+!bblock Definition
+* Finding the "optimus" (latin), the best.
+* Collection of mathematical principles and methods used for solving quantitative problems.
+!eblock
+
+FIGURE: [../figures/mathoptim, frac=0.5]
+
+!split
+===== Constrains =====
+
+Not only we want to find the best solution, we also need to respect
+the constraints.
+!bblock
+Finding the minimum and maxima of functions subjected to constraints.
+!eblock
+
+FIGURE: [../figures/constrains, frac=0.5]
+
+!split
+===== Forward and backward methods =====
+
+FIGURE: [../figures/inverse_problems2, frac=0.6]
+
+Requirements:
+o Existence
+o Uniqueness
+o Stability
+o Efficiency
+
+
+!split
+===== Gradient descend =====
+
+Let's reconsider a linear model:
+
+!bt
+\begin{displaymath}
+\hat{y}_i = \sum_{j=0}^{m} x_{ij} b_j
+\end{displaymath}
+!et
+
+\pause
+
+Let's get back the residuals
+
+!bt
+\begin{displaymath}
+R = e^Te
+\end{displaymath}
+!et
+
+\pause
+
+What we do is to calculate the derivative of the residuals in respect to the coefficients $b_j$.
+
+and the ideal solution is when
+
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial b_j} = 0 ~~\forall j \in [0,n]
+\end{displaymath}
+!et
+
+!split
+===== Gradient descend =====
+ok, but what if we do not know
+!bt
+\begin{displaymath}
+\frac{\partial R}{\partial b_j} = 0
+\end{displaymath}
+!et
+
+We \alert{hopefully} be able to numerically calculate $\frac{\partial R}{\partial b_j}$
+
+FIGURE: [../figures/minimums, frac=0.6]
+
+
+!split
+===== Learning rate =====
+
+!bblock
+The learning rate is a tuning parameter in an optimization algorithm that determines the step size at each iteration while moving toward a minimum of a loss function.
+!eblock
+
+
+\pause 
+This is not that easy... Learning rate can be:
+* Constant
+* Variable ( a given function)
+* Block-set up (sparse data)
+* Adaptive (as a function of the loss function)
+
+
+\vspace{-3em}
+
+FIGURE: [../figures/convergence, frac=0.7]
+
