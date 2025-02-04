@@ -1,36 +1,39 @@
 Deadline 18.2
 1. Fix the mse_scaling_2.py code presented in the slides. Make sure to pass the test mse_vanilla == mse_numpy == mse_ske and print the time taken for each approach.
 2. Make a function that makes data: 1d oscillatory function with and without noise.
-3. Use clustering (pick the method you prefer) to group data and print the variance as function of number of clusters.
+3. Use clustering (pick the method you prefer) to group data and print the variance as a function of the number of clusters.
 4. Use LR,  NN and PINNS to make a regression of such data.
 5. Plot the solution as a function of the number of executed iterations (NN and PINNs).
 6. Plot the error in respect to the truth as a function of the executed iteration (LR, NN and PINNs).
 7. Assume to not know the truth any longer, select a method to monitor the progress of the calculations and plot its outcome (LR, NN and PINNs).
-
+8. Run the reinforcement learning script (outcome to be defined)
 
 
 ==========================================
 Delivery:
 
 Format:
-On your github repo, 
+On your github repo,
 * Make sure that I have access to your github repository
 * Use the folder with the name MOD550/code
 * Save in .py format your program (in case you used ipynb)
 * Name your program as exercise_2.py.
 
 Your code should: (by running python eexercise_2.py)
-1. Print 'Test succesfull' if task 1 is achieved.
-2. Print f'Data generated: {n_points}, {range}, {other_info}'  (ask if you are uncertain on what this means) 
+1. Print 'Test successful' if task 1 is achieved.
+2. Print f'Data generated: {n_points}, {range}, {other_info}'  (ask if you are uncertain on what this means)
 3. Print the info about your clustering method and its parameters, plot the variance vs n.of cluster
 4. Print 'Task completed {regression_method}'
-5. Plot the regression function as function of iteration numers (tip. use a while loop with a pause function)
-6. Plot the error as a function of iteration number 
+5. Plot the regression function as a function of iteration numbers (tip. use a while loop with a pause function)
+6. Plot the error as a function of iteration number
 7. Plot your progress monitoring variable
 (bonus, plot 5. , 6. and 7. together)
-
+8. To be disclosed the 6.2 after lecture
 
 I should be able to download your program and execute it with a script. Please be preside with the naming.
+
+
+
 
 
 
