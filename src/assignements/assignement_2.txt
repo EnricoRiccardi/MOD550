@@ -17,7 +17,7 @@ On your github repo,
 * Make sure that I have access to your github repository
 * Use the folder with the name MOD550/code
 * Save in .py format your program (in case you used ipynb)
-* Name your program as exercise_2.py.
+* Name your program as exercise_2.py
 
 Your code should: (by running python eexercise_2.py)
 1. Print 'Test successful' if task 1 is achieved.
