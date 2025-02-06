@@ -1,0 +1,130 @@
+!split
+======= Reinforcement learning =======
+
+FIGURE:[../figure/state-rew-act, frac=0.8]
+
+!split
+===== Main definition =====
+
+!bblock Loop of 
+\alert{State, action, reward}
+!eblock
+
+o You evaluate the \alert{state where you are}
+o you pick an \alert{action}
+o you get a \alert{reward}
+
+FIGURE:[../figure/RL_baby, frac=0.8]
+
+!split 
+===== Environment, State, Policy, Agent, Reward =====
+
+!bblock Environment
+Physical world in which the agent operates
+!eblock
+
+!bblock State
+Current situation of the agent
+!eblock
+
+!bblock Agent
+Decision Maker that take action according to a policy
+!eblock
+
+!bblock Policy
+Method to map agent’s state to actions
+!bt
+$\pie(a|s) = P(A_t=a | S_t=s) 
+!et
+!eblock
+
+!bblock Reward
+Feedback from the environment
+!eblock
+
+!bblock Episode
+As Series of Atomic Experiences
+!eblock
+
+Split
+
+!split
+===== Math backbone =====
+!bblock Q-learning
+!bt
+$ 
+Q^new(S_t, A_t) = (1 - \alpha) Q(S_t, A_t) + \alpha ( R_{t+1} + \gamma max(_\alpha (S_{t+1, \alpha})
+$
+!et
+!eblock
+
+
+where:
+$\alpha$ is the leanring rate 
+$\gamma$ is the discount factor
+$max_\alpha (S_{t+1, \alpha})$ is the estimate of the optimal future value
+$R$ is reward
+$A$ is action
+$S$ in state
+
+/bin/bash: line 1: t: command not found
+
+!split
+===== Example of RL =====
+FIGURE: [../figures/RL_example, frac=0.8]
+
+!bblock Reward structure:
+Reward arriving to the goald: +1
+Rewards at each step: -0.1
+Reward hitting obstacles: -1
+!eblock
+
+\pause
+
+!bblock Available actions
+Up, Down, Left, Right
+!eblock
+
+
+!split
+===== RL in LLMs =====
+
+!bblock Pre-training
+First goal: the next world prediction
+!eblock
+
+FIGURE:[../figures/LLMs_train, frac=0.6]
+
+
+!split
+===== RL in LLMs =====
+!bblock Supervised Fine-tuning (SFT)
+!eblock
+
+Language is inherently flexible - there ar emany valid ways to respont to any prompts
+
+Many responses have been provided by humans. Multiple traininers in multiple countries.
+FIGURE:[../figures/LLMs_sft, frac=0.8]
+
+!split
+===== RL in LLMs =====
+!bblock Human feedback
+Comparative feedback between answers.
+!eblock
+FIGURE:[../figures/LLMs_feddback, frac=0.8]
+
+!split
+===== State, Evaluate, Reward loop in LLMs =====
+The agent is the LLM
+
+It makes a few prompt:
+
+Human say waht it is best
+
+LLMs generates the text such that maximize the feedback
+
+FIGURE:[../figures/LLMs_RL, frac=0.8]
+
+
+
+

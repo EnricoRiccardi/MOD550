@@ -1,30 +1,25 @@
- 
-
-
-
-
 !split
 ======= Fisher's method =======
 !bslidecell 00
- Fisher's approach is to find a plane which minimises the 
- _within-class variance_ and maxmimises the _between-class
-   variance_. In other words: We want to find new coordinates 
+ Fisher's approach is to find a plane which minimises the
+ _within-class variance_ and maximises the _between-class
+   variance_. In other words: We want to find new coordinates
  _canonical variates_ which produces tight clusters that are far
  from each other. These are _latent variables_ which are best
  suited to separate the classes.
-!eslidecell 
+!eslidecell
 !bslidecell 01
 
 FIGURE: [../figures/R_A_Fischer.eps, frac=0.8]
 
-!eslidecell 
+!eslidecell
 
  Method called Fisher's Linear Discriminant Analysis (LDA),
  Discriminant Function Analysis (DFA) or Canonical Discriminant
  Analysis (CDA)
 
 
-!split 
+!split
 ===== Fisher's Method =====
 o Transformation performed in  $K-1$ dimensions where
   $K$ is the number of classes.
@@ -32,7 +27,7 @@ o No assumptions of distributions are needed
 o New coordinates based on "importance of discrimination" and "maximum variation"
 o Hopefully objects are more separated into classes in the new
   coordinates (scores).
-o Fisher's method can also be used as a postprocessing step,
+o Fisher's method can also be used as a post processing step,
   i.e. analysis of results from e.g. sophisticated non-linear
   classification methods.
 
@@ -64,7 +59,7 @@ should be used to compute $\textbf{r}$?
 !bt
 \begin{equation}
   F_{max} = \underset{\textbf{r}}{\mbox{arg
-      max}}\left(\frac{\textbf{r}^{T}\textbf{B}\textbf{r}}{\textbf{r}^{T}\textbf{W}\textbf{r}}\right )
+  	max}}\left(\frac{\textbf{r}^{T}\textbf{B}\textbf{r}}{\textbf{r}^{T}\textbf{W}\textbf{r}}\right )
 \end{equation}
 !et
 
@@ -185,7 +180,7 @@ o The discriminant functions become:
 !bt
 \begin{displaymath}
 g_i(\textbf{x}) =\mbox{ln}p(c_i) - \frac{1}{2}\overline{{\bf
-      x}}_i^{T}\textbf{R}\textbf{R}^{T}\overline{\textbf{x}}_i +
+  	x}}_i^{T}\textbf{R}\textbf{R}^{T}\overline{\textbf{x}}_i +
   \textbf{x}^{T}\textbf{R}\textbf{R}^{T}\overline{\textbf{x}}_i
 \end{displaymath}
 !et
@@ -217,5 +212,8 @@ o $A$ selected with lowest classification error
 FIGURE: [../figures/LDA_PCA-xval.eps, frac=1.0]
 
 !eslidecell
+
+
+
 
 

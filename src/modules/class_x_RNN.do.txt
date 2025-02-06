@@ -28,7 +28,7 @@
 * Etc
 !eblock
 
-!split 
+!split
 ===== Feedforward (FF) vs Recurrent NN (RNN) =====
 !bblock FF network
 * One set of input
@@ -84,11 +84,11 @@ FIGURE: [../figures/RNN, fract=1]
 * The weights can be forwarded
 !eblock
 
-\pause
+/pause
 
 !bblock Problems
 * Computationally demanding: long training times
-* Problematic with Long series 
+* Problematic with Long series
 * It can diverge (explode) or gradient vanish
 * It cannot be very deep
 * Unable to handle long time dependencies
@@ -101,15 +101,15 @@ FIGURE: [../figures/RCC_problems, fract=1.2]
 
 !split
 ===== RNN problems =====
-!bblock Exploding gradients 
-* Large weights updats
+!bblock Exploding gradients
+* Large weights update
 * Gradient descent diverge (solution method)
 !eblock
 
 \pause
 
 !bblock Vanishing gradients
-* Weights get margnially upgraded
+* Weights get marginally upgraded
 * Very slow convergence speed
 !eblock
 
@@ -117,10 +117,10 @@ FIGURE: [../figures/RCC_problems, fract=1.2]
 !split
 ===== LSTM: Long Short Term Memory =====
 !bblock NB...
-Filters forget data... 
+Filters forget data...
 !eblock
 
-What about we porpousely forget data?
+What about if we purposely forget data?
 
 /pause
 LSTM includes Forget Gates
@@ -130,12 +130,12 @@ LSTM includes Forget Gates
 The forget gates learn to forget what is not interesting
 !eblock
 
-This is extremely useful but also rather worryome: you have no control!
+This is extremely useful but also rather worrisome: you have no control!
 
-\pause
+/pause
 
 LSTM is an advanced version of GRU (Gated Recurrent Units)...
-what is GRU? 
+What is GRU?
 
 
 !split
@@ -153,13 +153,13 @@ FIGURE: [../figures/GRU_1, fract=1]
 To capture short-term dependencies
 !eblock
 
-\pause
+/pause
 
 !bblock Update gates
 To capture Long-term dependencies
 !eblock
 
-\pause
+pause
 Each gate has its own weight
 
 !split
@@ -183,5 +183,6 @@ FIGURE: [../figures/LSTM, fract=1]
 
 $x_t$: input vector, $h_t, C_t$: hidden layer vector
 $o_t$: output vector, $r_t$: reset factors, $z_t$: update factors
+
 
 

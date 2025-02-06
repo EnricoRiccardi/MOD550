@@ -1,5 +1,5 @@
 !split
-===== Mapping and Countouring =====
+===== Mapping and Contouring =====
 o Build a 3D framework: what data structure to use?
 In a geo setting, 2 numbers will be used for the x, y coordinates. A third dimension ($z$) to a property
 
@@ -13,11 +13,11 @@ o Extrapolation
 
 
 !split
-===== Countouring =====
+===== Contouring =====
 Contours: Lines of constant $z$ value.
 * Subjective
-* Computer algorithms that trance a line thorugh a grid or triangulation
-* Colour fill between contour lines 
+* Computer algorithms that trance a line through a grid or triangulation
+* Colour fill between contour lines
 
 
 !bblock
@@ -27,7 +27,7 @@ It is a traditional method of visualizing a surface
 
 !split
 ===== Gridding =====
-* Interpolate to a series of regular gird noted
+* Interpolate to a series of regular grid noted
 * Techniques:
   * Nearest Neighbour
   * Moving average
@@ -54,7 +54,7 @@ $Z_{i, j} = \frac{\sum^n_{i=1} {z_i/d_i}}{\sum^n_{i=1} {1/d_i}}$
 
 
 !split
-===== Inverce distance Weighting =====
+===== Inverse distance Weighting =====
 * Modification of the local sample mean method
 
 * Computed weights for each data point depend on some inverse power of the distance to the point to be estimated
@@ -63,22 +63,22 @@ $Z_{i, j} = \frac{\sum^n_{i=1} {z_i/d_i}}{\sum^n_{i=1} {1/d_i}}$
 !split
 ===== General interpolation procedure =====
 
-* Select data poiunts (control points) surrounding the point at which you want an estiamte Z{i,j}
+* Select data points (control points) surrounding the point at which you want an estimate Z{i,j}
 
 
 !split
 ===== Search value =====
-* Data values a long way from the estimation location have vert little effect on the estimated value
+* Data values a long way from the estimation location have very little effect on the estimated value
 
 * Estimation processes can be very sensitive to search radius
 
 * The search region may be elliptical, ellipsoidal, other
-Autocorrerograms tells you how far away an effect extends.
+Autocorrelograms tell you how far away an effect extends.
 
 
-!split 
+!split
 ===== Cross Validation =====
-To check accuracy on the points 
+To check accuracy on the points
 
 
 !split
@@ -100,20 +100,20 @@ Compute the covariance between the points in the series and the series shifted b
 
 !split
 ===== Comment =====
-We cannot assign a distrib ution out of a single outcome
+We cannot assign a distribution out of a single outcome
 
-!split 
+!split
 ===== Stationarity =====
-It is a fundamental assumptions 
+It is a fundamental assumptions
 
-!bblock Strick stationarity
+!bblock Strict stationarity
 All moments are independent of position (transition invariant)
 !eblock
 
 
 !split
 ===== First order stationarity =====
-* Any function (f) of the random variable is invariand under translation
+* Any function (f) of the random variable is invariant under translation
 
 The mean is the same in any region
 
@@ -123,7 +123,7 @@ The mean is the same in any region
 
 !split
 ===== Stationary increment of the Variable =====
-A more general assumption is that the *increments* of the variable are stationary.
+A more general assumption is that the *increments* of the variables are stationary.
 
 
 !split
@@ -134,12 +134,12 @@ A more general assumption is that the *increments* of the variable are stationar
 * Autovariance
 
 Example applications:
-Dinancial mathematics (asset returns)  
+Financial mathematics (asset returns)  
 
 
 !split
 ===== Stationary =====
-Stationary means the statistics of the oragnce points are the same of the statistics of the blue points, for any vector *d*
+Stationary means the statistics of the orange points are the same of the statistics of the blue points, for any vector *d*
 
 
 !split
@@ -149,9 +149,9 @@ Stationary means the statistics of the oragnce points are the same of the statis
 
 !split
 ===== Comments =====
-* Stationarity is a decision, not an hyphothessis: it cannot be tested
+* Stationarity is a decision, not an hypothesis: it cannot be tested
 
-* Stationarity assesment depends on scale
+* Stationarity assessment depends on scale
 
 * It cannot be avoided
 
@@ -161,7 +161,7 @@ Stationary means the statistics of the oragnce points are the same of the statis
 A core tool in measuring spatial continuity and geostatistical modeling
 
 A model of the spatial continuity of variable Z in the variogram
-It is a model of the average *dis-similarity* between points separated by *h*. 
+It is a model of the average *dis-similarity* between points separated by *h*.
 It measures the dissimilarity vs distance
 
 
@@ -170,5 +170,8 @@ It measures the dissimilarity vs distance
 !split
 ===== Interpreting Variograms =====
 SIL
+
+
+
 
 
