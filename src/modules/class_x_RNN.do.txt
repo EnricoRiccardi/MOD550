@@ -49,11 +49,6 @@ FIGURE: [../figures/1step_NN, fract=1]
 
 !split
 ===== NN =====
-FIGURE: [../figures/NN_more_nodes, fract=1]
-
-
-!split
-===== NN =====
 FIGURE: [../figures/NN_act, fract=1]
 
 !split
@@ -84,7 +79,7 @@ FIGURE: [../figures/RNN, fract=1]
 * The weights can be forwarded
 !eblock
 
-/pause
+\pause
 
 !bblock Problems
 * Computationally demanding: long training times
@@ -122,7 +117,7 @@ Filters forget data...
 
 What about if we purposely forget data?
 
-/pause
+\pause
 LSTM includes Forget Gates
 
 
@@ -132,7 +127,7 @@ The forget gates learn to forget what is not interesting
 
 This is extremely useful but also rather worrisome: you have no control!
 
-/pause
+\pause
 
 LSTM is an advanced version of GRU (Gated Recurrent Units)...
 What is GRU?
@@ -153,7 +148,7 @@ FIGURE: [../figures/GRU_1, fract=1]
 To capture short-term dependencies
 !eblock
 
-/pause
+\pause
 
 !bblock Update gates
 To capture Long-term dependencies

@@ -32,4 +32,5 @@ doconce format pdflatex $filename --latex_title_layout=beamer --latex_table_form
 doconce slides_beamer $filename --beamer_slide_theme=blue_shadow --handout
 pdflatex -shell-escape $filename
 pdfjam ${filename}.pdf --no-landscape --frame true --nup 2x3 --suffix 6up
+rm ${filename}.pdf 
 ./clean.sh
