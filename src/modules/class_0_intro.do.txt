@@ -16,12 +16,12 @@ FIGURE: [../figures/enrico_riccardi, frac=0.22]
 
 
 !bslidecell 10
-Reidar Bratvold
+Pål Østebø Andersen
 
-email: reidar.bratvol@uis.no
+email: pal.andersen@uis.no
 !eslidecell
 !bslidecell 11
-FIGURE: [../figures/reidar_brumer_bratvold, frac=0.22]
+FIGURE: [../figures/pal, frac=0.22]
 !eslidecell
 
 
@@ -77,6 +77,19 @@ Understanding of
 * ensemble methods
 * Bayes approach
 * visualization and reporting
+
+!split
+===== Metalearning =====
+
+\pause
+
+* Pedagogic empiricism teaches us that good learning happens in social contexts where the students are actively participating in the classroom dialogue
+\pause
+* In general, the number of questions, and the dialogue in general, drops significantly when lectures are recorded
+\pause
+* Streaming tends to lead to empty classrooms and higher failure rate.
+
+
 
 !split
 ===== Teaching method =====
